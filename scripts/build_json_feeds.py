@@ -9,23 +9,24 @@ Usage:
 """
 
 import json
-import sys
 from datetime import datetime, timedelta
 
 import pandas as pd
 
 from utils import (
-    load_config, get_universes, get_all_tickers, ensure_dirs,
-    UNIVERSES_DIR, SECURITIES_DIR, REPORTS_DATA_DIR,
-    read_parquet_safe, log,
+    load_config, get_universes, ensure_dirs,
+    UNIVERSES_DIR, SECURITIES_DIR, SITE_DATA_DIR,  # FIX: was REPORTS_DATA_DIR (doesn't exist)
+    read_parquet,                                   # FIX: was read_parquet_safe (doesn't exist)
+    logger,                                         # FIX: was log (doesn't exist)
 )
 
 
 def write_json(data, filename):
-    path = REPORTS_DATA_DIR / filename
+    path = SITE_DATA_DIR / filename
     with open(path, "w") as f:
         json.dump(data, f, separators=(",", ":"), default=str)
-    log(f"Wrote {filename} ({path.stat().st_size / 1024:.1f} KB)", "ok")
+    size_kb = path.stat().st_size / 1024
+    logger.info(f"Wrote {filename} ({size_kb:.1f} KB)")  # FIX: was log(..., "ok")
 
 
 def build_universes_index(config):
@@ -41,6 +42,7 @@ def build_universes_index(config):
             "id": uid,
             "name": u.get("name", uid),
             "type": u.get("type", "watchlist"),
+            "benchmark": u.get("benchmark", "SPY"),   # FIX: was missing — used by universe.html
             "description": u.get("description", ""),
             "ticker_count": ticker_count,
         })
@@ -52,45 +54,72 @@ def build_holdings_feeds(config):
         uid = u["id"]
         path = UNIVERSES_DIR / uid / "holdings.parquet"
         if not path.exists():
-            log(f"No holdings for {uid}, skipping", "warn")
+            logger.warning(f"No holdings for {uid}, skipping")  # FIX: was log(..., "warn")
             continue
         df = pd.read_parquet(path)
         write_json(df.to_dict(orient="records"), f"{uid}_holdings.json")
 
 
 def build_prices_feed():
-    df = read_parquet_safe(SECURITIES_DIR / "prices.parquet")
+    """
+    FIX: The old implementation produced {ticker: {date: price}}.
+    The frontend (app.js) expects {dates: [...], tickers: {ticker: [values]}}.
+    Also added prices_2y.json — ticker.html fetches it but it was never generated.
+    """
+    df = read_parquet(SECURITIES_DIR / "prices.parquet")  # FIX: was read_parquet_safe
     if df.empty:
-        write_json({}, "prices_1y.json")
+        logger.warning("No price data found; writing empty feeds")
+        write_json({"dates": [], "tickers": {}}, "prices_1y.json")
+        write_json({"dates": [], "tickers": {}}, "prices_2y.json")
         return
-    one_year_ago = (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d")
+
     df["Date"] = pd.to_datetime(df["Date"])
-    df = df[df["Date"] >= one_year_ago].copy()
-    df["Date"] = df["Date"].dt.strftime("%Y-%m-%d")
-    result = {}
-    for ticker, group in df.groupby("Ticker"):
-        result[ticker] = dict(zip(group["Date"], group["Close"].round(2)))
-    write_json(result, "prices_1y.json")
+
+    for label, days in [("1y", 365), ("2y", 730)]:  # FIX: added 2y — ticker.html needs it
+        cutoff = datetime.now() - timedelta(days=days)
+        subset = df[df["Date"] >= cutoff].copy()
+        subset["Date"] = subset["Date"].dt.strftime("%Y-%m-%d")
+
+        # FIX: pivot to the {dates, tickers} shape the frontend expects
+        pivot = subset.pivot_table(
+            index="Date", columns="Ticker", values="Close", aggfunc="last"
+        ).sort_index()
+
+        feed = {
+            "dates": list(pivot.index),
+            "tickers": {
+                ticker: [round(v, 2) if pd.notna(v) else None for v in pivot[ticker]]
+                for ticker in pivot.columns
+            },
+        }
+        write_json(feed, f"prices_{label}.json")
 
 
 def build_sentiment_feed():
-    latest = read_parquet_safe(SECURITIES_DIR / "sentiment" / "latest.parquet")
-    history = read_parquet_safe(SECURITIES_DIR / "sentiment" / "history.parquet")
-    feed = {"latest": [], "history": {}}
+    """
+    FIX: The old implementation made history a dict keyed by ticker.
+    The frontend iterates sentiment.history as a flat array of {Ticker, Date, Score, ...} records.
+    """
+    latest = read_parquet(SECURITIES_DIR / "sentiment" / "latest.parquet")   # FIX: was read_parquet_safe
+    history = read_parquet(SECURITIES_DIR / "sentiment" / "history.parquet") # FIX: was read_parquet_safe
+    feed = {"latest": [], "history": []}  # FIX: history is a list, not a dict
+
     if not latest.empty:
         feed["latest"] = latest.to_dict(orient="records")
+
     if not history.empty:
         history["Date"] = pd.to_datetime(history["Date"])
         eight_weeks_ago = datetime.now() - timedelta(weeks=8)
         recent = history[history["Date"] >= eight_weeks_ago].copy()
         recent["Date"] = recent["Date"].dt.strftime("%Y-%m-%d")
-        for ticker, group in recent.groupby("Ticker"):
-            feed["history"][ticker] = group[["Date", "Score", "Label"]].to_dict(orient="records")
+        # FIX: return as flat list of records, not grouped dict
+        feed["history"] = recent.to_dict(orient="records")
+
     write_json(feed, "sentiment.json")
 
 
 def build_fundamentals_feed():
-    df = read_parquet_safe(SECURITIES_DIR / "fundamentals.parquet")
+    df = read_parquet(SECURITIES_DIR / "fundamentals.parquet")  # FIX: was read_parquet_safe
     if df.empty:
         write_json([], "fundamentals.json")
         return
@@ -101,13 +130,13 @@ def build_fundamentals_feed():
 def main():
     ensure_dirs()
     config = load_config()
-    log("Building JSON data feeds")
+    logger.info("Building JSON data feeds")  # FIX: was log(...)
     build_universes_index(config)
     build_holdings_feeds(config)
     build_prices_feed()
     build_sentiment_feed()
     build_fundamentals_feed()
-    log("All feeds generated", "ok")
+    logger.info("All feeds generated")  # FIX: was log(..., "ok")
 
 
 if __name__ == "__main__":

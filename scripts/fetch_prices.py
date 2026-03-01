@@ -24,7 +24,6 @@ def fetch_prices(tickers: list[str], start: str, end: str) -> pd.DataFrame:
     """Fetch closing prices for a list of tickers over a date range."""
     logger.info(f"Fetching prices for {len(tickers)} tickers: {start} → {end}")
 
-    # yfinance handles batches; chunk to avoid timeouts on very large lists
     chunk_size = 50
     frames = []
 
@@ -42,21 +41,18 @@ def fetch_prices(tickers: list[str], start: str, end: str) -> pd.DataFrame:
                 progress=False,
             )
             if data.empty:
-                logger.warning(f"  No data returned for chunk")
+                logger.warning("  No data returned for chunk")
                 continue
 
-            # Reshape: multi-level columns → long format
-            if len(chunk) == 1:
-                # Single ticker: columns are just OHLCV
-                df = data[["Close"]].copy()
-                df["Ticker"] = chunk[0]
-                df = df.reset_index()
-                df = df.rename(columns={"Date": "Date", "Close": "Close"})
-            else:
-                # Multiple tickers: multi-level columns (Ticker, Field)
-                records = []
+            records = []
+
+            # FIX: Modern yfinance always returns MultiIndex columns when
+            # group_by="ticker" is set, even for a single ticker.
+            # The old code did data[["Close"]] for single tickers, which
+            # raises KeyError on MultiIndex columns. Always handle as MultiIndex.
+            if isinstance(data.columns, pd.MultiIndex):
                 for ticker in chunk:
-                    if ticker in data.columns.get_level_values(0):
+                    try:
                         col = data[ticker]["Close"].dropna()
                         for date, close in col.items():
                             records.append({
@@ -64,10 +60,21 @@ def fetch_prices(tickers: list[str], start: str, end: str) -> pd.DataFrame:
                                 "Ticker": ticker,
                                 "Close": round(float(close), 4),
                             })
-                df = pd.DataFrame(records)
+                    except KeyError:
+                        logger.warning(f"  No data for {ticker} in this chunk")
+            else:
+                # Fallback: flat columns (older yfinance / single-ticker edge case)
+                if "Close" in data.columns:
+                    col = data["Close"].dropna()
+                    for date, close in col.items():
+                        records.append({
+                            "Date": date,
+                            "Ticker": chunk[0],
+                            "Close": round(float(close), 4),
+                        })
 
-            if not df.empty:
-                frames.append(df)
+            if records:
+                frames.append(pd.DataFrame(records))
 
         except Exception as e:
             logger.error(f"  Error fetching chunk: {e}")
@@ -97,40 +104,30 @@ def main():
     ensure_dirs()
     config = load_config()
 
-    # Determine tickers
-    if args.tickers:
-        tickers = args.tickers
-    else:
-        tickers = get_all_tickers(config)
-
+    tickers = args.tickers or get_all_tickers(config)
     if not tickers:
         logger.warning("No tickers to fetch. Check universes_config.yml and holdings files.")
         return
 
-    # Determine date range
     prices_path = SECURITIES_DIR / "prices.parquet"
     existing = read_parquet(prices_path)
 
     if args.backfill > 0:
         start = (datetime.utcnow() - timedelta(days=args.backfill)).strftime("%Y-%m-%d")
     elif not existing.empty:
-        # Incremental: fetch from last known date
         last_date = pd.to_datetime(existing["Date"]).max()
         start = (last_date - timedelta(days=1)).strftime("%Y-%m-%d")
     else:
-        # First run: default to 2 years
         years = config.get("settings", {}).get("price_history_years", 2)
         start = (datetime.utcnow() - timedelta(days=years * 365)).strftime("%Y-%m-%d")
 
     end = datetime.utcnow().strftime("%Y-%m-%d")
 
-    # Fetch
     new_prices = fetch_prices(tickers, start, end)
     if new_prices.empty:
         logger.info("No new prices to save")
         return
 
-    # Merge with existing
     if not existing.empty:
         existing["Date"] = pd.to_datetime(existing["Date"]).dt.date
         combined = pd.concat([existing, new_prices], ignore_index=True)

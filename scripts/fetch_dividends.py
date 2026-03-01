@@ -29,8 +29,11 @@ def fetch_dividends(tickers: list[str], years: int = 2) -> pd.DataFrame:
             if divs is None or divs.empty:
                 continue
 
-            cutoff = datetime.utcnow() - timedelta(days=years * 365)
-            divs = divs[divs.index >= cutoff.strftime("%Y-%m-%d")]
+            # FIX: yfinance returns tz-aware (UTC) timestamps for dividends.
+            # Comparing a tz-aware index against a plain string/naive datetime
+            # raises TypeError in pandas. Use a tz-aware Timestamp instead.
+            cutoff = pd.Timestamp(datetime.utcnow() - timedelta(days=years * 365), tz="UTC")
+            divs = divs[divs.index >= cutoff]
 
             for date, amount in divs.items():
                 records.append({
