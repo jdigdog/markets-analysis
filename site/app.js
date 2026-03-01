@@ -3,9 +3,12 @@
  * Handles: data fetching, chart rendering, routing, state, shared UI.
  */
 
+// Wrapped in IIFE so internal `const` declarations don't leak into global scope.
+// Without this, inline page scripts that do `const { UI } = window.MIP` throw
+// "Identifier 'UI' has already been declared" and crash before rendering anything.
+(function () {
+
 const CONFIG = {
-  // FIX: HTML files live in site/, data lives at repo root data/reports/data/.
-  // Relative from site/*, "../data/reports/data" resolves correctly on GitHub Pages.
   dataDir: "../data/reports/data",
   defaultUniverse: "QQQ",
 };
@@ -156,3 +159,5 @@ const UI = {
 };
 
 window.MIP = { CONFIG, DataStore, Charts, UI, formatNumber, formatPercent, sentimentColor, sentimentBadgeClass, getUrlParam };
+
+})(); // end IIFE
