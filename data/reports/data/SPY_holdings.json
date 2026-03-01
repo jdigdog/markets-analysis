@@ -1,0 +1,92 @@
+[
+  {
+    "Ticker": "NVDA",
+    "Name": "NVIDIA Corp",
+    "WeightPct": 7.8345,
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 4306603081728.0,
+    "PE": 36.087578
+  },
+  {
+    "Ticker": "AAPL",
+    "Name": "Apple Inc",
+    "WeightPct": 6.4676,
+    "Sector": "Technology",
+    "Industry": "Consumer Electronics",
+    "MarketCap": 3882897899520.0,
+    "PE": 33.440506
+  },
+  {
+    "Ticker": "MSFT",
+    "Name": "Microsoft Corp",
+    "WeightPct": 5.3946,
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 2918992052224.0,
+    "PE": 24.576971
+  },
+  {
+    "Ticker": "AMZN",
+    "Name": "Amazon.com Inc",
+    "WeightPct": 3.9267,
+    "Sector": "Consumer Cyclical",
+    "Industry": "Internet Retail",
+    "MarketCap": 2254333280256.0,
+    "PE": 29.329609
+  },
+  {
+    "Ticker": "GOOGL",
+    "Name": "Alphabet Inc Class A",
+    "WeightPct": 3.317,
+    "Sector": "Communication Services",
+    "Industry": "Internet Content & Information",
+    "MarketCap": 3771360870400.0,
+    "PE": 28.81331
+  },
+  {
+    "Ticker": "GOOG",
+    "Name": "Alphabet Inc Class C",
+    "WeightPct": 2.6552,
+    "Sector": "Communication Services",
+    "Industry": "Internet Content & Information",
+    "MarketCap": 3767368679424.0,
+    "PE": 28.809433
+  },
+  {
+    "Ticker": "AVGO",
+    "Name": "Broadcom Inc",
+    "WeightPct": 2.639,
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 1515073961984.0,
+    "PE": 67.13235
+  },
+  {
+    "Ticker": "META",
+    "Name": "Meta Platforms Inc Class A",
+    "WeightPct": 2.6321,
+    "Sector": "Communication Services",
+    "Industry": "Internet Content & Information",
+    "MarketCap": 1639607173120.0,
+    "PE": 27.629156
+  },
+  {
+    "Ticker": "TSLA",
+    "Name": "Tesla Inc",
+    "WeightPct": 2.04,
+    "Sector": "Consumer Cyclical",
+    "Industry": "Auto Manufacturers",
+    "MarketCap": 1510391414784.0,
+    "PE": 369.27524
+  },
+  {
+    "Ticker": "BRK-B",
+    "Name": "Berkshire Hathaway Inc Class B",
+    "WeightPct": 1.4862,
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  }
+]

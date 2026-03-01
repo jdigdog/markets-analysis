@@ -13,7 +13,7 @@
     "type": "etf",
     "benchmark": "SPY",
     "description": "Tracks the S&P 500 Index",
-    "ticker_count": 0
+    "ticker_count": 10
   },
   {
     "id": "TECH_WATCHLIST",
@@ -21,7 +21,7 @@
     "type": "watchlist",
     "benchmark": "QQQ",
     "description": "Hand-picked tech and semiconductor plays",
-    "ticker_count": 0
+    "ticker_count": 5
   },
   {
     "id": "SINGLES",
@@ -29,6 +29,6 @@
     "type": "watchlist",
     "benchmark": "SPY",
     "description": "One-off positions outside any index",
-    "ticker_count": 0
+    "ticker_count": 2
   }
 ]

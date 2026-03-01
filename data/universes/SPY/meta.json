@@ -1,0 +1,8 @@
+{
+  "id": "SPY",
+  "name": "SPDR S&P 500 ETF",
+  "type": "etf",
+  "benchmark": "SPY",
+  "description": "Tracks the S&P 500 Index",
+  "ticker_count": 10
+}

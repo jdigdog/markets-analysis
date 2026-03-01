@@ -1,0 +1,8 @@
+{
+  "id": "TECH_WATCHLIST",
+  "name": "Tech Watchlist",
+  "type": "watchlist",
+  "benchmark": "QQQ",
+  "description": "Hand-picked tech and semiconductor plays",
+  "ticker_count": 5
+}

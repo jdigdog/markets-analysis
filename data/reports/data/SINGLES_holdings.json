@@ -1,0 +1,20 @@
+[
+  {
+    "Ticker": "BRK-B",
+    "Name": "",
+    "WeightPct": 50.0,
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ASML",
+    "Name": "",
+    "WeightPct": 50.0,
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  }
+]

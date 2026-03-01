@@ -1,0 +1,47 @@
+[
+  {
+    "Ticker": "TSM",
+    "Name": "",
+    "WeightPct": 20.0,
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MSTR",
+    "Name": "",
+    "WeightPct": 20.0,
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "COIN",
+    "Name": "",
+    "WeightPct": 20.0,
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "PLTR",
+    "Name": "",
+    "WeightPct": 20.0,
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ARM",
+    "Name": "",
+    "WeightPct": 20.0,
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  }
+]

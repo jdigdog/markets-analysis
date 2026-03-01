@@ -1,0 +1,8 @@
+{
+  "id": "SINGLES",
+  "name": "Individual Picks",
+  "type": "watchlist",
+  "benchmark": "SPY",
+  "description": "One-off positions outside any index",
+  "ticker_count": 2
+}
