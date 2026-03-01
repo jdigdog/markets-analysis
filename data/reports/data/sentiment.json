@@ -1,4 +1,310 @@
 {
-  "latest": [],
-  "history": []
+  "latest": [
+    {
+      "Date": "2026-03-01",
+      "Ticker": "AAPL",
+      "Score": 0.3,
+      "Label": "bullish",
+      "Summary": "The sentiment is moderately bullish with positive developments like the M5 chip introduction and AI performance improvements, though competitive pressures from Samsung provide some balance.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "AMZN",
+      "Score": 0.1,
+      "Label": "neutral",
+      "Summary": "The articles provided contain mostly neutral price quotes and general stock information with one potentially positive mention of Amazon's $12B investment in Louisiana data centers.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "ARM",
+      "Score": 0.6,
+      "Label": "bullish",
+      "Summary": "ARM stock sentiment is generally positive with the stock scoring higher than 80% of companies and showing strong revenue growth of 26.35%, though specific price movements and detailed analysis are limited in the provided excerpts.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "ASML",
+      "Score": -0.2,
+      "Label": "neutral",
+      "Summary": "Mixed sentiment with a notable stock price decline of 4.11% offset by continued analyst buy ratings and positive regional market trends.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "AVGO",
+      "Score": -0.3,
+      "Label": "bearish",
+      "Summary": "Mixed sentiment with bearish undertones as AVGO dropped 4.01% amid semiconductor competition fears and tech sell-off, despite some institutional activity and broader market mentions.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "BRK-B",
+      "Score": 0.1,
+      "Label": "neutral",
+      "Summary": "The sentiment is largely neutral with mixed signals including Berkshire being a net seller of stocks but trading above its 200-day moving average with reasonable valuation metrics.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "COIN",
+      "Score": -0.2,
+      "Label": "bearish",
+      "Summary": "The sentiment around COIN stock is mildly bearish due to mentions of share price weakness, valuation concerns, and significant challenges, though some neutral price reporting and institutional engagement provide slight balance.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "GOOG",
+      "Score": 0.6,
+      "Label": "bullish",
+      "Summary": "The sentiment is moderately bullish with a Strong Buy rating and significant upside target price offsetting neutral price reporting and legal notice mentions.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "GOOGL",
+      "Score": 0.7,
+      "Label": "bullish",
+      "Summary": "The sentiment is bullish driven by positive AI and cloud developments, strong investor confidence, and strategic investments in clean energy infrastructure, despite some storage cost concerns.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "META",
+      "Score": 0.0,
+      "Label": "neutral",
+      "Summary": "The articles provide mostly factual stock price information and company updates without expressing clear positive or negative sentiment about META's prospects.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "MSFT",
+      "Score": 0.3,
+      "Label": "bullish",
+      "Summary": "Microsoft stock sentiment is moderately positive driven by AI developments including OpenAI partnerships and potential AI software bundles, though recent price decline from 52-week highs suggests some caution.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "MSTR",
+      "Score": -0.6,
+      "Label": "bearish",
+      "Summary": "The sentiment is bearish due to declining Bitcoin prices, market turbulence, shareholder dissent, and ongoing crypto market uncertainty affecting MSTR's performance.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "NVDA",
+      "Score": 0.3,
+      "Label": "bullish",
+      "Summary": "The sentiment is cautiously optimistic with mentions of strong quarterly results, new chip developments for AI inference, and potential for continued growth, though tempered by some mixed market conditions.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "PLTR",
+      "Score": 0.1,
+      "Label": "neutral",
+      "Summary": "The sentiment is mixed with one legal deadline alert creating negative pressure while analyst upgrades and strategic partnerships provide some positive momentum, but overall the news fragments lack substantial detail for strong directional sentiment.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "QQQ",
+      "Score": -0.1,
+      "Label": "neutral",
+      "Summary": "The sentiment appears mostly neutral with mixed signals including subdued options activity around Nvidia earnings and market retreat on sticky PPI data.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "SPY",
+      "Score": 0.0,
+      "Label": "neutral",
+      "Summary": "The provided content consists primarily of website headers, navigation elements, and technical information about SPY with no actual news content or market analysis to determine sentiment.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "TSLA",
+      "Score": -0.3,
+      "Label": "bearish",
+      "Summary": "The sentiment is mildly bearish due to recent price declines and stock slump mentions, though the high valuation and market cap suggest some underlying strength.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "TSM",
+      "Score": 0.7,
+      "Label": "bullish",
+      "Summary": "The sentiment is bullish driven by strong earnings growth expectations of 19.89%, major Apple chip orders, and recent stock price increases.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01",
+      "Ticker": "WMT",
+      "Score": 0.1,
+      "Label": "neutral",
+      "Summary": "The news articles show mostly neutral sentiment with limited substantive content, featuring one mildly positive expansion announcement offset by mention of a lawsuit.",
+      "ArticleCount": 5
+    }
+  ],
+  "history": [
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "AAPL",
+      "Score": 0.3,
+      "Label": "bullish",
+      "Summary": "The sentiment is moderately bullish with positive developments like the M5 chip introduction and AI performance improvements, though competitive pressures from Samsung provide some balance.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "AMZN",
+      "Score": 0.1,
+      "Label": "neutral",
+      "Summary": "The articles provided contain mostly neutral price quotes and general stock information with one potentially positive mention of Amazon's $12B investment in Louisiana data centers.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "ARM",
+      "Score": 0.6,
+      "Label": "bullish",
+      "Summary": "ARM stock sentiment is generally positive with the stock scoring higher than 80% of companies and showing strong revenue growth of 26.35%, though specific price movements and detailed analysis are limited in the provided excerpts.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "ASML",
+      "Score": -0.2,
+      "Label": "neutral",
+      "Summary": "Mixed sentiment with a notable stock price decline of 4.11% offset by continued analyst buy ratings and positive regional market trends.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "AVGO",
+      "Score": -0.3,
+      "Label": "bearish",
+      "Summary": "Mixed sentiment with bearish undertones as AVGO dropped 4.01% amid semiconductor competition fears and tech sell-off, despite some institutional activity and broader market mentions.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "BRK-B",
+      "Score": 0.1,
+      "Label": "neutral",
+      "Summary": "The sentiment is largely neutral with mixed signals including Berkshire being a net seller of stocks but trading above its 200-day moving average with reasonable valuation metrics.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "COIN",
+      "Score": -0.2,
+      "Label": "bearish",
+      "Summary": "The sentiment around COIN stock is mildly bearish due to mentions of share price weakness, valuation concerns, and significant challenges, though some neutral price reporting and institutional engagement provide slight balance.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "GOOG",
+      "Score": 0.6,
+      "Label": "bullish",
+      "Summary": "The sentiment is moderately bullish with a Strong Buy rating and significant upside target price offsetting neutral price reporting and legal notice mentions.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "GOOGL",
+      "Score": 0.7,
+      "Label": "bullish",
+      "Summary": "The sentiment is bullish driven by positive AI and cloud developments, strong investor confidence, and strategic investments in clean energy infrastructure, despite some storage cost concerns.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "META",
+      "Score": 0.0,
+      "Label": "neutral",
+      "Summary": "The articles provide mostly factual stock price information and company updates without expressing clear positive or negative sentiment about META's prospects.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "MSFT",
+      "Score": 0.3,
+      "Label": "bullish",
+      "Summary": "Microsoft stock sentiment is moderately positive driven by AI developments including OpenAI partnerships and potential AI software bundles, though recent price decline from 52-week highs suggests some caution.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "MSTR",
+      "Score": -0.6,
+      "Label": "bearish",
+      "Summary": "The sentiment is bearish due to declining Bitcoin prices, market turbulence, shareholder dissent, and ongoing crypto market uncertainty affecting MSTR's performance.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "NVDA",
+      "Score": 0.3,
+      "Label": "bullish",
+      "Summary": "The sentiment is cautiously optimistic with mentions of strong quarterly results, new chip developments for AI inference, and potential for continued growth, though tempered by some mixed market conditions.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "PLTR",
+      "Score": 0.1,
+      "Label": "neutral",
+      "Summary": "The sentiment is mixed with one legal deadline alert creating negative pressure while analyst upgrades and strategic partnerships provide some positive momentum, but overall the news fragments lack substantial detail for strong directional sentiment.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "QQQ",
+      "Score": -0.1,
+      "Label": "neutral",
+      "Summary": "The sentiment appears mostly neutral with mixed signals including subdued options activity around Nvidia earnings and market retreat on sticky PPI data.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "SPY",
+      "Score": 0.0,
+      "Label": "neutral",
+      "Summary": "The provided content consists primarily of website headers, navigation elements, and technical information about SPY with no actual news content or market analysis to determine sentiment.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "TSLA",
+      "Score": -0.3,
+      "Label": "bearish",
+      "Summary": "The sentiment is mildly bearish due to recent price declines and stock slump mentions, though the high valuation and market cap suggest some underlying strength.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "TSM",
+      "Score": 0.7,
+      "Label": "bullish",
+      "Summary": "The sentiment is bullish driven by strong earnings growth expectations of 19.89%, major Apple chip orders, and recent stock price increases.",
+      "ArticleCount": 5
+    },
+    {
+      "Date": "2026-03-01 00:00:00",
+      "Ticker": "WMT",
+      "Score": 0.1,
+      "Label": "neutral",
+      "Summary": "The news articles show mostly neutral sentiment with limited substantive content, featuring one mildly positive expansion announcement offset by mention of a lawsuit.",
+      "ArticleCount": 5
+    }
+  ]
 }
