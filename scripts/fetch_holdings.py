@@ -142,8 +142,11 @@ def _extract_columns(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     out = out.drop_duplicates(subset=["Ticker"]).reset_index(drop=True)
-    sort_cols = (["WeightPct", "Ticker"], [False, True]) if out["WeightPct"].notna().any() else (["Ticker"], [True])
-    return out.sort_values(*sort_cols).reset_index(drop=True)[["Ticker", "WeightPct", "Name"]]
+    if out["WeightPct"].notna().any():
+        out = out.sort_values(by=["WeightPct", "Ticker"], ascending=[False, True])
+    else:
+        out = out.sort_values(by="Ticker", ascending=True)
+    return out.reset_index(drop=True)[["Ticker", "WeightPct", "Name"]]
 
 
 # ── ETF Fetchers ─────────────────────────────────────────────────────────────
