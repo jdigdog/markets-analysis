@@ -1,92 +1,920 @@
 [
   {
     "Ticker": "NVDA",
+    "WeightPct": 8.732783,
     "Name": "NVIDIA Corp",
-    "WeightPct": 8.9011,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 4306603081728,
+    "MarketCap": 4306603081728.0,
     "PE": 36.087578
   },
   {
     "Ticker": "AAPL",
+    "WeightPct": 7.839408,
     "Name": "Apple Inc",
-    "WeightPct": 7.3482,
     "Sector": "Technology",
     "Industry": "Consumer Electronics",
-    "MarketCap": 3882897899520,
+    "MarketCap": 3882897899520.0,
     "PE": 33.440506
   },
   {
     "Ticker": "MSFT",
+    "WeightPct": 5.816607,
     "Name": "Microsoft Corp",
-    "WeightPct": 6.1291,
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 2918992052224,
+    "MarketCap": 2918992052224.0,
     "PE": 24.576971
   },
   {
     "Ticker": "AMZN",
+    "WeightPct": 4.320318,
     "Name": "Amazon.com Inc",
-    "WeightPct": 4.9027,
     "Sector": "Consumer Cyclical",
     "Industry": "Internet Retail",
-    "MarketCap": 2254333280256,
+    "MarketCap": 2254333280256.0,
     "PE": 29.329609
   },
   {
+    "Ticker": "TSLA",
+    "WeightPct": 3.963745,
+    "Name": "Tesla Inc",
+    "Sector": "Consumer Cyclical",
+    "Industry": "Auto Manufacturers",
+    "MarketCap": 1510391414784.0,
+    "PE": 369.27524
+  },
+  {
     "Ticker": "META",
-    "Name": "Meta Platforms Inc Class A",
-    "WeightPct": 4.0328,
+    "WeightPct": 3.750463,
+    "Name": "Meta Platforms Inc",
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 1639607173120,
+    "MarketCap": 1639607173120.0,
     "PE": 27.629156
   },
   {
     "Ticker": "GOOGL",
+    "WeightPct": 3.476021,
     "Name": "Alphabet Inc Class A",
-    "WeightPct": 3.7688,
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 3771360870400,
+    "MarketCap": 3771360870400.0,
     "PE": 28.81331
   },
   {
-    "Ticker": "TSLA",
-    "Name": "Tesla Inc",
-    "WeightPct": 3.649,
-    "Sector": "Consumer Cyclical",
-    "Industry": "Auto Manufacturers",
-    "MarketCap": 1510391414784,
-    "PE": 369.27524
-  },
-  {
-    "Ticker": "GOOG",
-    "Name": "Alphabet Inc Class C",
-    "WeightPct": 3.508,
-    "Sector": "Communication Services",
-    "Industry": "Internet Content & Information",
-    "MarketCap": 3767368679424,
-    "PE": 28.809433
-  },
-  {
     "Ticker": "WMT",
+    "WeightPct": 3.262902,
     "Name": "Walmart Inc",
-    "WeightPct": 3.0807,
     "Sector": "Consumer Defensive",
     "Industry": "Discount Stores",
-    "MarketCap": 1020126298112,
+    "MarketCap": 1020126298112.0,
     "PE": 46.86813
   },
   {
+    "Ticker": "GOOG",
+    "WeightPct": 3.228046,
+    "Name": "Alphabet Inc Class C",
+    "Sector": "Communication Services",
+    "Industry": "Internet Content & Information",
+    "MarketCap": 3767368679424.0,
+    "PE": 28.809433
+  },
+  {
     "Ticker": "AVGO",
+    "WeightPct": 2.952865,
     "Name": "Broadcom Inc",
-    "WeightPct": 2.9984,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 1515073961984,
+    "MarketCap": 1515073961984.0,
     "PE": 67.13235
+  },
+  {
+    "Ticker": "MU",
+    "WeightPct": 2.50941,
+    "Name": "Micron Technology Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "COST",
+    "WeightPct": 2.346564,
+    "Name": "Costco Wholesale Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "NFLX",
+    "WeightPct": 1.923362,
+    "Name": "Netflix Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "AMD",
+    "WeightPct": 1.779362,
+    "Name": "Advanced Micro Devices Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "PLTR",
+    "WeightPct": 1.666316,
+    "Name": "Palantir Technologies Inc",
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 328113979392.0,
+    "PE": 217.76192
+  },
+  {
+    "Ticker": "CSCO",
+    "WeightPct": 1.655842,
+    "Name": "Cisco Systems Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "LRCX",
+    "WeightPct": 1.611298,
+    "Name": "Lam Research Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "AMAT",
+    "WeightPct": 1.608092,
+    "Name": "Applied Materials Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "TMUS",
+    "WeightPct": 1.279307,
+    "Name": "T-Mobile US Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "LIN",
+    "WeightPct": 1.249089,
+    "Name": "Linde PLC",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "PEP",
+    "WeightPct": 1.229559,
+    "Name": "PepsiCo Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "INTC",
+    "WeightPct": 1.163585,
+    "Name": "Intel Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "AMGN",
+    "WeightPct": 1.103347,
+    "Name": "Amgen Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "KLAC",
+    "WeightPct": 1.076056,
+    "Name": "KLA Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "TXN",
+    "WeightPct": 1.036714,
+    "Name": "Texas Instruments Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ISRG",
+    "WeightPct": 0.964199,
+    "Name": "Intuitive Surgical Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "GILD",
+    "WeightPct": 0.957147,
+    "Name": "Gilead Sciences Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ADI",
+    "WeightPct": 0.931048,
+    "Name": "Analog Devices Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "QCOM",
+    "WeightPct": 0.836703,
+    "Name": "QUALCOMM Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "SHOP",
+    "WeightPct": 0.826226,
+    "Name": "Shopify Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "HON",
+    "WeightPct": 0.820631,
+    "Name": "Honeywell International Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "BKNG",
+    "WeightPct": 0.735142,
+    "Name": "Booking Holdings Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "APP",
+    "WeightPct": 0.734387,
+    "Name": "AppLovin Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ASML",
+    "WeightPct": 0.689119,
+    "Name": "ASML Holding NV",
+    "Sector": "Technology",
+    "Industry": "Semiconductor Equipment & Materials",
+    "MarketCap": 569575014400.0,
+    "PE": 49.744858
+  },
+  {
+    "Ticker": "VRTX",
+    "WeightPct": 0.653675,
+    "Name": "Vertex Pharmaceuticals Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "PANW",
+    "WeightPct": 0.653654,
+    "Name": "Palo Alto Networks Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CEG",
+    "WeightPct": 0.629129,
+    "Name": "Constellation Energy Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "SBUX",
+    "WeightPct": 0.602234,
+    "Name": "Starbucks Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CMCSA",
+    "WeightPct": 0.601651,
+    "Name": "Comcast Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "INTU",
+    "WeightPct": 0.588956,
+    "Name": "Intuit Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ADBE",
+    "WeightPct": 0.581857,
+    "Name": "Adobe Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "WDC",
+    "WeightPct": 0.517825,
+    "Name": "Western Digital Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CRWD",
+    "WeightPct": 0.5132,
+    "Name": "Crowdstrike Holdings Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MAR",
+    "WeightPct": 0.505777,
+    "Name": "Marriott International Inc/MD",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ADP",
+    "WeightPct": 0.4739,
+    "Name": "Automatic Data Processing Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MELI",
+    "WeightPct": 0.47359,
+    "Name": "MercadoLibre Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "STX",
+    "WeightPct": 0.469464,
+    "Name": "Seagate Technology Holdings PLC",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MNST",
+    "WeightPct": 0.454332,
+    "Name": "Monster Beverage Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CDNS",
+    "WeightPct": 0.434684,
+    "Name": "Cadence Design Systems Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CTAS",
+    "WeightPct": 0.428544,
+    "Name": "Cintas Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "REGN",
+    "WeightPct": 0.427705,
+    "Name": "Regeneron Pharmaceuticals Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CSX",
+    "WeightPct": 0.426168,
+    "Name": "CSX Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "SNPS",
+    "WeightPct": 0.424605,
+    "Name": "Synopsys Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MDLZ",
+    "WeightPct": 0.415028,
+    "Name": "Mondelez International Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ORLY",
+    "WeightPct": 0.413675,
+    "Name": "O'Reilly Automotive Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "DASH",
+    "WeightPct": 0.393309,
+    "Name": "DoorDash Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "WBD",
+    "WeightPct": 0.38292,
+    "Name": "Warner Bros Discovery Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "AEP",
+    "WeightPct": 0.381294,
+    "Name": "American Electric Power Co Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "PDD",
+    "WeightPct": 0.377693,
+    "Name": "PDD Holdings Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MRVL",
+    "WeightPct": 0.36675,
+    "Name": "Marvell Technology Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ROST",
+    "WeightPct": 0.35508,
+    "Name": "Ross Stores Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "PCAR",
+    "WeightPct": 0.350565,
+    "Name": "PACCAR Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "BKR",
+    "WeightPct": 0.344803,
+    "Name": "Baker Hughes Co",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "FTNT",
+    "WeightPct": 0.316012,
+    "Name": "Fortinet Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "NXPI",
+    "WeightPct": 0.313609,
+    "Name": "NXP Semiconductors NV",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ABNB",
+    "WeightPct": 0.312538,
+    "Name": "Airbnb Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MPWR",
+    "WeightPct": 0.303359,
+    "Name": "Monolithic Power Systems Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "FER",
+    "WeightPct": 0.291596,
+    "Name": "Ferrovial SE",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "IDXX",
+    "WeightPct": 0.283049,
+    "Name": "IDEXX Laboratories Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "FAST",
+    "WeightPct": 0.28136,
+    "Name": "Fastenal Co",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "EA",
+    "WeightPct": 0.270049,
+    "Name": "Electronic Arts Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CCEP",
+    "WeightPct": 0.266345,
+    "Name": "Coca-Cola Europacific Partners PLC",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ADSK",
+    "WeightPct": 0.265503,
+    "Name": "Autodesk Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "XEL",
+    "WeightPct": 0.264894,
+    "Name": "Xcel Energy Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "EXC",
+    "WeightPct": 0.264495,
+    "Name": "Exelon Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "FANG",
+    "WeightPct": 0.256674,
+    "Name": "Diamondback Energy Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "TRI",
+    "WeightPct": 0.23992,
+    "Name": "Thomson Reuters Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ALNY",
+    "WeightPct": 0.234743,
+    "Name": "Alnylam Pharmaceuticals Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "AXON",
+    "WeightPct": 0.232818,
+    "Name": "Axon Enterprise Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "PYPL",
+    "WeightPct": 0.228498,
+    "Name": "PayPal Holdings Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ODFL",
+    "WeightPct": 0.222486,
+    "Name": "Old Dominion Freight Line Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "KDP",
+    "WeightPct": 0.221025,
+    "Name": "Keurig Dr Pepper Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MCHP",
+    "WeightPct": 0.218663,
+    "Name": "Microchip Technology Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "TTWO",
+    "WeightPct": 0.211367,
+    "Name": "Take-Two Interactive Software Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "GEHC",
+    "WeightPct": 0.205029,
+    "Name": "GE HealthCare Technologies Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ROP",
+    "WeightPct": 0.203282,
+    "Name": "Roper Technologies Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "DDOG",
+    "WeightPct": 0.203245,
+    "Name": "Datadog Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CPRT",
+    "WeightPct": 0.19285,
+    "Name": "Copart Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "MSTR",
+    "WeightPct": 0.191506,
+    "Name": "Strategy Inc",
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 43220975616.0,
+    "PE": NaN
+  },
+  {
+    "Ticker": "PAYX",
+    "WeightPct": 0.184433,
+    "Name": "Paychex Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "INSM",
+    "WeightPct": 0.171549,
+    "Name": "Insmed Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CTSH",
+    "WeightPct": 0.168124,
+    "Name": "Cognizant Technology Solutions Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "WDAY",
+    "WeightPct": 0.158848,
+    "Name": "Workday Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CHTR",
+    "WeightPct": 0.158459,
+    "Name": "Charter Communications Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "KHC",
+    "WeightPct": 0.155922,
+    "Name": "Kraft Heinz Co/The",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "DXCM",
+    "WeightPct": 0.155518,
+    "Name": "Dexcom Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "VRSK",
+    "WeightPct": 0.15139,
+    "Name": "Verisk Analytics Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ZS",
+    "WeightPct": 0.143036,
+    "Name": "Zscaler Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "CSGP",
+    "WeightPct": 0.102206,
+    "Name": "CoStar Group Inc",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "ARM",
+    "WeightPct": 0.095962,
+    "Name": "ARM Holdings PLC",
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 135351713792.0,
+    "PE": 169.93333
+  },
+  {
+    "Ticker": "TEAM",
+    "WeightPct": 0.071623,
+    "Name": "Atlassian Corp",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
+  },
+  {
+    "Ticker": "USD",
+    "WeightPct": 0.065881,
+    "Name": "CASH &amp; EQUIVALENTS",
+    "Sector": NaN,
+    "Industry": NaN,
+    "MarketCap": NaN,
+    "PE": NaN
   }
 ]

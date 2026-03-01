@@ -4,5 +4,5 @@
   "type": "etf",
   "benchmark": "QQQ",
   "description": "Tracks the Nasdaq-100 Index",
-  "ticker_count": 10
+  "ticker_count": 102
 }
