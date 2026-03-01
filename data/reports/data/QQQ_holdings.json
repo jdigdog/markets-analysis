@@ -907,14 +907,5 @@
     "Industry": "Software - Application",
     "MarketCap": 19815092224.0,
     "PE": NaN
-  },
-  {
-    "Ticker": "USD",
-    "WeightPct": 0.065881,
-    "Name": "CASH &amp; EQUIVALENTS",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": 40.18367
   }
 ]
