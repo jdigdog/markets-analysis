@@ -3,18 +3,18 @@
     "Ticker": "BRK-B",
     "Name": "",
     "WeightPct": 50.0,
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Financial Services",
+    "Industry": "Insurance - Diversified",
+    "MarketCap": 1089346207744,
+    "PE": 16.15323
   },
   {
     "Ticker": "ASML",
     "Name": "",
     "WeightPct": 50.0,
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductor Equipment & Materials",
+    "MarketCap": 569575014400,
+    "PE": 49.744858
   }
 ]

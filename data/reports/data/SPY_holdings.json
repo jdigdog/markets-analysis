@@ -5,7 +5,7 @@
     "WeightPct": 7.8345,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 4306603081728.0,
+    "MarketCap": 4306603081728,
     "PE": 36.087578
   },
   {
@@ -14,7 +14,7 @@
     "WeightPct": 6.4676,
     "Sector": "Technology",
     "Industry": "Consumer Electronics",
-    "MarketCap": 3882897899520.0,
+    "MarketCap": 3882897899520,
     "PE": 33.440506
   },
   {
@@ -23,7 +23,7 @@
     "WeightPct": 5.3946,
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 2918992052224.0,
+    "MarketCap": 2918992052224,
     "PE": 24.576971
   },
   {
@@ -32,7 +32,7 @@
     "WeightPct": 3.9267,
     "Sector": "Consumer Cyclical",
     "Industry": "Internet Retail",
-    "MarketCap": 2254333280256.0,
+    "MarketCap": 2254333280256,
     "PE": 29.329609
   },
   {
@@ -41,7 +41,7 @@
     "WeightPct": 3.317,
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 3771360870400.0,
+    "MarketCap": 3771360870400,
     "PE": 28.81331
   },
   {
@@ -50,7 +50,7 @@
     "WeightPct": 2.6552,
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 3767368679424.0,
+    "MarketCap": 3767368679424,
     "PE": 28.809433
   },
   {
@@ -59,7 +59,7 @@
     "WeightPct": 2.639,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 1515073961984.0,
+    "MarketCap": 1515073961984,
     "PE": 67.13235
   },
   {
@@ -68,7 +68,7 @@
     "WeightPct": 2.6321,
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 1639607173120.0,
+    "MarketCap": 1639607173120,
     "PE": 27.629156
   },
   {
@@ -77,16 +77,16 @@
     "WeightPct": 2.04,
     "Sector": "Consumer Cyclical",
     "Industry": "Auto Manufacturers",
-    "MarketCap": 1510391414784.0,
+    "MarketCap": 1510391414784,
     "PE": 369.27524
   },
   {
     "Ticker": "BRK-B",
     "Name": "Berkshire Hathaway Inc Class B",
     "WeightPct": 1.4862,
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Financial Services",
+    "Industry": "Insurance - Diversified",
+    "MarketCap": 1089346207744,
+    "PE": 16.15323
   }
 ]

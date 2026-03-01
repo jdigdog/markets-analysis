@@ -3,45 +3,45 @@
     "Ticker": "TSM",
     "Name": "",
     "WeightPct": 20.0,
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 1942760849408,
+    "PE": 35.337734
   },
   {
     "Ticker": "MSTR",
     "Name": "",
     "WeightPct": 20.0,
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 43220975616,
     "PE": NaN
   },
   {
     "Ticker": "COIN",
     "Name": "",
     "WeightPct": 20.0,
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Financial Services",
+    "Industry": "Financial Data & Stock Exchanges",
+    "MarketCap": 47419289600,
+    "PE": 39.516857
   },
   {
     "Ticker": "PLTR",
     "Name": "",
     "WeightPct": 20.0,
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 328113979392,
+    "PE": 217.76192
   },
   {
     "Ticker": "ARM",
     "Name": "",
     "WeightPct": 20.0,
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 135351713792,
+    "PE": 169.93333
   }
 ]
