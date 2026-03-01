@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticker Detail — Markets Analysis</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+
+  <main class="container">
+    <div class="section-header" style="margin-top: var(--space-xl);">
+      <h1 class="section-title" id="ticker-title">Loading...</h1>
+      <p class="section-subtitle" id="ticker-desc"></p>
+    </div>
+
+    <!-- Price Chart -->
+    <div class="chart-container">
+      <div class="chart-header">
+        <span class="chart-title">Price History (2Y)</span>
+        <div class="chart-controls">
+          <button class="chart-btn" data-window="3M">3M</button>
+          <button class="chart-btn" data-window="6M">6M</button>
+          <button class="chart-btn active" data-window="2Y">2Y</button>
+        </div>
+      </div>
+      <div id="price-chart" style="height: 420px;"></div>
+    </div>
+
+    <!-- Info Grid -->
+    <div class="grid grid-2" style="margin-top: var(--space-lg);">
+      <!-- Fundamentals Card -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom: var(--space-md);">Fundamentals</div>
+        <div id="fundamentals-panel">
+          <div class="loading">Loading...</div>
+        </div>
+      </div>
+
+      <!-- Sentiment Card -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom: var(--space-md);">Sentiment</div>
+        <div id="sentiment-panel">
+          <div class="loading">Loading...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Universe Membership -->
+    <div class="section-header">
+      <h2 class="section-title">Member Of</h2>
+      <p class="section-subtitle" id="membership-desc">Universes containing this ticker</p>
+    </div>
+    <div id="membership" class="grid grid-3"></div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    const { UI, DataStore, Charts, getUrlParam, formatNumber, formatPercent, sentimentColor, sentimentBadgeClass } = window.MIP;
+
+    const ticker = getUrlParam("t") || "AAPL";
+    UI.renderNav(null);
+
+    document.getElementById("ticker-title").textContent = ticker;
+    document.title = `${ticker} — Markets Analysis`;
+
+    const WINDOW_DAYS = { "3M": 90, "6M": 180, "2Y": 730 };
+    let _priceChart = null;
+    let _prices2y = null;
+
+    function renderPriceChart(windowKey) {
+      if (!_prices2y || !_prices2y.tickers[ticker]) return;
+      document.getElementById("price-chart").innerHTML = "";
+      _priceChart = Charts.createPriceChart("price-chart", null, { height: 420 });
+      if (!_priceChart) return;
+
+      const days = WINDOW_DAYS[windowKey] || 730;
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - days);
+      const cutoffStr = cutoff.toISOString().slice(0, 10);
+
+      const series = _priceChart.addAreaSeries({
+        topColor: "rgba(88, 166, 255, 0.3)",
+        bottomColor: "rgba(88, 166, 255, 0.02)",
+        lineColor: "#58a6ff",
+        lineWidth: 2,
+      });
+      const data = _prices2y.dates
+        .map((d, i) => ({ time: d, value: _prices2y.tickers[ticker][i] }))
+        .filter(d => d.time >= cutoffStr && d.value != null);
+      series.setData(data);
+      _priceChart.timeScale().fitContent();
+    }
+
+    document.querySelectorAll(".chart-btn[data-window]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".chart-btn[data-window]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderPriceChart(btn.dataset.window);
+      });
+    });
+
+    (async () => {
+      // ── Price chart ──
+      _prices2y = await DataStore.getPrices("2y");
+      if (_prices2y && _prices2y.tickers[ticker]) {
+        renderPriceChart("2Y");
+      }
+
+      // ── Fundamentals ──
+      const fundData = await DataStore.getFundamentals();
+      const fund = fundData?.find(f => f.Ticker === ticker);
+      const fundPanel = document.getElementById("fundamentals-panel");
+
+      if (fund) {
+        document.getElementById("ticker-desc").textContent =
+          `${fund.Name || ""} · ${fund.Sector || ""} · ${fund.Industry || ""}`;
+        const rows = [
+          ["Market Cap", formatNumber(fund.MarketCap)],
+          ["P/E (TTM)", fund.PE ? formatNumber(fund.PE, 1) : "—"],
+          ["Forward P/E", fund.ForwardPE ? formatNumber(fund.ForwardPE, 1) : "—"],
+          ["EPS (TTM)", fund.EPS ? "$" + formatNumber(fund.EPS) : "—"],
+          ["52W High", fund.High52W ? "$" + formatNumber(fund.High52W) : "—"],
+          ["52W Low", fund.Low52W ? "$" + formatNumber(fund.Low52W) : "—"],
+          ["Analyst Target", fund.AnalystTarget ? "$" + formatNumber(fund.AnalystTarget) : "—"],
+          ["Dividend Yield", fund.DividendYield ? formatPercent(fund.DividendYield * 100) : "—"],
+          ["Beta", fund.Beta ? formatNumber(fund.Beta) : "—"],
+        ];
+        fundPanel.innerHTML = `<table style="width:100%;font-size:0.875rem">
+          ${rows.map(([k, v]) => `<tr><td style="color:var(--text-muted);padding:4px 0">${k}</td><td class="text-right text-mono" style="padding:4px 0">${v}</td></tr>`).join("")}
+        </table>`;
+      } else {
+        fundPanel.innerHTML = '<div class="empty-state">No fundamentals available</div>';
+      }
+
+      // ── Sentiment ──
+      const sentiment = await DataStore.getSentiment();
+      const sentPanel = document.getElementById("sentiment-panel");
+      const sentRecord = sentiment?.latest?.find(s => s.Ticker === ticker);
+
+      if (sentRecord) {
+        sentPanel.innerHTML = `
+          <div style="text-align:center; margin-bottom: var(--space-md);">
+            <div class="card-metric" style="color:${sentimentColor(sentRecord.Score)}">${sentRecord.Score.toFixed(2)}</div>
+            <span class="badge ${sentimentBadgeClass(sentRecord.Label)}" style="margin-top:var(--space-sm)">${sentRecord.Label}</span>
+          </div>
+          <p style="font-size:0.875rem;color:var(--text-secondary)">${sentRecord.Summary || ""}</p>
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-top:var(--space-sm)">Based on ${sentRecord.ArticleCount || 0} articles · ${sentRecord.Date}</p>
+        `;
+      } else {
+        sentPanel.innerHTML = '<div class="empty-state">No sentiment data</div>';
+      }
+
+      // ── Universe membership ──
+      const universes = await DataStore.getUniverses();
+      const membershipEl = document.getElementById("membership");
+      const memberships = [];
+
+      if (universes) {
+        for (const u of universes) {
+          const holdings = await DataStore.getHoldings(u.id);
+          if (holdings?.some(h => h.Ticker === ticker)) {
+            const holding = holdings.find(h => h.Ticker === ticker);
+            memberships.push({ ...u, weight: holding?.WeightPct });
+          }
+        }
+      }
+
+      if (memberships.length > 0) {
+        membershipEl.innerHTML = memberships.map(u => `
+          <a href="universe.html?id=${u.id}" class="card" style="text-decoration:none">
+            <div class="card-title">${u.name || u.id}</div>
+            <div class="card-subtitle">${u.type.toUpperCase()} · Weight: ${u.weight ? formatNumber(u.weight) + "%" : "Equal"}</div>
+          </a>
+        `).join("");
+      } else {
+        membershipEl.innerHTML = '<div class="empty-state">Not found in any tracked universe</div>';
+      }
+    })();
+  </script>
+</body>
+</html>

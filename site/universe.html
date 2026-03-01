@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universe Detail — Markets Analysis</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+
+  <main class="container">
+    <div class="section-header" style="margin-top: var(--space-xl);">
+      <h1 class="section-title" id="universe-title">Loading...</h1>
+      <p class="section-subtitle" id="universe-desc"></p>
+    </div>
+
+    <!-- Performance Chart -->
+    <div class="chart-container">
+      <div class="chart-header">
+        <span class="chart-title">Relative Performance (Top 10 Holdings vs Benchmark)</span>
+        <div class="chart-controls">
+          <button class="chart-btn" data-window="1M">1M</button>
+          <button class="chart-btn" data-window="3M">3M</button>
+          <button class="chart-btn active" data-window="1Y">1Y</button>
+        </div>
+      </div>
+      <div id="perf-chart" style="height: 420px;"></div>
+    </div>
+
+    <!-- Holdings Table -->
+    <div class="section-header">
+      <h2 class="section-title">Holdings</h2>
+    </div>
+    <div id="holdings-table"></div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    const { UI, DataStore, Charts, getUrlParam, formatPercent, sentimentBadgeClass } = window.MIP;
+
+    const universeId = getUrlParam("id") || "QQQ";
+    UI.renderNav(null);
+
+    // Colour palette for chart lines
+    const COLOURS = [
+      "#58a6ff", "#3fb950", "#f85149", "#d29922", "#bc8cff",
+      "#79c0ff", "#56d364", "#ff7b72", "#e3b341", "#d2a8ff",
+    ];
+
+    let _chart = null;
+    let _prices = null;
+    let _top10 = [];
+    let _benchTicker = "SPY";
+
+    const WINDOW_DAYS = { "1M": 30, "3M": 90, "1Y": 365 };
+
+    function renderChart(windowKey) {
+      if (!_chart || !_prices) return;
+      _chart.removeSeries && _chart.remove ? _chart.remove() : null;
+
+      // Re-create chart
+      document.getElementById("perf-chart").innerHTML = "";
+      _chart = Charts.createPriceChart("perf-chart", null, { height: 420 });
+      if (!_chart) return;
+
+      const days = WINDOW_DAYS[windowKey] || 365;
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - days);
+      const cutoffStr = cutoff.toISOString().slice(0, 10);
+
+      const filteredIdx = _prices.dates.reduce((acc, d, i) => { if (d >= cutoffStr) acc.push(i); return acc; }, []);
+      const filteredDates = filteredIdx.map(i => _prices.dates[i]);
+
+      _top10.forEach((ticker, i) => {
+        const tickerPrices = _prices.tickers[ticker];
+        if (!tickerPrices) return;
+        const filteredPrices = filteredIdx.map(i => tickerPrices[i]);
+        const data = Charts.normalisePerformance(filteredDates, filteredPrices);
+        Charts.addLineSeries(_chart, data, {
+          color: COLOURS[i % COLOURS.length],
+          percent: true,
+          lineWidth: ticker === universeId ? 3 : 1.5,
+        });
+      });
+
+      if (_prices.tickers[_benchTicker]) {
+        const filteredBench = filteredIdx.map(i => _prices.tickers[_benchTicker][i]);
+        const benchData = Charts.normalisePerformance(filteredDates, filteredBench);
+        Charts.addLineSeries(_chart, benchData, {
+          color: "#6e7681",
+          percent: true,
+          lineWidth: 2,
+          seriesOptions: { lineStyle: 2 },
+        });
+      }
+
+      _chart.timeScale().fitContent();
+    }
+
+    // Wire up time window buttons
+    document.querySelectorAll(".chart-btn[data-window]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".chart-btn[data-window]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderChart(btn.dataset.window);
+      });
+    });
+
+    (async () => {
+      // Load universe metadata
+      const universes = await DataStore.getUniverses();
+      const meta = universes?.find(u => u.id === universeId);
+      document.getElementById("universe-title").textContent = meta?.name || universeId;
+      document.getElementById("universe-desc").textContent =
+        `${meta?.type?.toUpperCase() || "UNIVERSE"} · ${meta?.ticker_count || 0} holdings · Benchmark: ${meta?.benchmark || "SPY"}`;
+      document.title = `${meta?.name || universeId} — Markets Analysis`;
+      _benchTicker = meta?.benchmark || universeId;
+
+      // Load holdings
+      const holdings = await DataStore.getHoldings(universeId);
+      UI.renderHoldingsTable("holdings-table", holdings);
+
+      // Load prices and build performance chart
+      _prices = await DataStore.getPrices();
+      if (_prices && holdings && holdings.length > 0) {
+        _top10 = holdings
+          .sort((a, b) => (b.WeightPct || 0) - (a.WeightPct || 0))
+          .slice(0, 10)
+          .map(h => h.Ticker);
+
+        _chart = Charts.createPriceChart("perf-chart", null, { height: 420 });
+        renderChart("1Y");
+      }
+    })();
+  </script>
+</body>
+</html>
