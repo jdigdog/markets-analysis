@@ -45,12 +45,19 @@ def generate_universes_index(config):
 
 
 def generate_holdings_feeds(config):
+    # Non-equity placeholders Invesco includes (cash lines, currency hedges, etc.)
+    EXCLUDE_TICKERS = {"USD", "EUR", "GBP", "JPY", "CASH", "OTHER", "XTSLA"}
+
     for u in get_universes(config):
         uid = u["id"]
         hp = UNIVERSES_DIR / uid / "holdings.parquet"
         if not hp.exists():
             continue
         df = pd.read_parquet(hp)
+
+        # Drop known non-equity placeholders
+        df = df[~df["Ticker"].isin(EXCLUDE_TICKERS)].copy()
+
         fund = read_parquet(SECURITIES_DIR / "fundamentals.parquet")
         if not fund.empty:
             cols = [c for c in ["Ticker", "Sector", "Industry", "MarketCap", "PE", "Name"] if c in fund.columns]
@@ -58,6 +65,11 @@ def generate_holdings_feeds(config):
             if "Name_fund" in df.columns:
                 df["Name"] = df["Name"].fillna(df["Name_fund"])
                 df = df.drop(columns=["Name_fund"])
+
+        # FIX: NaN is not valid JSON — browser JSON.parse() throws SyntaxError.
+        # Replace all NaN with None so they serialize as JSON null.
+        df = df.where(pd.notnull(df), other=None)
+
         write_json(df.to_dict(orient="records"), SITE_DATA_DIR / f"{uid}_holdings.json")
 
 
@@ -77,22 +89,27 @@ def generate_prices_feed():
         write_json(feed, SITE_DATA_DIR / f"prices_{label}.json", indent=None)
 
 
+def _df_to_records(df: pd.DataFrame) -> list:
+    """Convert DataFrame to JSON-safe records (NaN → None, not NaN literal)."""
+    return df.where(pd.notnull(df), other=None).to_dict(orient="records")
+
+
 def generate_sentiment_feed():
     latest = read_parquet(SECURITIES_DIR / "sentiment" / "latest.parquet")
     history = read_parquet(SECURITIES_DIR / "sentiment" / "history.parquet")
     feed = {"latest": [], "history": []}
     if not latest.empty:
-        feed["latest"] = latest.to_dict(orient="records")
+        feed["latest"] = _df_to_records(latest)
     if not history.empty:
         history["Date"] = pd.to_datetime(history["Date"])
         cutoff = history["Date"].max() - pd.Timedelta(weeks=8)
-        feed["history"] = history[history["Date"] >= cutoff].to_dict(orient="records")
+        feed["history"] = _df_to_records(history[history["Date"] >= cutoff])
     write_json(feed, SITE_DATA_DIR / "sentiment.json")
 
 
 def generate_fundamentals_feed():
     fund = read_parquet(SECURITIES_DIR / "fundamentals.parquet")
-    write_json(fund.to_dict(orient="records") if not fund.empty else [], SITE_DATA_DIR / "fundamentals.json")
+    write_json(_df_to_records(fund) if not fund.empty else [], SITE_DATA_DIR / "fundamentals.json")
 
 
 def main():
