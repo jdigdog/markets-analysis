@@ -39,57 +39,63 @@
 
   <script src="app.js"></script>
   <script>
-    const { UI, DataStore, Charts, getUrlParam, formatPercent, sentimentBadgeClass } = window.MIP;
+    const MIP = window.MIP;
 
-    const universeId = getUrlParam("id") || "QQQ";
-    UI.renderNav(null);
+    const universeId = MIP.getUrlParam("id") || "QQQ";
+    MIP.UI.renderNav(null);
 
-    // Colour palette for chart lines
     const COLOURS = [
       "#58a6ff", "#3fb950", "#f85149", "#d29922", "#bc8cff",
       "#79c0ff", "#56d364", "#ff7b72", "#e3b341", "#d2a8ff",
     ];
 
-    let _chart = null;
-    let _prices = null;
-    let _top10 = [];
-    let _benchTicker = "SPY";
+    let allPrices = null;
+    let allHoldings = null;
+    let metaData = null;
+    let currentWindow = "1Y";
 
-    const WINDOW_DAYS = { "1M": 30, "3M": 90, "1Y": 365 };
+    function daysForWindow(w) {
+      if (w === "1M") return 30;
+      if (w === "3M") return 90;
+      return 365;
+    }
 
-    function renderChart(windowKey) {
-      if (!_chart || !_prices) return;
-      _chart.removeSeries && _chart.remove ? _chart.remove() : null;
+    function renderPerfChart(windowLabel) {
+      if (!allPrices || !allHoldings || !allHoldings.length) return;
 
-      // Re-create chart
-      document.getElementById("perf-chart").innerHTML = "";
-      _chart = Charts.createPriceChart("perf-chart", null, { height: 420 });
-      if (!_chart) return;
-
-      const days = WINDOW_DAYS[windowKey] || 365;
       const cutoff = new Date();
-      cutoff.setDate(cutoff.getDate() - days);
+      cutoff.setDate(cutoff.getDate() - daysForWindow(windowLabel));
       const cutoffStr = cutoff.toISOString().slice(0, 10);
 
-      const filteredIdx = _prices.dates.reduce((acc, d, i) => { if (d >= cutoffStr) acc.push(i); return acc; }, []);
-      const filteredDates = filteredIdx.map(i => _prices.dates[i]);
+      const top10 = allHoldings
+        .sort((a, b) => (b.WeightPct || 0) - (a.WeightPct || 0))
+        .slice(0, 10)
+        .map(h => h.Ticker);
 
-      _top10.forEach((ticker, i) => {
-        const tickerPrices = _prices.tickers[ticker];
+      const chart = MIP.Charts.createPriceChart("perf-chart", null, { height: 420 });
+      if (!chart) return;
+
+      top10.forEach((ticker, i) => {
+        const tickerPrices = allPrices.tickers[ticker];
         if (!tickerPrices) return;
-        const filteredPrices = filteredIdx.map(i => tickerPrices[i]);
-        const data = Charts.normalisePerformance(filteredDates, filteredPrices);
-        Charts.addLineSeries(_chart, data, {
+        const filteredDates = allPrices.dates.filter(d => d >= cutoffStr);
+        const startIdx = allPrices.dates.indexOf(filteredDates[0]);
+        const filteredPrices = tickerPrices.slice(startIdx);
+        const data = MIP.Charts.normalisePerformance(filteredDates, filteredPrices);
+        MIP.Charts.addLineSeries(chart, data, {
           color: COLOURS[i % COLOURS.length],
           percent: true,
           lineWidth: ticker === universeId ? 3 : 1.5,
         });
       });
 
-      if (_prices.tickers[_benchTicker]) {
-        const filteredBench = filteredIdx.map(i => _prices.tickers[_benchTicker][i]);
-        const benchData = Charts.normalisePerformance(filteredDates, filteredBench);
-        Charts.addLineSeries(_chart, benchData, {
+      const benchTicker = metaData?.benchmark || universeId;
+      if (allPrices.tickers[benchTicker]) {
+        const filteredDates = allPrices.dates.filter(d => d >= cutoffStr);
+        const startIdx = allPrices.dates.indexOf(filteredDates[0]);
+        const filteredPrices = allPrices.tickers[benchTicker].slice(startIdx);
+        const benchData = MIP.Charts.normalisePerformance(filteredDates, filteredPrices);
+        MIP.Charts.addLineSeries(chart, benchData, {
           color: "#6e7681",
           percent: true,
           lineWidth: 2,
@@ -97,43 +103,31 @@
         });
       }
 
-      _chart.timeScale().fitContent();
+      chart.timeScale().fitContent();
     }
 
-    // Wire up time window buttons
-    document.querySelectorAll(".chart-btn[data-window]").forEach(btn => {
+    document.querySelectorAll(".chart-controls .chart-btn").forEach(btn => {
       btn.addEventListener("click", () => {
-        document.querySelectorAll(".chart-btn[data-window]").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".chart-controls .chart-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
-        renderChart(btn.dataset.window);
+        currentWindow = btn.dataset.window;
+        renderPerfChart(currentWindow);
       });
     });
 
     (async () => {
-      // Load universe metadata
-      const universes = await DataStore.getUniverses();
-      const meta = universes?.find(u => u.id === universeId);
-      document.getElementById("universe-title").textContent = meta?.name || universeId;
+      const universes = await MIP.DataStore.getUniverses();
+      metaData = universes?.find(u => u.id === universeId);
+      document.getElementById("universe-title").textContent = metaData?.name || universeId;
       document.getElementById("universe-desc").textContent =
-        `${meta?.type?.toUpperCase() || "UNIVERSE"} · ${meta?.ticker_count || 0} holdings · Benchmark: ${meta?.benchmark || "SPY"}`;
-      document.title = `${meta?.name || universeId} — Markets Analysis`;
-      _benchTicker = meta?.benchmark || universeId;
+        `${metaData?.type?.toUpperCase() || "UNIVERSE"} · ${metaData?.ticker_count || 0} holdings · Benchmark: ${metaData?.benchmark || "SPY"}`;
+      document.title = `${metaData?.name || universeId} — Markets Analysis`;
 
-      // Load holdings
-      const holdings = await DataStore.getHoldings(universeId);
-      UI.renderHoldingsTable("holdings-table", holdings);
+      allHoldings = await MIP.DataStore.getHoldings(universeId);
+      MIP.UI.renderHoldingsTable("holdings-table", allHoldings);
 
-      // Load prices and build performance chart
-      _prices = await DataStore.getPrices();
-      if (_prices && holdings && holdings.length > 0) {
-        _top10 = holdings
-          .sort((a, b) => (b.WeightPct || 0) - (a.WeightPct || 0))
-          .slice(0, 10)
-          .map(h => h.Ticker);
-
-        _chart = Charts.createPriceChart("perf-chart", null, { height: 420 });
-        renderChart("1Y");
-      }
+      allPrices = await MIP.DataStore.getPrices();
+      renderPerfChart(currentWindow);
     })();
   </script>
 </body>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare — Markets Analysis</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+
+  <main class="container">
+    <div class="section-header" style="margin-top: var(--space-xl);">
+      <h1 class="section-title">Compare</h1>
+      <p class="section-subtitle">Normalised performance comparison across universes and tickers</p>
+    </div>
+
+    <!-- Ticker selector -->
+    <div class="card" style="margin-bottom: var(--space-lg);">
+      <div style="display:flex; gap:var(--space-md); align-items:end; flex-wrap:wrap;">
+        <div>
+          <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">Add tickers (comma-separated)</label>
+          <input type="text" id="ticker-input" placeholder="AAPL, MSFT, NVDA, QQQ, SPY"
+            style="background:var(--bg-secondary); border:1px solid var(--border); color:var(--text-primary);
+                   padding:8px 12px; border-radius:var(--radius-sm); font-family:var(--font-mono);
+                   font-size:0.875rem; width:400px; max-width:100%;">
+        </div>
+        <button id="compare-btn" class="chart-btn active" style="padding:8px 20px; font-size:0.875rem;">
+          Compare
+        </button>
+        <button id="clear-btn" class="chart-btn" style="padding:8px 20px; font-size:0.875rem;">
+          Clear
+        </button>
+      </div>
+      <div id="active-tickers" style="margin-top:var(--space-sm); display:flex; gap:var(--space-xs); flex-wrap:wrap;"></div>
+    </div>
+
+    <!-- Comparison Chart -->
+    <div class="chart-container">
+      <div class="chart-header">
+        <span class="chart-title">Normalised Performance (1Y)</span>
+        <div id="legend" style="display:flex; gap:var(--space-md); font-size:0.8125rem;"></div>
+      </div>
+      <div id="compare-chart" style="height: 480px;"></div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    const MIP = window.MIP;
+
+    MIP.UI.renderNav("compare");
+
+    const COLOURS = [
+      "#58a6ff", "#3fb950", "#f85149", "#d29922", "#bc8cff",
+      "#79c0ff", "#56d364", "#ff7b72", "#e3b341", "#d2a8ff",
+    ];
+
+    let chart = null;
+    let seriesMap = {};
+    let activeTickers = [];
+    let pricesData = null;
+
+    const urlTickers = MIP.getUrlParam("t");
+    if (urlTickers) {
+      document.getElementById("ticker-input").value = urlTickers;
+    }
+
+    async function loadAndRender(tickerList) {
+      if (!pricesData) {
+        pricesData = await MIP.DataStore.getPrices();
+      }
+      if (!pricesData) return;
+
+      if (chart) {
+        document.getElementById("compare-chart").innerHTML = "";
+        chart = null;
+        seriesMap = {};
+      }
+
+      chart = MIP.Charts.createPriceChart("compare-chart", null, { height: 480 });
+      if (!chart) return;
+
+      const legendEl = document.getElementById("legend");
+      legendEl.innerHTML = "";
+      const badgesEl = document.getElementById("active-tickers");
+      badgesEl.innerHTML = "";
+
+      activeTickers = tickerList.filter(t => pricesData.tickers[t]);
+
+      activeTickers.forEach((ticker, i) => {
+        const colour = COLOURS[i % COLOURS.length];
+        const data = MIP.Charts.normalisePerformance(pricesData.dates, pricesData.tickers[ticker]);
+        const series = MIP.Charts.addLineSeries(chart, data, {
+          color: colour,
+          percent: true,
+          lineWidth: 2,
+        });
+        seriesMap[ticker] = series;
+
+        legendEl.innerHTML += `<span style="color:${colour}">● ${ticker}</span>`;
+        badgesEl.innerHTML += `<span class="badge badge-blue" style="cursor:pointer" onclick="removeTicker('${ticker}')">${ticker} ×</span>`;
+      });
+
+      if (chart) chart.timeScale().fitContent();
+    }
+
+    window.removeTicker = function(ticker) {
+      activeTickers = activeTickers.filter(t => t !== ticker);
+      document.getElementById("ticker-input").value = activeTickers.join(", ");
+      loadAndRender(activeTickers);
+    };
+
+    document.getElementById("compare-btn").addEventListener("click", () => {
+      const input = document.getElementById("ticker-input").value;
+      const tickers = input.split(",").map(t => t.trim().toUpperCase()).filter(Boolean);
+      if (tickers.length > 0) loadAndRender(tickers);
+    });
+
+    document.getElementById("clear-btn").addEventListener("click", () => {
+      document.getElementById("ticker-input").value = "";
+      activeTickers = [];
+      document.getElementById("active-tickers").innerHTML = "";
+      document.getElementById("compare-chart").innerHTML =
+        '<div class="empty-state">Enter tickers above and click Compare</div>';
+      document.getElementById("legend").innerHTML = "";
+    });
+
+    document.getElementById("ticker-input").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") document.getElementById("compare-btn").click();
+    });
+
+    if (urlTickers) {
+      const tickers = urlTickers.split(",").map(t => t.trim().toUpperCase());
+      loadAndRender(tickers);
+    }
+  </script>
+</body>
+</html>

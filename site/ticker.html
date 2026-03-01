@@ -20,7 +20,7 @@
     <!-- Price Chart -->
     <div class="chart-container">
       <div class="chart-header">
-        <span class="chart-title">Price History (2Y)</span>
+        <span class="chart-title">Price History</span>
         <div class="chart-controls">
           <button class="chart-btn" data-window="3M">3M</button>
           <button class="chart-btn" data-window="6M">6M</button>
@@ -32,20 +32,13 @@
 
     <!-- Info Grid -->
     <div class="grid grid-2" style="margin-top: var(--space-lg);">
-      <!-- Fundamentals Card -->
       <div class="card">
         <div class="card-title" style="margin-bottom: var(--space-md);">Fundamentals</div>
-        <div id="fundamentals-panel">
-          <div class="loading">Loading...</div>
-        </div>
+        <div id="fundamentals-panel"><div class="loading">Loading...</div></div>
       </div>
-
-      <!-- Sentiment Card -->
       <div class="card">
         <div class="card-title" style="margin-bottom: var(--space-md);">Sentiment</div>
-        <div id="sentiment-panel">
-          <div class="loading">Loading...</div>
-        </div>
+        <div id="sentiment-panel"><div class="loading">Loading...</div></div>
       </div>
     </div>
 
@@ -59,45 +52,55 @@
 
   <script src="app.js"></script>
   <script>
-    const { UI, DataStore, Charts, getUrlParam, formatNumber, formatPercent, sentimentColor, sentimentBadgeClass } = window.MIP;
+    const MIP = window.MIP;
 
-    const ticker = getUrlParam("t") || "AAPL";
-    UI.renderNav(null);
+    const ticker = MIP.getUrlParam("t") || "AAPL";
+    MIP.UI.renderNav(null);
 
     document.getElementById("ticker-title").textContent = ticker;
     document.title = `${ticker} — Markets Analysis`;
 
-    const WINDOW_DAYS = { "3M": 90, "6M": 180, "2Y": 730 };
-    let _priceChart = null;
-    let _prices2y = null;
+    let allPrices2Y = null;
 
-    function renderPriceChart(windowKey) {
-      if (!_prices2y || !_prices2y.tickers[ticker]) return;
-      document.getElementById("price-chart").innerHTML = "";
-      _priceChart = Charts.createPriceChart("price-chart", null, { height: 420 });
-      if (!_priceChart) return;
+    function daysForWindow(w) {
+      if (w === "3M") return 90;
+      if (w === "6M") return 180;
+      return 730;
+    }
 
-      const days = WINDOW_DAYS[windowKey] || 730;
+    function renderPriceChart(windowLabel) {
+      if (!allPrices2Y || !allPrices2Y.tickers[ticker]) return;
+
       const cutoff = new Date();
-      cutoff.setDate(cutoff.getDate() - days);
+      cutoff.setDate(cutoff.getDate() - daysForWindow(windowLabel));
       const cutoffStr = cutoff.toISOString().slice(0, 10);
 
-      const series = _priceChart.addAreaSeries({
+      const filteredDates = allPrices2Y.dates.filter(d => d >= cutoffStr);
+      const startIdx = allPrices2Y.dates.indexOf(filteredDates[0]);
+      const filteredPrices = allPrices2Y.tickers[ticker].slice(startIdx);
+
+      const chart = MIP.Charts.createPriceChart("price-chart", null, { height: 420 });
+      if (!chart) return;
+
+      const series = chart.addAreaSeries({
         topColor: "rgba(88, 166, 255, 0.3)",
         bottomColor: "rgba(88, 166, 255, 0.02)",
         lineColor: "#58a6ff",
         lineWidth: 2,
       });
-      const data = _prices2y.dates
-        .map((d, i) => ({ time: d, value: _prices2y.tickers[ticker][i] }))
-        .filter(d => d.time >= cutoffStr && d.value != null);
+
+      const data = filteredDates.map((d, i) => ({
+        time: d,
+        value: filteredPrices[i],
+      })).filter(d => d.value != null);
+
       series.setData(data);
-      _priceChart.timeScale().fitContent();
+      chart.timeScale().fitContent();
     }
 
-    document.querySelectorAll(".chart-btn[data-window]").forEach(btn => {
+    document.querySelectorAll(".chart-controls .chart-btn").forEach(btn => {
       btn.addEventListener("click", () => {
-        document.querySelectorAll(".chart-btn[data-window]").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".chart-controls .chart-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         renderPriceChart(btn.dataset.window);
       });
@@ -105,13 +108,11 @@
 
     (async () => {
       // ── Price chart ──
-      _prices2y = await DataStore.getPrices("2y");
-      if (_prices2y && _prices2y.tickers[ticker]) {
-        renderPriceChart("2Y");
-      }
+      allPrices2Y = await MIP.DataStore.getPrices("2y");
+      renderPriceChart("2Y");
 
       // ── Fundamentals ──
-      const fundData = await DataStore.getFundamentals();
+      const fundData = await MIP.DataStore.getFundamentals();
       const fund = fundData?.find(f => f.Ticker === ticker);
       const fundPanel = document.getElementById("fundamentals-panel");
 
@@ -119,15 +120,15 @@
         document.getElementById("ticker-desc").textContent =
           `${fund.Name || ""} · ${fund.Sector || ""} · ${fund.Industry || ""}`;
         const rows = [
-          ["Market Cap", formatNumber(fund.MarketCap)],
-          ["P/E (TTM)", fund.PE ? formatNumber(fund.PE, 1) : "—"],
-          ["Forward P/E", fund.ForwardPE ? formatNumber(fund.ForwardPE, 1) : "—"],
-          ["EPS (TTM)", fund.EPS ? "$" + formatNumber(fund.EPS) : "—"],
-          ["52W High", fund.High52W ? "$" + formatNumber(fund.High52W) : "—"],
-          ["52W Low", fund.Low52W ? "$" + formatNumber(fund.Low52W) : "—"],
-          ["Analyst Target", fund.AnalystTarget ? "$" + formatNumber(fund.AnalystTarget) : "—"],
-          ["Dividend Yield", fund.DividendYield ? formatPercent(fund.DividendYield * 100) : "—"],
-          ["Beta", fund.Beta ? formatNumber(fund.Beta) : "—"],
+          ["Market Cap",      MIP.formatNumber(fund.MarketCap)],
+          ["P/E (TTM)",       fund.PE ? MIP.formatNumber(fund.PE, 1) : "—"],
+          ["Forward P/E",     fund.ForwardPE ? MIP.formatNumber(fund.ForwardPE, 1) : "—"],
+          ["EPS (TTM)",       fund.EPS ? "$" + MIP.formatNumber(fund.EPS) : "—"],
+          ["52W High",        fund.High52W ? "$" + MIP.formatNumber(fund.High52W) : "—"],
+          ["52W Low",         fund.Low52W ? "$" + MIP.formatNumber(fund.Low52W) : "—"],
+          ["Analyst Target",  fund.AnalystTarget ? "$" + MIP.formatNumber(fund.AnalystTarget) : "—"],
+          ["Dividend Yield",  fund.DividendYield ? MIP.formatPercent(fund.DividendYield * 100) : "—"],
+          ["Beta",            fund.Beta ? MIP.formatNumber(fund.Beta) : "—"],
         ];
         fundPanel.innerHTML = `<table style="width:100%;font-size:0.875rem">
           ${rows.map(([k, v]) => `<tr><td style="color:var(--text-muted);padding:4px 0">${k}</td><td class="text-right text-mono" style="padding:4px 0">${v}</td></tr>`).join("")}
@@ -137,15 +138,15 @@
       }
 
       // ── Sentiment ──
-      const sentiment = await DataStore.getSentiment();
+      const sentiment = await MIP.DataStore.getSentiment();
       const sentPanel = document.getElementById("sentiment-panel");
       const sentRecord = sentiment?.latest?.find(s => s.Ticker === ticker);
 
       if (sentRecord) {
         sentPanel.innerHTML = `
           <div style="text-align:center; margin-bottom: var(--space-md);">
-            <div class="card-metric" style="color:${sentimentColor(sentRecord.Score)}">${sentRecord.Score.toFixed(2)}</div>
-            <span class="badge ${sentimentBadgeClass(sentRecord.Label)}" style="margin-top:var(--space-sm)">${sentRecord.Label}</span>
+            <div class="card-metric" style="color:${MIP.sentimentColor(sentRecord.Score)}">${sentRecord.Score.toFixed(2)}</div>
+            <span class="badge ${MIP.sentimentBadgeClass(sentRecord.Label)}" style="margin-top:var(--space-sm)">${sentRecord.Label}</span>
           </div>
           <p style="font-size:0.875rem;color:var(--text-secondary)">${sentRecord.Summary || ""}</p>
           <p style="font-size:0.75rem;color:var(--text-muted);margin-top:var(--space-sm)">Based on ${sentRecord.ArticleCount || 0} articles · ${sentRecord.Date}</p>
@@ -155,13 +156,13 @@
       }
 
       // ── Universe membership ──
-      const universes = await DataStore.getUniverses();
+      const universes = await MIP.DataStore.getUniverses();
       const membershipEl = document.getElementById("membership");
       const memberships = [];
 
       if (universes) {
         for (const u of universes) {
-          const holdings = await DataStore.getHoldings(u.id);
+          const holdings = await MIP.DataStore.getHoldings(u.id);
           if (holdings?.some(h => h.Ticker === ticker)) {
             const holding = holdings.find(h => h.Ticker === ticker);
             memberships.push({ ...u, weight: holding?.WeightPct });
@@ -173,7 +174,7 @@
         membershipEl.innerHTML = memberships.map(u => `
           <a href="universe.html?id=${u.id}" class="card" style="text-decoration:none">
             <div class="card-title">${u.name || u.id}</div>
-            <div class="card-subtitle">${u.type.toUpperCase()} · Weight: ${u.weight ? formatNumber(u.weight) + "%" : "Equal"}</div>
+            <div class="card-subtitle">${u.type.toUpperCase()} · Weight: ${u.weight ? MIP.formatNumber(u.weight) + "%" : "Equal"}</div>
           </a>
         `).join("");
       } else {

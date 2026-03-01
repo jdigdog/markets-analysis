@@ -34,22 +34,20 @@
 
   <script src="app.js"></script>
   <script>
-    const { UI, DataStore, formatNumber, sentimentColor, sentimentBadgeClass } = window.MIP;
+    const MIP = window.MIP;
 
-    UI.renderNav("sentiment");
+    MIP.UI.renderNav("sentiment");
 
     (async () => {
-      const sentiment = await DataStore.getSentiment();
+      const sentiment = await MIP.DataStore.getSentiment();
 
       // ── Heatmap (ECharts) ──
       if (sentiment && sentiment.history && sentiment.history.length > 0) {
         const history = sentiment.history;
 
-        // Build axes
         const tickers = [...new Set(history.map(r => r.Ticker))].sort();
         const dates = [...new Set(history.map(r => r.Date))].sort();
 
-        // Build data matrix
         const dataPoints = [];
         history.forEach(r => {
           const xi = dates.indexOf(r.Date);
@@ -84,18 +82,14 @@
             orient: "horizontal",
             left: "center",
             bottom: 0,
-            inRange: {
-              color: ["#f85149", "#6e7681", "#3fb950"],
-            },
+            inRange: { color: ["#f85149", "#6e7681", "#3fb950"] },
             textStyle: { color: "#8b949e" },
           },
           series: [{
             type: "heatmap",
             data: dataPoints,
             label: { show: false },
-            emphasis: {
-              itemStyle: { borderColor: "#58a6ff", borderWidth: 2 },
-            },
+            emphasis: { itemStyle: { borderColor: "#58a6ff", borderWidth: 2 } },
           }],
         });
 
@@ -111,8 +105,8 @@
         const rows = sorted.map(r => `
           <tr>
             <td><a href="ticker.html?t=${r.Ticker}">${r.Ticker}</a></td>
-            <td class="text-right text-mono" style="color:${sentimentColor(r.Score)}">${r.Score.toFixed(2)}</td>
-            <td><span class="badge ${sentimentBadgeClass(r.Label)}">${r.Label}</span></td>
+            <td class="text-right text-mono" style="color:${MIP.sentimentColor(r.Score)}">${r.Score.toFixed(2)}</td>
+            <td><span class="badge ${MIP.sentimentBadgeClass(r.Label)}">${r.Label}</span></td>
             <td style="font-size:0.8125rem;color:var(--text-secondary)">${r.Summary || "—"}</td>
             <td class="text-center text-mono">${r.ArticleCount || 0}</td>
           </tr>

@@ -75,29 +75,31 @@ python scripts/generate_feeds.py</pre>
 
   <script src="app.js"></script>
   <script>
-    const { UI, DataStore, formatNumber } = window.MIP;
+    // FIX: Use window.MIP directly — const destructuring like `const { UI } = window.MIP`
+    // conflicts with `const UI` already declared in app.js global scope and throws
+    // "Identifier 'UI' has already been declared", crashing all rendering.
+    const MIP = window.MIP;
 
-    UI.renderNav("home");
-    UI.renderUniverseCards("universe-cards");
+    MIP.UI.renderNav("home");
+    MIP.UI.renderUniverseCards("universe-cards");
 
-    // Populate quick stats
     (async () => {
-      const universes = await DataStore.getUniverses();
+      const universes = await MIP.DataStore.getUniverses();
       if (universes) {
         document.getElementById("stat-universes").textContent = universes.length;
         const totalTickers = universes.reduce((sum, u) => sum + (u.ticker_count || 0), 0);
         document.getElementById("stat-tickers").textContent = totalTickers;
       }
 
-      const sentiment = await DataStore.getSentiment();
+      const sentiment = await MIP.DataStore.getSentiment();
       if (sentiment && sentiment.latest && sentiment.latest.length > 0) {
         const avg = sentiment.latest.reduce((s, r) => s + r.Score, 0) / sentiment.latest.length;
         const el = document.getElementById("stat-sentiment");
         el.textContent = avg.toFixed(2);
-        el.style.color = window.MIP.sentimentColor(avg);
+        el.style.color = MIP.sentimentColor(avg);
       }
 
-      const prices = await DataStore.getPrices();
+      const prices = await MIP.DataStore.getPrices();
       if (prices && prices.dates && prices.dates.length > 0) {
         document.getElementById("stat-updated").textContent = prices.dates[prices.dates.length - 1];
       }
