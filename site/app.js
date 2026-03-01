@@ -4,7 +4,9 @@
  */
 
 const CONFIG = {
-  dataDir: "data/reports/data",
+  // FIX: HTML files live in site/, data lives at repo root data/reports/data/.
+  // Relative from site/*, "../data/reports/data" resolves correctly on GitHub Pages.
+  dataDir: "../data/reports/data",
   defaultUniverse: "QQQ",
 };
 
