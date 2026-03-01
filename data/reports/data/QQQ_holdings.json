@@ -1,0 +1,92 @@
+[
+  {
+    "Ticker": "NVDA",
+    "Name": "NVIDIA Corp",
+    "WeightPct": 8.9011,
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 4306603081728,
+    "PE": 36.087578
+  },
+  {
+    "Ticker": "AAPL",
+    "Name": "Apple Inc",
+    "WeightPct": 7.3482,
+    "Sector": "Technology",
+    "Industry": "Consumer Electronics",
+    "MarketCap": 3882897899520,
+    "PE": 33.440506
+  },
+  {
+    "Ticker": "MSFT",
+    "Name": "Microsoft Corp",
+    "WeightPct": 6.1291,
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 2918992052224,
+    "PE": 24.576971
+  },
+  {
+    "Ticker": "AMZN",
+    "Name": "Amazon.com Inc",
+    "WeightPct": 4.9027,
+    "Sector": "Consumer Cyclical",
+    "Industry": "Internet Retail",
+    "MarketCap": 2254333280256,
+    "PE": 29.329609
+  },
+  {
+    "Ticker": "META",
+    "Name": "Meta Platforms Inc Class A",
+    "WeightPct": 4.0328,
+    "Sector": "Communication Services",
+    "Industry": "Internet Content & Information",
+    "MarketCap": 1639607173120,
+    "PE": 27.629156
+  },
+  {
+    "Ticker": "GOOGL",
+    "Name": "Alphabet Inc Class A",
+    "WeightPct": 3.7688,
+    "Sector": "Communication Services",
+    "Industry": "Internet Content & Information",
+    "MarketCap": 3771360870400,
+    "PE": 28.81331
+  },
+  {
+    "Ticker": "TSLA",
+    "Name": "Tesla Inc",
+    "WeightPct": 3.649,
+    "Sector": "Consumer Cyclical",
+    "Industry": "Auto Manufacturers",
+    "MarketCap": 1510391414784,
+    "PE": 369.27524
+  },
+  {
+    "Ticker": "GOOG",
+    "Name": "Alphabet Inc Class C",
+    "WeightPct": 3.508,
+    "Sector": "Communication Services",
+    "Industry": "Internet Content & Information",
+    "MarketCap": 3767368679424,
+    "PE": 28.809433
+  },
+  {
+    "Ticker": "WMT",
+    "Name": "Walmart Inc",
+    "WeightPct": 3.0807,
+    "Sector": "Consumer Defensive",
+    "Industry": "Discount Stores",
+    "MarketCap": 1020126298112,
+    "PE": 46.86813
+  },
+  {
+    "Ticker": "AVGO",
+    "Name": "Broadcom Inc",
+    "WeightPct": 2.9984,
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 1515073961984,
+    "PE": 67.13235
+  }
+]

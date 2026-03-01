@@ -1,0 +1,8 @@
+{
+  "id": "QQQ",
+  "name": "Invesco QQQ Trust",
+  "type": "etf",
+  "benchmark": "QQQ",
+  "description": "Tracks the Nasdaq-100 Index",
+  "ticker_count": 10
+}

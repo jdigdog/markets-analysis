@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "id": "QQQ",
+    "name": "Invesco QQQ Trust",
+    "type": "etf",
+    "benchmark": "QQQ",
+    "description": "Tracks the Nasdaq-100 Index",
+    "ticker_count": 10
+  },
+  {
+    "id": "SPY",
+    "name": "SPDR S&P 500 ETF",
+    "type": "etf",
+    "benchmark": "SPY",
+    "description": "Tracks the S&P 500 Index",
+    "ticker_count": 0
+  },
+  {
+    "id": "TECH_WATCHLIST",
+    "name": "Tech Watchlist",
+    "type": "watchlist",
+    "benchmark": "QQQ",
+    "description": "Hand-picked tech and semiconductor plays",
+    "ticker_count": 0
+  },
+  {
+    "id": "SINGLES",
+    "name": "Individual Picks",
+    "type": "watchlist",
+    "benchmark": "SPY",
+    "description": "One-off positions outside any index",
+    "ticker_count": 0
+  }
+]
