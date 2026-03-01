@@ -1,0 +1,59 @@
+name: Fetch Sentiment
+
+on:
+  schedule:
+    - cron: "0 8 * * 1-5"  # Weekdays at 8 AM UTC
+  workflow_dispatch:
+    inputs:
+      universe:
+        description: "Universe ID to score (leave empty for all)"
+        required: false
+        type: string
+      tickers:
+        description: "Comma-separated tickers to score (overrides universe)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-sentiment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run sentiment scoring
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.tickers }}" ]; then
+            ARGS="--tickers $(echo '${{ inputs.tickers }}' | tr ',' ' ')"
+          elif [ -n "${{ inputs.universe }}" ]; then
+            ARGS="--universe ${{ inputs.universe }}"
+          fi
+          python scripts/fetch_sentiment.py $ARGS
+
+      - name: Generate JSON feeds
+        run: python scripts/generate_feeds.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "🧠 Sentiment update $(date -u +%Y-%m-%d)"
+          git push

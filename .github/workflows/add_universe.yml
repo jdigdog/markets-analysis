@@ -1,0 +1,53 @@
+name: Add Universe
+
+on:
+  workflow_dispatch:
+    inputs:
+      universe_id:
+        description: "Universe ID to onboard (must exist in universes_config.yml)"
+        required: true
+        type: string
+      onboard_all:
+        description: "Onboard ALL universes from config"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  add-universe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Onboard universe
+        run: |
+          if [ "${{ inputs.onboard_all }}" = "true" ]; then
+            python scripts/add_universe.py --all
+          else
+            python scripts/add_universe.py ${{ inputs.universe_id }}
+          fi
+
+      - name: Generate JSON feeds
+        run: python scripts/generate_feeds.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "🆕 Onboarded universe: ${{ inputs.universe_id }} $(date -u +%Y-%m-%d)"
+          git push
