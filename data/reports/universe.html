@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universe Detail — Market Intelligence</title>
+  <link rel="stylesheet" href="site/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app" id="app"><div class="loading">Loading</div></div>
+  <script src="https://unpkg.com/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="site/app.js"></script>
+  <script>
+    const { DataStore, State, Charts, UI, renderNav, renderFooter } = window.MIP;
+    async function init() {
+      const app = document.getElementById("app");
+      const id = State.get("id") || "QQQ";
+      const [universes, holdings, prices, sentiment, fundamentals] = await Promise.all([
+        DataStore.getUniverses(), DataStore.getHoldings(id), DataStore.getPrices(),
+        DataStore.getSentiment(), DataStore.getFundamentals(),
+      ]);
+      const meta = universes?.find(u => u.id === id) || { id, name: id };
+      const sMap = {}; if (sentiment?.latest) sentiment.latest.forEach(s => sMap[s.Ticker] = s);
+      const fMap = {}; if (fundamentals) fundamentals.forEach(f => fMap[f.Ticker] = f);
+      const tabs = (universes||[]).map(u =>
+        `<a href="universe.html?id=${u.id}" style="color:${u.id===id?'var(--c-accent)':'var(--c-text-dim)'};padding:4px 12px;font-size:var(--text-sm)">${u.id}</a>`
+      ).join("");
+      app.innerHTML = `
+        ${renderNav()}
+        <main class="main">
+          <div style="display:flex;align-items:center;gap:var(--sp-md);margin-bottom:var(--sp-xs)">
+            <h1 style="font-size:var(--text-2xl)">${meta.id}</h1>
+            <span class="badge badge-${meta.type||'etf'}">${meta.type||'etf'}</span>
+          </div>
+          <p style="color:var(--c-text-dim);margin-bottom:var(--sp-sm)">${meta.name||''}</p>
+          <div style="display:flex;gap:var(--sp-xs);margin-bottom:var(--sp-xl);flex-wrap:wrap">${tabs}</div>
+          <div class="chart-container"><h3>Relative Performance (Normalised, 1Y)</h3><div id="perf" class="chart-area"></div></div>
+          <div class="card"><div class="card-header"><span class="card-title">Holdings</span><span class="card-subtitle">${holdings?.length||0} tickers</span></div>
+            <div style="overflow-x:auto"><table class="data-table" id="tbl"></table></div>
+          </div>
+        </main>
+        ${renderFooter()}`;
+      UI.setActiveNav("universe");
+      const tbl = document.getElementById("tbl");
+      if (!holdings||!holdings.length) { tbl.innerHTML = '<tr><td class="empty-state">No holdings data.</td></tr>'; return; }
+      tbl.innerHTML = `<thead><tr><th>Ticker</th><th>Name</th><th>Weight</th><th>Sector</th><th>Sentiment</th><th>Price</th></tr></thead><tbody>${
+        holdings.map(h => {
+          const s=sMap[h.Ticker], f=fMap[h.Ticker], p=prices?.[h.Ticker], lp=p?Object.values(p).pop():null;
+          return `<tr><td><a href="ticker.html?t=${h.Ticker}" class="ticker">${h.Ticker}</a></td>
+            <td>${f?.shortName||h.Name||'—'}</td><td>${h.WeightPct!=null?(h.WeightPct*100).toFixed(2)+'%':'—'}</td>
+            <td>${f?.sector||'—'}</td><td>${s?`<span class="badge ${UI.sentimentBadge(s.Label)}">${s.Label}</span>`:'—'}</td>
+            <td>${lp!=null?'$'+lp.toFixed(2):'—'}</td></tr>`;
+        }).join("")
+      }</tbody>`;
+      if (holdings && prices) {
+        const top = holdings.slice(0,8).map(h=>h.Ticker).filter(t=>prices[t]);
+        if (top.length) Charts.createComparisonChart(document.getElementById("perf"), prices, top);
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

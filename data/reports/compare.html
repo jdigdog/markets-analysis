@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare — Market Intelligence</title>
+  <link rel="stylesheet" href="site/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app" id="app">
+    <div class="loading">Loading</div>
+  </div>
+
+  <script src="https://unpkg.com/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="site/app.js"></script>
+  <script>
+    const { DataStore, State, Charts, UI, renderNav, renderFooter } = window.MIP;
+
+    let chart = null;
+    let allPrices = {};
+    let allTickers = [];
+
+    async function init() {
+      const app = document.getElementById("app");
+      const [prices, universes, fundamentals] = await Promise.all([
+        DataStore.getPrices(),
+        DataStore.getUniverses(),
+        DataStore.getFundamentals(),
+      ]);
+
+      allPrices = prices || {};
+      allTickers = Object.keys(allPrices).sort();
+
+      const fundsMap = {};
+      if (fundamentals) fundamentals.forEach(f => { fundsMap[f.Ticker] = f; });
+
+      // Pre-selected tickers from URL
+      const preselected = State.get("tickers")?.split(",") || [];
+
+      app.innerHTML = `
+        ${renderNav()}
+        <main class="main">
+          <h1 style="font-size: var(--text-2xl); margin-bottom: var(--sp-xs);">Compare</h1>
+          <p style="color: var(--c-text-dim); margin-bottom: var(--sp-lg);">
+            Select tickers to compare normalised performance over 1 year
+          </p>
+
+          <!-- Ticker Input -->
+          <div class="card" style="margin-bottom: var(--sp-lg);">
+            <div style="display:flex; gap:var(--sp-sm); flex-wrap:wrap; align-items:center;">
+              <input
+                id="ticker-input"
+                type="text"
+                placeholder="Type a ticker and press Enter (e.g. AAPL)"
+                style="
+                  flex:1; min-width:200px; padding: 8px 12px;
+                  background: var(--c-bg); border: 1px solid var(--c-border);
+                  border-radius: var(--radius-sm); color: var(--c-text);
+                  font-family: var(--font-mono); font-size: var(--text-sm);
+                "
+              >
+              <button id="clear-btn" style="
+                padding: 8px 16px; background: transparent;
+                border: 1px solid var(--c-border); border-radius: var(--radius-sm);
+                color: var(--c-text-dim); cursor: pointer; font-size: var(--text-sm);
+              ">Clear All</button>
+            </div>
+            <div id="selected-tickers" style="display:flex; gap:var(--sp-xs); flex-wrap:wrap; margin-top:var(--sp-sm);"></div>
+
+            <!-- Quick-pick from universes -->
+            ${universes ? `
+              <div style="margin-top: var(--sp-md); font-size: var(--text-sm); color: var(--c-text-dim);">
+                Quick add:
+                ${universes.map(u => `<button class="quick-add" data-universe="${u.id}" style="
+                  margin-left: 4px; padding: 2px 8px; background: rgba(255,255,255,0.05);
+                  border: 1px solid var(--c-border); border-radius: 12px;
+                  color: var(--c-accent); cursor: pointer; font-size: var(--text-xs);
+                ">Top 5 ${u.id}</button>`).join("")}
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Chart -->
+          <div class="chart-container">
+            <h3>Normalised Performance (% change from start)</h3>
+            <div id="compare-chart" class="chart-area" style="min-height:500px;"></div>
+          </div>
+        </main>
+        ${renderFooter()}
+      `;
+
+      UI.setActiveNav("compare");
+
+      // State
+      let selectedTickers = preselected.filter(t => allPrices[t]);
+
+      function renderSelected() {
+        const container = document.getElementById("selected-tickers");
+        container.innerHTML = selectedTickers.map(t => `
+          <span style="
+            display:inline-flex; align-items:center; gap:4px;
+            padding: 2px 8px; background: rgba(88,166,255,0.1);
+            border: 1px solid var(--c-accent); border-radius: 12px;
+            font-family: var(--font-mono); font-size: var(--text-sm); color: var(--c-accent);
+          ">
+            ${t}
+            <span class="remove-ticker" data-ticker="${t}" style="cursor:pointer; opacity:0.6;">×</span>
+          </span>
+        `).join("");
+
+        // Attach remove handlers
+        container.querySelectorAll(".remove-ticker").forEach(el => {
+          el.addEventListener("click", () => {
+            selectedTickers = selectedTickers.filter(t => t !== el.dataset.ticker);
+            updateChart();
+          });
+        });
+      }
+
+      function updateChart() {
+        renderSelected();
+        // Update URL
+        State.set("tickers", selectedTickers.join(","));
+
+        const chartEl = document.getElementById("compare-chart");
+        chartEl.innerHTML = "";
+
+        if (selectedTickers.length === 0) {
+          chartEl.innerHTML = '<div class="empty-state">Select tickers above to compare</div>';
+          return;
+        }
+
+        chart = Charts.createComparisonChart(chartEl, allPrices, selectedTickers);
+      }
+
+      // Input handler
+      document.getElementById("ticker-input").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          const val = e.target.value.trim().toUpperCase();
+          if (val && allPrices[val] && !selectedTickers.includes(val)) {
+            selectedTickers.push(val);
+            updateChart();
+          }
+          e.target.value = "";
+        }
+      });
+
+      // Clear button
+      document.getElementById("clear-btn").addEventListener("click", () => {
+        selectedTickers = [];
+        updateChart();
+      });
+
+      // Quick-add buttons
+      document.querySelectorAll(".quick-add").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const uid = btn.dataset.universe;
+          const holdings = await DataStore.getHoldings(uid);
+          if (holdings) {
+            const top5 = holdings.slice(0, 5).map(h => h.Ticker).filter(t => allPrices[t]);
+            top5.forEach(t => {
+              if (!selectedTickers.includes(t)) selectedTickers.push(t);
+            });
+            updateChart();
+          }
+        });
+      });
+
+      // Initial render
+      updateChart();
+    }
+
+    init();
+  </script>
+</body>
+</html>

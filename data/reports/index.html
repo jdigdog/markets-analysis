@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Intelligence Platform</title>
+  <link rel="stylesheet" href="site/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app" id="app"><div class="loading">Loading</div></div>
+  <script src="https://unpkg.com/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="site/app.js"></script>
+  <script>
+    const { DataStore, Charts, UI, renderNav, renderFooter } = window.MIP;
+    async function init() {
+      const app = document.getElementById("app");
+      const [universes, sentiment, prices] = await Promise.all([
+        DataStore.getUniverses(), DataStore.getSentiment(), DataStore.getPrices()
+      ]);
+      app.innerHTML = `
+        ${renderNav()}
+        <main class="main">
+          <h1 style="font-size:var(--text-2xl);margin-bottom:var(--sp-xs)">Market Intelligence</h1>
+          <p style="color:var(--c-text-dim);margin-bottom:var(--sp-xl)">Track, analyse, and compare across universes</p>
+          <div class="grid grid-3" id="grid"></div>
+          <div class="chart-container" style="margin-top:var(--sp-xl)">
+            <h3>Quick Compare — Top Holdings</h3>
+            <div id="chart" class="chart-area"></div>
+          </div>
+        </main>
+        ${renderFooter()}`;
+      UI.setActiveNav("home");
+      const grid = document.getElementById("grid");
+      if (!universes || !universes.length) { grid.innerHTML = '<div class="empty-state">No universes configured.</div>'; return; }
+      grid.innerHTML = universes.map(u => `
+        <a href="universe.html?id=${u.id}" class="card universe-card" style="text-decoration:none;color:inherit">
+          <div class="card-header"><span class="card-title">${u.id}</span><span class="badge badge-${u.type}">${u.type}</span></div>
+          <div class="card-subtitle">${u.name}</div>
+          <p style="font-size:var(--text-sm);color:var(--c-text-dim);margin-top:var(--sp-sm)">${u.description||""}</p>
+          <div class="universe-meta"><div class="stat"><strong>${u.ticker_count}</strong> tickers</div></div>
+        </a>`).join("");
+      if (prices && universes.length) {
+        const h = await DataStore.getHoldings(universes[0].id);
+        if (h && h.length) {
+          const top = h.slice(0,5).map(x=>x.Ticker).filter(t=>prices[t]);
+          if (top.length) Charts.createComparisonChart(document.getElementById("chart"), prices, top);
+        }
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

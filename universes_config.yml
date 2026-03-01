@@ -1,0 +1,59 @@
+# ──────────────────────────────────────────────────────────────
+# Market Intelligence Platform — Universe Configuration
+# ──────────────────────────────────────────────────────────────
+# This file is the SINGLE SOURCE OF TRUTH for everything the
+# platform tracks. The pipeline reads this file; no code changes
+# are needed to add a new universe.
+#
+# Universe types:
+#   etf       — auto-fetches holdings from provider
+#   index     — auto-fetches holdings from provider
+#   watchlist — manually defined ticker list
+# ──────────────────────────────────────────────────────────────
+
+settings:
+  price_history_years: 2          # how far back to backfill prices
+  sentiment_provider: "tavily"    # tavily | newsapi | none
+  llm_provider: "anthropic"       # anthropic | openai | none
+  schedule:
+    prices: "0 6 * * 1-5"        # weekdays at 6 AM UTC
+    sentiment: "0 8 * * 1-5"     # weekdays at 8 AM UTC
+    holdings: "0 10 * * 0"       # Sundays at 10 AM UTC
+
+universes:
+  # ── ETFs (auto-fetch holdings) ──────────────────────────────
+  - id: QQQ
+    name: "Invesco QQQ Trust"
+    type: etf
+    auto_fetch_holdings: true
+    benchmark: QQQ
+    description: "Tracks the Nasdaq-100 Index"
+
+  - id: SPY
+    name: "SPDR S&P 500 ETF"
+    type: etf
+    auto_fetch_holdings: true
+    benchmark: SPY
+    description: "Tracks the S&P 500 Index"
+
+  # ── Custom Watchlists ───────────────────────────────────────
+  - id: TECH_WATCHLIST
+    name: "Tech Watchlist"
+    type: watchlist
+    benchmark: QQQ
+    description: "Hand-picked tech and semiconductor plays"
+    tickers:
+      - TSM
+      - MSTR
+      - COIN
+      - PLTR
+      - ARM
+
+  - id: SINGLES
+    name: "Individual Picks"
+    type: watchlist
+    benchmark: SPY
+    description: "One-off positions outside any index"
+    tickers:
+      - BRK-B
+      - ASML

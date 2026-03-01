@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markets Analysis</title>
+  <link rel="stylesheet" href="site/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="nav"></div>
+
+  <main class="container">
+    <div class="section-header" style="margin-top: var(--space-xl);">
+      <h1 class="section-title">Market Intelligence Platform</h1>
+      <p class="section-subtitle">Track indexes, ETFs, and custom watchlists with sentiment analysis and professional charting.</p>
+    </div>
+
+    <div id="universe-cards" class="grid grid-3">
+      <div class="loading">Loading universes...</div>
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title">Quick Stats</h2>
+    </div>
+
+    <div id="stats-grid" class="grid grid-4">
+      <div class="card">
+        <div class="card-subtitle">Total Tickers</div>
+        <div class="card-metric" id="stat-tickers">—</div>
+      </div>
+      <div class="card">
+        <div class="card-subtitle">Universes Tracked</div>
+        <div class="card-metric" id="stat-universes">—</div>
+      </div>
+      <div class="card">
+        <div class="card-subtitle">Avg Sentiment</div>
+        <div class="card-metric" id="stat-sentiment">—</div>
+      </div>
+      <div class="card">
+        <div class="card-subtitle">Last Updated</div>
+        <div class="card-metric" id="stat-updated" style="font-size:1.25rem">—</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="site/app.js"></script>
+  <script>
+    const { UI, DataStore, formatNumber } = window.MIP;
+
+    UI.renderNav("home");
+    UI.renderUniverseCards("universe-cards");
+
+    // Populate quick stats
+    (async () => {
+      const universes = await DataStore.getUniverses();
+      if (universes) {
+        document.getElementById("stat-universes").textContent = universes.length;
+        const totalTickers = universes.reduce((sum, u) => sum + (u.ticker_count || 0), 0);
+        document.getElementById("stat-tickers").textContent = totalTickers;
+      }
+
+      const sentiment = await DataStore.getSentiment();
+      if (sentiment && sentiment.latest && sentiment.latest.length > 0) {
+        const avg = sentiment.latest.reduce((s, r) => s + r.Score, 0) / sentiment.latest.length;
+        const el = document.getElementById("stat-sentiment");
+        el.textContent = avg.toFixed(2);
+        el.style.color = window.MIP.sentimentColor(avg);
+      }
+
+      const prices = await DataStore.getPrices();
+      if (prices && prices.dates && prices.dates.length > 0) {
+        document.getElementById("stat-updated").textContent = prices.dates[prices.dates.length - 1];
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Dashboard — Market Intelligence</title>
+  <link rel="stylesheet" href="site/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+<body>
+  <div class="app" id="app"><div class="loading">Loading</div></div>
+  <script src="site/app.js"></script>
+  <script>
+    const { DataStore, UI, renderNav, renderFooter } = window.MIP;
+    async function init() {
+      const app = document.getElementById("app");
+      const [sentiment] = await Promise.all([DataStore.getSentiment()]);
+      const latest = sentiment?.latest || [];
+      const history = sentiment?.history || {};
+      const sorted = [...latest].sort((a,b) => b.Score - a.Score);
+      const bull = sorted.filter(s => s.Label?.includes("bullish"));
+      const bear = sorted.filter(s => s.Label?.includes("bearish"));
+      app.innerHTML = `
+        ${renderNav()}
+        <main class="main">
+          <h1 style="font-size:var(--text-2xl);margin-bottom:var(--sp-xs)">Sentiment Dashboard</h1>
+          <p style="color:var(--c-text-dim);margin-bottom:var(--sp-xl)">${latest.length} tickers analysed</p>
+          <div class="grid grid-3" style="margin-bottom:var(--sp-xl)">
+            <div class="card"><div class="card-subtitle">Most Bullish</div>${bull.slice(0,3).map(s=>`<div style="display:flex;justify-content:space-between;margin-top:var(--sp-xs)"><a href="ticker.html?t=${s.Ticker}" class="ticker">${s.Ticker}</a><span class="positive">${s.Score.toFixed(2)}</span></div>`).join("")||'<div class="empty-state">No data</div>'}</div>
+            <div class="card"><div class="card-subtitle">Most Bearish</div>${bear.slice(-3).reverse().map(s=>`<div style="display:flex;justify-content:space-between;margin-top:var(--sp-xs)"><a href="ticker.html?t=${s.Ticker}" class="ticker">${s.Ticker}</a><span class="negative">${s.Score.toFixed(2)}</span></div>`).join("")||'<div class="empty-state">No data</div>'}</div>
+            <div class="card"><div class="card-subtitle">Distribution</div><div style="margin-top:var(--sp-sm);font-size:var(--text-sm);color:var(--c-text-dim)"><span class="positive">▲ ${bull.length}</span> bullish · <span class="negative">▼ ${bear.length}</span> bearish · <span class="neutral">● ${latest.length-bull.length-bear.length}</span> neutral</div></div>
+          </div>
+          <div class="chart-container"><h3>Sentiment Heatmap (8-Week History)</h3><div id="heatmap" style="width:100%;min-height:500px"></div></div>
+          <div class="card"><div class="card-header"><span class="card-title">All Scores</span></div>
+            <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Ticker</th><th>Score</th><th>Label</th><th>Summary</th></tr></thead><tbody>${
+              sorted.map(s=>`<tr><td><a href="ticker.html?t=${s.Ticker}" class="ticker">${s.Ticker}</a></td><td class="${UI.sentimentClass(s.Label)}">${s.Score?.toFixed(2)??'—'}</td><td><span class="badge ${UI.sentimentBadge(s.Label)}">${s.Label||'—'}</span></td><td style="max-width:400px;font-size:var(--text-sm)">${s.Summary||'—'}</td></tr>`).join("")
+            }</tbody></table></div>
+          </div>
+        </main>
+        ${renderFooter()}`;
+      UI.setActiveNav("sentiment");
+      if (Object.keys(history).length) {
+        const tickers = Object.keys(history).sort();
+        const allDates = new Set(); tickers.forEach(t => history[t].forEach(r => allDates.add(r.Date)));
+        const dates = [...allDates].sort();
+        const data = []; tickers.forEach((tk, y) => dates.forEach((d, x) => {
+          const r = history[tk]?.find(r => r.Date === d); data.push([x, y, r ? r.Score : null]);
+        }));
+        const chart = echarts.init(document.getElementById("heatmap"), "dark");
+        chart.setOption({
+          backgroundColor:"#161b22",
+          tooltip:{formatter:p=>{const[x,y,v]=p.data;return`<b>${tickers[y]}</b><br>${dates[x]}<br>Score: ${v!=null?v.toFixed(2):'N/A'}`}},
+          grid:{left:80,right:20,top:10,bottom:60},
+          xAxis:{type:"category",data:dates,axisLabel:{color:"#8b949e",fontSize:10},splitLine:{show:false}},
+          yAxis:{type:"category",data:tickers,axisLabel:{color:"#8b949e",fontSize:10},splitLine:{show:false}},
+          visualMap:{min:-1,max:1,inRange:{color:["#f85149","#30363d","#3fb950"]},textStyle:{color:"#8b949e"},orient:"horizontal",left:"center",bottom:0},
+          series:[{type:"heatmap",data:data.filter(d=>d[2]!=null),itemStyle:{borderWidth:1,borderColor:"#0d1117"}}]
+        });
+        window.addEventListener("resize",()=>chart.resize());
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

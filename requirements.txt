@@ -1,0 +1,12 @@
+# ── Core Data ──
+yfinance>=0.2.36
+pandas>=2.2.0
+pyarrow>=15.0.0
+pyyaml>=6.0.1
+
+# ── Sentiment (optional — only needed for fetch_sentiment.py) ──
+tavily-python>=0.5.0
+anthropic>=0.40.0
+
+# ── Utilities ──
+requests>=2.31.0

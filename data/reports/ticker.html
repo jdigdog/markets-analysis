@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticker Detail — Market Intelligence</title>
+  <link rel="stylesheet" href="site/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app" id="app"><div class="loading">Loading</div></div>
+  <script src="https://unpkg.com/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="site/app.js"></script>
+  <script>
+    const { DataStore, State, Charts, UI, renderNav, renderFooter } = window.MIP;
+    async function init() {
+      const app = document.getElementById("app");
+      const t = State.get("t") || "AAPL";
+      const [prices, sentiment, fundamentals, universes] = await Promise.all([
+        DataStore.getPrices(), DataStore.getSentiment(), DataStore.getFundamentals(), DataStore.getUniverses(),
+      ]);
+      const pd = prices?.[t] || {};
+      const f = fundamentals?.find(x => x.Ticker === t) || {};
+      const s = sentiment?.latest?.find(x => x.Ticker === t);
+      const memberOf = [];
+      if (universes) { for (const u of universes) { const h = await DataStore.getHoldings(u.id); if (h?.some(r=>r.Ticker===t)) memberOf.push(u); } }
+      const lp = Object.values(pd).pop();
+      const entries = Object.entries(pd).sort((a,b)=>a[0].localeCompare(b[0]));
+      const fp = entries.length ? entries[0][1] : null;
+      const ch = (fp && lp) ? ((lp-fp)/fp) : null;
+      app.innerHTML = `
+        ${renderNav()}
+        <main class="main">
+          <div style="display:flex;align-items:baseline;gap:var(--sp-md);margin-bottom:var(--sp-xs)">
+            <h1 style="font-size:var(--text-2xl);font-family:var(--font-mono)">${t}</h1>
+            ${s?`<span class="badge ${UI.sentimentBadge(s.Label)}">${s.Label}</span>`:''}
+          </div>
+          <p style="color:var(--c-text-dim);margin-bottom:var(--sp-sm)">${f.shortName||t}</p>
+          <p style="color:var(--c-text-dim);font-size:var(--text-sm);margin-bottom:var(--sp-xl)">
+            ${f.sector||''} ${f.industry?'· '+f.industry:''}
+            ${memberOf.length?'· Member of '+memberOf.map(u=>`<a href="universe.html?id=${u.id}">${u.id}</a>`).join(', '):''}
+          </p>
+          <div class="chart-container"><h3>Price — 1 Year</h3><div id="chart" class="chart-area"></div></div>
+          <div class="grid grid-4" style="margin-bottom:var(--sp-lg)">
+            <div class="card"><div class="card-subtitle">Price</div><div class="card-title">${lp?'$'+lp.toFixed(2):'—'}</div>
+              ${ch!=null?`<div class="${ch>=0?'positive':'negative'}" style="font-size:var(--text-sm)">${UI.formatPct(ch)} 1Y</div>`:''}</div>
+            <div class="card"><div class="card-subtitle">Market Cap</div><div class="card-title">${f.marketCap?'$'+UI.formatNumber(f.marketCap):'—'}</div></div>
+            <div class="card"><div class="card-subtitle">P/E (TTM)</div><div class="card-title">${f.trailingPE?f.trailingPE.toFixed(1):'—'}</div>
+              <div style="font-size:var(--text-sm);color:var(--c-text-dim)">Fwd: ${f.forwardPE?f.forwardPE.toFixed(1):'—'}</div></div>
+            <div class="card"><div class="card-subtitle">Sentiment</div><div class="card-title">${s?s.Score.toFixed(2):'—'}</div>
+              ${s?`<div style="font-size:var(--text-sm);color:var(--c-text-dim)">${s.Summary||''}</div>`:''}</div>
+          </div>
+          <div class="card"><div class="card-header"><span class="card-title">Fundamentals</span></div>
+            <div class="grid grid-3" style="gap:var(--sp-md)">
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">EPS (TTM)</span><br><strong>${f.trailingEps??'—'}</strong></div>
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">EPS (Fwd)</span><br><strong>${f.forwardEps??'—'}</strong></div>
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">P/B</span><br><strong>${f.priceToBook?f.priceToBook.toFixed(2):'—'}</strong></div>
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">Div Yield</span><br><strong>${f.dividendYield?UI.formatPct(f.dividendYield):'—'}</strong></div>
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">Beta</span><br><strong>${f.beta?f.beta.toFixed(2):'—'}</strong></div>
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">Analyst Target</span><br><strong>${f.analystTargetPrice?'$'+f.analystTargetPrice.toFixed(2):'—'}</strong></div>
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">Rev Growth</span><br><strong>${f.revenueGrowth?UI.formatPct(f.revenueGrowth):'—'}</strong></div>
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">Earnings Growth</span><br><strong>${f.earningsGrowth?UI.formatPct(f.earningsGrowth):'—'}</strong></div>
+              <div><span style="color:var(--c-text-dim);font-size:var(--text-sm)">52W Range</span><br><strong>${f.fiftyTwoWeekLow?'$'+f.fiftyTwoWeekLow.toFixed(0)+' – $'+f.fiftyTwoWeekHigh.toFixed(0):'—'}</strong></div>
+            </div>
+          </div>
+        </main>
+        ${renderFooter()}`;
+      if (Object.keys(pd).length) Charts.createPriceChart(document.getElementById("chart"), pd);
+    }
+    init();
+  </script>
+</body>
+</html>
