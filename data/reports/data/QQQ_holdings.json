@@ -93,37 +93,37 @@
     "Ticker": "MU",
     "WeightPct": 2.50941,
     "Name": "Micron Technology Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 464126246912.0,
+    "PE": 39.198666
   },
   {
     "Ticker": "COST",
     "WeightPct": 2.346564,
     "Name": "Costco Wholesale Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Defensive",
+    "Industry": "Discount Stores",
+    "MarketCap": 448747995136.0,
+    "PE": 54.052937
   },
   {
     "Ticker": "NFLX",
     "WeightPct": 1.923362,
     "Name": "Netflix Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Communication Services",
+    "Industry": "Entertainment",
+    "MarketCap": 408239439872.0,
+    "PE": 38.039524
   },
   {
     "Ticker": "AMD",
     "WeightPct": 1.779362,
     "Name": "Advanced Micro Devices Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 326424559616.0,
+    "PE": 77.00385
   },
   {
     "Ticker": "PLTR",
@@ -138,163 +138,163 @@
     "Ticker": "CSCO",
     "WeightPct": 1.655842,
     "Name": "Cisco Systems Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Communication Equipment",
+    "MarketCap": 313953976320.0,
+    "PE": 28.582733
   },
   {
     "Ticker": "LRCX",
     "WeightPct": 1.611298,
     "Name": "Lam Research Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductor Equipment & Materials",
+    "MarketCap": 293772853248.0,
+    "PE": 48.12551
   },
   {
     "Ticker": "AMAT",
     "WeightPct": 1.608092,
     "Name": "Applied Materials Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductor Equipment & Materials",
+    "MarketCap": 295460929536.0,
+    "PE": 38.184612
   },
   {
     "Ticker": "TMUS",
     "WeightPct": 1.279307,
     "Name": "T-Mobile US Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Communication Services",
+    "Industry": "Telecom Services",
+    "MarketCap": 242816598016.0,
+    "PE": 22.311409
   },
   {
     "Ticker": "LIN",
     "WeightPct": 1.249089,
     "Name": "Linde PLC",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Basic Materials",
+    "Industry": "Specialty Chemicals",
+    "MarketCap": 235441291264.0,
+    "PE": 34.728638
   },
   {
     "Ticker": "PEP",
     "WeightPct": 1.229559,
     "Name": "PepsiCo Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Defensive",
+    "Industry": "Beverages - Non-Alcoholic",
+    "MarketCap": 232092319744.0,
+    "PE": 28.33723
   },
   {
     "Ticker": "INTC",
     "WeightPct": 1.163585,
     "Name": "Intel Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 227830087680.0,
     "PE": NaN
   },
   {
     "Ticker": "AMGN",
     "WeightPct": 1.103347,
     "Name": "Amgen Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Drug Manufacturers - General",
+    "MarketCap": 209136680960.0,
+    "PE": 27.225262
   },
   {
     "Ticker": "KLAC",
     "WeightPct": 1.076056,
     "Name": "KLA Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductor Equipment & Materials",
+    "MarketCap": 200314191872.0,
+    "PE": 44.447525
   },
   {
     "Ticker": "TXN",
     "WeightPct": 1.036714,
     "Name": "Texas Instruments Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 192728039424.0,
+    "PE": 38.919266
   },
   {
     "Ticker": "ISRG",
     "WeightPct": 0.964199,
     "Name": "Intuitive Surgical Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Medical Instruments & Supplies",
+    "MarketCap": 178811633664.0,
+    "PE": 64.1414
   },
   {
     "Ticker": "GILD",
     "WeightPct": 0.957147,
     "Name": "Gilead Sciences Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Drug Manufacturers - General",
+    "MarketCap": 184909578240.0,
+    "PE": 21.969025
   },
   {
     "Ticker": "ADI",
     "WeightPct": 0.931048,
     "Name": "Analog Devices Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 174214037504.0,
+    "PE": 78.1956
   },
   {
     "Ticker": "QCOM",
     "WeightPct": 0.836703,
     "Name": "QUALCOMM Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 152046911488.0,
+    "PE": 28.759598
   },
   {
     "Ticker": "SHOP",
     "WeightPct": 0.826226,
     "Name": "Shopify Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 157562748928.0,
+    "PE": 128.43617
   },
   {
     "Ticker": "HON",
     "WeightPct": 0.820631,
     "Name": "Honeywell International Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Conglomerates",
+    "MarketCap": 164147920896.0,
+    "PE": 32.135883
   },
   {
     "Ticker": "BKNG",
     "WeightPct": 0.735142,
     "Name": "Booking Holdings Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Travel Services",
+    "MarketCap": 136650432512.0,
+    "PE": 25.575232
   },
   {
     "Ticker": "APP",
     "WeightPct": 0.734387,
     "Name": "AppLovin Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Communication Services",
+    "Industry": "Advertising Agencies",
+    "MarketCap": 146932695040.0,
+    "PE": 43.303783
   },
   {
     "Ticker": "ASML",
@@ -309,487 +309,487 @@
     "Ticker": "VRTX",
     "WeightPct": 0.653675,
     "Name": "Vertex Pharmaceuticals Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Biotechnology",
+    "MarketCap": 126194819072.0,
+    "PE": 32.47255
   },
   {
     "Ticker": "PANW",
     "WeightPct": 0.653654,
     "Name": "Palo Alto Networks Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 121518718976.0,
+    "PE": 82.73334
   },
   {
     "Ticker": "CEG",
     "WeightPct": 0.629129,
     "Name": "Constellation Energy Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Utilities",
+    "Industry": "Utilities - Independent Power Producers",
+    "MarketCap": 119413374976.0,
+    "PE": 44.638702
   },
   {
     "Ticker": "SBUX",
     "WeightPct": 0.602234,
     "Name": "Starbucks Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Restaurants",
+    "MarketCap": 111674179584.0,
+    "PE": 81.68333
   },
   {
     "Ticker": "CMCSA",
     "WeightPct": 0.601651,
     "Name": "Comcast Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Communication Services",
+    "Industry": "Telecom Services",
+    "MarketCap": 112814972928.0,
+    "PE": 5.7439704
   },
   {
     "Ticker": "INTU",
     "WeightPct": 0.588956,
     "Name": "Intuit Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 113873952768.0,
+    "PE": 28.092718
   },
   {
     "Ticker": "ADBE",
     "WeightPct": 0.581857,
     "Name": "Adobe Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 109844824064.0,
+    "PE": 15.722589
   },
   {
     "Ticker": "WDC",
     "WeightPct": 0.517825,
     "Name": "Western Digital Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Computer Hardware",
+    "MarketCap": 95629238272.0,
+    "PE": 26.461685
   },
   {
     "Ticker": "CRWD",
     "WeightPct": 0.5132,
     "Name": "Crowdstrike Holdings Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 93775577088.0,
     "PE": NaN
   },
   {
     "Ticker": "MAR",
     "WeightPct": 0.505777,
     "Name": "Marriott International Inc/MD",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Lodging",
+    "MarketCap": 90553180160.0,
+    "PE": 35.97158
   },
   {
     "Ticker": "ADP",
     "WeightPct": 0.4739,
     "Name": "Automatic Data Processing Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 86697631744.0,
+    "PE": 20.571978
   },
   {
     "Ticker": "MELI",
     "WeightPct": 0.47359,
     "Name": "MercadoLibre Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Internet Retail",
+    "MarketCap": 89104351232.0,
+    "PE": 44.64262
   },
   {
     "Ticker": "STX",
     "WeightPct": 0.469464,
     "Name": "Seagate Technology Holdings PLC",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Computer Hardware",
+    "MarketCap": 88938921984.0,
+    "PE": 46.083614
   },
   {
     "Ticker": "MNST",
     "WeightPct": 0.454332,
     "Name": "Monster Beverage Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Defensive",
+    "Industry": "Beverages - Non-Alcoholic",
+    "MarketCap": 83339911168.0,
+    "PE": 48.46591
   },
   {
     "Ticker": "CDNS",
     "WeightPct": 0.434684,
     "Name": "Cadence Design Systems Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 82177015808.0,
+    "PE": 74.05405
   },
   {
     "Ticker": "CTAS",
     "WeightPct": 0.428544,
     "Name": "Cintas Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Specialty Business Services",
+    "MarketCap": 80827449344.0,
+    "PE": 43.440605
   },
   {
     "Ticker": "REGN",
     "WeightPct": 0.427705,
     "Name": "Regeneron Pharmaceuticals Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Biotechnology",
+    "MarketCap": 82638004224.0,
+    "PE": 18.830885
   },
   {
     "Ticker": "CSX",
     "WeightPct": 0.426168,
     "Name": "CSX Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Railroads",
+    "MarketCap": 79384477696.0,
+    "PE": 27.72078
   },
   {
     "Ticker": "SNPS",
     "WeightPct": 0.424605,
     "Name": "Synopsys Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 79205736448.0,
+    "PE": 51.301117
   },
   {
     "Ticker": "MDLZ",
     "WeightPct": 0.415028,
     "Name": "Mondelez International Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Defensive",
+    "Industry": "Confectioners",
+    "MarketCap": 79460278272.0,
+    "PE": 32.582012
   },
   {
     "Ticker": "ORLY",
     "WeightPct": 0.413675,
     "Name": "O'Reilly Automotive Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Auto Parts",
+    "MarketCap": 79244484608.0,
+    "PE": 31.609426
   },
   {
     "Ticker": "DASH",
     "WeightPct": 0.393309,
     "Name": "DoorDash Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Internet Retail",
+    "MarketCap": 76663218176.0,
+    "PE": 82.462616
   },
   {
     "Ticker": "WBD",
     "WeightPct": 0.38292,
     "Name": "Warner Bros Discovery Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Communication Services",
+    "Industry": "Entertainment",
+    "MarketCap": 69858426880.0,
+    "PE": 148.26315
   },
   {
     "Ticker": "AEP",
     "WeightPct": 0.381294,
     "Name": "American Electric Power Co Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Utilities",
+    "Industry": "Utilities - Regulated Electric",
+    "MarketCap": 72378089472.0,
+    "PE": 20.093094
   },
   {
     "Ticker": "PDD",
     "WeightPct": 0.377693,
     "Name": "PDD Holdings Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Internet Retail",
+    "MarketCap": 147259932672.0,
+    "PE": 10.341974
   },
   {
     "Ticker": "MRVL",
     "WeightPct": 0.36675,
     "Name": "Marvell Technology Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 69281292288.0,
+    "PE": 28.764086
   },
   {
     "Ticker": "ROST",
     "WeightPct": 0.35508,
     "Name": "Ross Stores Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Apparel Retail",
+    "MarketCap": 66879528960.0,
+    "PE": 32.181534
   },
   {
     "Ticker": "PCAR",
     "WeightPct": 0.350565,
     "Name": "PACCAR Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Farm & Heavy Construction Machinery",
+    "MarketCap": 66310025216.0,
+    "PE": 27.957869
   },
   {
     "Ticker": "BKR",
     "WeightPct": 0.344803,
     "Name": "Baker Hughes Co",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Energy",
+    "Industry": "Oil & Gas Equipment & Services",
+    "MarketCap": 64492314624.0,
+    "PE": 25.100002
   },
   {
     "Ticker": "FTNT",
     "WeightPct": 0.316012,
     "Name": "Fortinet Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 60558004224.0,
+    "PE": 32.657024
   },
   {
     "Ticker": "NXPI",
     "WeightPct": 0.313609,
     "Name": "NXP Semiconductors NV",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 57363800064.0,
+    "PE": 28.554716
   },
   {
     "Ticker": "ABNB",
     "WeightPct": 0.312538,
     "Name": "Airbnb Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Cyclical",
+    "Industry": "Travel Services",
+    "MarketCap": 81000333312.0,
+    "PE": 33.526054
   },
   {
     "Ticker": "MPWR",
     "WeightPct": 0.303359,
     "Name": "Monolithic Power Systems Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 55661723648.0,
+    "PE": 89.27656
   },
   {
     "Ticker": "FER",
     "WeightPct": 0.291596,
     "Name": "Ferrovial SE",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Engineering & Construction",
+    "MarketCap": 53482098688.0,
+    "PE": 52.013985
   },
   {
     "Ticker": "IDXX",
     "WeightPct": 0.283049,
     "Name": "IDEXX Laboratories Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Diagnostics & Research",
+    "MarketCap": 52541480960.0,
+    "PE": 50.24713
   },
   {
     "Ticker": "FAST",
     "WeightPct": 0.28136,
     "Name": "Fastenal Co",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Industrial Distribution",
+    "MarketCap": 52862173184.0,
+    "PE": 42.238533
   },
   {
     "Ticker": "EA",
     "WeightPct": 0.270049,
     "Name": "Electronic Arts Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Communication Services",
+    "Industry": "Electronic Gaming & Multimedia",
+    "MarketCap": 50193387520.0,
+    "PE": 75.11985
   },
   {
     "Ticker": "CCEP",
     "WeightPct": 0.266345,
     "Name": "Coca-Cola Europacific Partners PLC",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Defensive",
+    "Industry": "Beverages - Non-Alcoholic",
+    "MarketCap": 49676181504.0,
+    "PE": 21.910715
   },
   {
     "Ticker": "ADSK",
     "WeightPct": 0.265503,
     "Name": "Autodesk Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 52370309120.0,
+    "PE": 47.83463
   },
   {
     "Ticker": "XEL",
     "WeightPct": 0.264894,
     "Name": "Xcel Energy Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Utilities",
+    "Industry": "Utilities - Regulated Electric",
+    "MarketCap": 49310756864.0,
+    "PE": 24.37427
   },
   {
     "Ticker": "EXC",
     "WeightPct": 0.264495,
     "Name": "Exelon Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Utilities",
+    "Industry": "Utilities - Regulated Electric",
+    "MarketCap": 50602500096.0,
+    "PE": 18.12088
   },
   {
     "Ticker": "FANG",
     "WeightPct": 0.256674,
     "Name": "Diamondback Energy Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Energy",
+    "Industry": "Oil & Gas E&P",
+    "MarketCap": 49878376448.0,
+    "PE": 30.380453
   },
   {
     "Ticker": "TRI",
     "WeightPct": 0.23992,
     "Name": "Thomson Reuters Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Specialty Business Services",
+    "MarketCap": 42902450176.0,
+    "PE": 29.303953
   },
   {
     "Ticker": "ALNY",
     "WeightPct": 0.234743,
     "Name": "Alnylam Pharmaceuticals Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Biotechnology",
+    "MarketCap": 44152897536.0,
+    "PE": 142.88412
   },
   {
     "Ticker": "AXON",
     "WeightPct": 0.232818,
     "Name": "Axon Enterprise Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Aerospace & Defense",
+    "MarketCap": 43607699456.0,
+    "PE": 356.84213
   },
   {
     "Ticker": "PYPL",
     "WeightPct": 0.228498,
     "Name": "PayPal Holdings Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Financial Services",
+    "Industry": "Credit Services",
+    "MarketCap": 43236474880.0,
+    "PE": 8.54159
   },
   {
     "Ticker": "ODFL",
     "WeightPct": 0.222486,
     "Name": "Old Dominion Freight Line Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Trucking",
+    "MarketCap": 42674642944.0,
+    "PE": 41.95248
   },
   {
     "Ticker": "KDP",
     "WeightPct": 0.221025,
     "Name": "Keurig Dr Pepper Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Consumer Defensive",
+    "Industry": "Beverages - Non-Alcoholic",
+    "MarketCap": 41137897472.0,
+    "PE": 26.103449
   },
   {
     "Ticker": "MCHP",
     "WeightPct": 0.218663,
     "Name": "Microchip Technology Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Technology",
+    "Industry": "Semiconductors",
+    "MarketCap": 40390352896.0,
     "PE": NaN
   },
   {
     "Ticker": "TTWO",
     "WeightPct": 0.211367,
     "Name": "Take-Two Interactive Software Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Communication Services",
+    "Industry": "Electronic Gaming & Multimedia",
+    "MarketCap": 39160905728.0,
     "PE": NaN
   },
   {
     "Ticker": "GEHC",
     "WeightPct": 0.205029,
     "Name": "GE HealthCare Technologies Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Medical Devices",
+    "MarketCap": 38406029312.0,
+    "PE": 18.520878
   },
   {
     "Ticker": "ROP",
     "WeightPct": 0.203282,
     "Name": "Roper Technologies Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 37644042240.0,
+    "PE": 24.628874
   },
   {
     "Ticker": "DDOG",
     "WeightPct": 0.203245,
     "Name": "Datadog Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 39474417664.0,
+    "PE": 361.1613
   },
   {
     "Ticker": "CPRT",
     "WeightPct": 0.19285,
     "Name": "Copart Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Specialty Business Services",
+    "MarketCap": 36871794688.0,
+    "PE": 23.3681
   },
   {
     "Ticker": "MSTR",
@@ -804,91 +804,91 @@
     "Ticker": "PAYX",
     "WeightPct": 0.184433,
     "Name": "Paychex Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 33617303552.0,
+    "PE": 21.187782
   },
   {
     "Ticker": "INSM",
     "WeightPct": 0.171549,
     "Name": "Insmed Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Healthcare",
+    "Industry": "Biotechnology",
+    "MarketCap": 31848128512.0,
     "PE": NaN
   },
   {
     "Ticker": "CTSH",
     "WeightPct": 0.168124,
     "Name": "Cognizant Technology Solutions Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Information Technology Services",
+    "MarketCap": 31096911872.0,
+    "PE": 14.129386
   },
   {
     "Ticker": "WDAY",
     "WeightPct": 0.158848,
     "Name": "Workday Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 35713916928.0,
+    "PE": 56.43882
   },
   {
     "Ticker": "CHTR",
     "WeightPct": 0.158459,
     "Name": "Charter Communications Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Communication Services",
+    "Industry": "Telecom Services",
+    "MarketCap": 30363320320.0,
+    "PE": 6.477913
   },
   {
     "Ticker": "KHC",
     "WeightPct": 0.155922,
     "Name": "Kraft Heinz Co/The",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Consumer Defensive",
+    "Industry": "Packaged Foods",
+    "MarketCap": 29131960320.0,
     "PE": NaN
   },
   {
     "Ticker": "DXCM",
     "WeightPct": 0.155518,
     "Name": "Dexcom Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Healthcare",
+    "Industry": "Medical Devices",
+    "MarketCap": 28638894080.0,
+    "PE": 35.133972
   },
   {
     "Ticker": "VRSK",
     "WeightPct": 0.15139,
     "Name": "Verisk Analytics Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Industrials",
+    "Industry": "Consulting Services",
+    "MarketCap": 29000638464.0,
+    "PE": 31.933847
   },
   {
     "Ticker": "ZS",
     "WeightPct": 0.143036,
     "Name": "Zscaler Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Technology",
+    "Industry": "Software - Infrastructure",
+    "MarketCap": 23440672768.0,
     "PE": NaN
   },
   {
     "Ticker": "CSGP",
     "WeightPct": 0.102206,
     "Name": "CoStar Group Inc",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
-    "PE": NaN
+    "Sector": "Real Estate",
+    "Industry": "Real Estate Services",
+    "MarketCap": 18915211264.0,
+    "PE": 743.8334
   },
   {
     "Ticker": "ARM",
@@ -903,9 +903,9 @@
     "Ticker": "TEAM",
     "WeightPct": 0.071623,
     "Name": "Atlassian Corp",
-    "Sector": NaN,
-    "Industry": NaN,
-    "MarketCap": NaN,
+    "Sector": "Technology",
+    "Industry": "Software - Application",
+    "MarketCap": 19815092224.0,
     "PE": NaN
   },
   {
@@ -915,6 +915,6 @@
     "Sector": NaN,
     "Industry": NaN,
     "MarketCap": NaN,
-    "PE": NaN
+    "PE": 40.18367
   }
 ]

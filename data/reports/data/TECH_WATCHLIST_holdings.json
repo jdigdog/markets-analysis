@@ -5,7 +5,7 @@
     "WeightPct": 20.0,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 1942760849408,
+    "MarketCap": 1942760849408.0,
     "PE": 35.337734
   },
   {
@@ -14,7 +14,7 @@
     "WeightPct": 20.0,
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 43220975616,
+    "MarketCap": 43220975616.0,
     "PE": NaN
   },
   {
@@ -23,7 +23,7 @@
     "WeightPct": 20.0,
     "Sector": "Financial Services",
     "Industry": "Financial Data & Stock Exchanges",
-    "MarketCap": 47419289600,
+    "MarketCap": 47419289600.0,
     "PE": 39.516857
   },
   {
@@ -32,7 +32,7 @@
     "WeightPct": 20.0,
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 328113979392,
+    "MarketCap": 328113979392.0,
     "PE": 217.76192
   },
   {
@@ -41,7 +41,7 @@
     "WeightPct": 20.0,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 135351713792,
+    "MarketCap": 135351713792.0,
     "PE": 169.93333
   }
 ]
