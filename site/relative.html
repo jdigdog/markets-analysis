@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relative Performance — Markets Analysis</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+  <style>
+    /* ── Page-specific styles ─────────────────────────────────── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+      padding: var(--space-md) var(--space-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-lg);
+    }
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .filter-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .filter-select {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8125rem;
+      font-family: var(--font-sans);
+      cursor: pointer;
+    }
+    .filter-select:focus { outline: none; border-color: var(--accent-blue); }
+    .filter-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      margin: 0 var(--space-xs);
+    }
+
+    /* Stats strip */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+    @media (max-width: 700px) { .stats-strip { grid-template-columns: repeat(2, 1fr); } }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+    }
+    .stat-card-label { font-size: 0.6875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .stat-card-value { font-size: 1.375rem; font-weight: 700; font-family: var(--font-mono); }
+    .stat-card-sub { font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px; }
+
+    /* Legend */
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      padding: var(--space-sm) var(--space-md);
+      border-top: 1px solid var(--border);
+      max-height: 80px;
+      overflow-y: auto;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      user-select: none;
+    }
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-item.faded { opacity: 0.3; }
+
+    /* Crossing badges */
+    .crossing-up   { color: var(--accent-green); }
+    .crossing-down { color: var(--accent-red); }
+
+    /* Table */
+    .rel-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .rel-table th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .rel-table th:hover { color: var(--text-primary); }
+    .rel-table th.sorted { color: var(--accent-blue); }
+    .rel-table th.sorted::after { content: " ↓"; }
+    .rel-table th.sorted.asc::after { content: " ↑"; }
+    .rel-table td {
+      padding: 7px 12px;
+      border-bottom: 1px solid var(--border-subtle, #21262d);
+      vertical-align: middle;
+    }
+    .rel-table tr:last-child td { border-bottom: none; }
+    .rel-table tr:hover td { background: var(--bg-hover, rgba(255,255,255,0.03)); }
+    .rel-table td.mono { font-family: var(--font-mono); }
+    .rel-bar-cell { width: 120px; }
+    .rel-bar-wrap { position: relative; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .rel-bar { position: absolute; top: 0; height: 100%; border-radius: 3px; }
+    .rel-bar.pos { background: var(--accent-green); left: 50%; }
+    .rel-bar.neg { background: var(--accent-red); right: 50%; }
+    .crossing-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+    }
+    .pill-above { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+    .pill-below { background: rgba(248, 81, 73, 0.15); color: var(--accent-red); }
+    .pill-neutral { background: var(--bg-secondary); color: var(--text-muted); }
+    .empty-chart { display: flex; align-items: center; justify-content: center; height: 420px; color: var(--text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div id="nav"></div>
+
+  <main class="container">
+
+    <!-- Header -->
+    <div class="section-header" style="margin-top: var(--space-xl);">
+      <div style="display:flex; align-items:center; gap:var(--space-md); flex-wrap:wrap;">
+        <div>
+          <h1 class="section-title" id="page-title">Relative Performance</h1>
+          <p class="section-subtitle" id="page-subtitle">Holdings performance vs benchmark — crossings above/below the baseline</p>
+        </div>
+        <select id="universe-select" class="filter-select" style="margin-left:auto; font-size:0.9rem; padding:6px 14px;">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats-strip">
+      <div class="stat-card">
+        <div class="stat-card-label">Outperforming</div>
+        <div class="stat-card-value" id="stat-above" style="color:var(--accent-green)">—</div>
+        <div class="stat-card-sub" id="stat-above-sub">vs benchmark</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Underperforming</div>
+        <div class="stat-card-value" id="stat-below" style="color:var(--accent-red)">—</div>
+        <div class="stat-card-sub" id="stat-below-sub">vs benchmark</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Top Outperformer</div>
+        <div class="stat-card-value" id="stat-best" style="color:var(--accent-green)">—</div>
+        <div class="stat-card-sub" id="stat-best-ticker">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Top Underperformer</div>
+        <div class="stat-card-value" id="stat-worst" style="color:var(--accent-red)">—</div>
+        <div class="stat-card-sub" id="stat-worst-ticker">—</div>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <span class="filter-label">Window</span>
+        <div style="display:flex; gap:4px;">
+          <button class="chart-btn" data-window="1M">1M</button>
+          <button class="chart-btn" data-window="3M">3M</button>
+          <button class="chart-btn active" data-window="1Y">1Y</button>
+        </div>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Show</span>
+        <div style="display:flex; gap:4px;">
+          <button class="chart-btn active" data-view="top10">Top 10</button>
+          <button class="chart-btn" data-view="bottom10">Bottom 10</button>
+          <button class="chart-btn" data-view="both10">Both</button>
+          <button class="chart-btn" data-view="all">All</button>
+        </div>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Sector</span>
+        <select id="sector-filter" class="filter-select">
+          <option value="">All Sectors</option>
+        </select>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Search</span>
+        <input type="text" id="ticker-search" placeholder="AAPL, MSFT…"
+          style="background:var(--bg-secondary);border:1px solid var(--border);color:var(--text-primary);
+                 padding:5px 10px;border-radius:var(--radius-sm);font-size:0.8125rem;font-family:var(--font-mono);
+                 width:160px;">
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="chart-container">
+      <div class="chart-header">
+        <span class="chart-title" id="chart-title">Relative Performance vs Benchmark (1Y)</span>
+        <span style="font-size:0.75rem;color:var(--text-muted)">0% line = benchmark · green above = outperforming</span>
+      </div>
+      <div id="rel-chart" style="height: 460px;"></div>
+      <div id="chart-legend" class="chart-legend"></div>
+    </div>
+
+    <!-- Crossings summary -->
+    <div class="section-header" style="margin-top: var(--space-xl);">
+      <h2 class="section-title">Benchmark Crossings & Rankings</h2>
+      <p class="section-subtitle">Sorted by current relative performance. Click column headers to re-sort.</p>
+    </div>
+    <div class="card" style="padding:0; overflow:hidden;">
+      <div style="overflow-x:auto;">
+        <table class="rel-table" id="rel-table">
+          <thead>
+            <tr>
+              <th data-sort="ticker">Ticker</th>
+              <th data-sort="name">Name</th>
+              <th data-sort="sector">Sector</th>
+              <th data-sort="relPerf" class="sorted">Rel Perf</th>
+              <th data-sort="relPerf" style="text-align:left">Bar</th>
+              <th data-sort="crossings">Crossings</th>
+              <th data-sort="status">Status</th>
+            </tr>
+          </thead>
+          <tbody id="rel-tbody">
+            <tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-muted)">Loading data…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    const MIP = window.MIP;
+    MIP.UI.renderNav("relative");
+
+    // ── State ─────────────────────────────────────────────────
+    let universeId   = MIP.getUrlParam("id") || "QQQ";
+    let currentWindow = "1Y";
+    let currentView   = "top10";
+    let currentSector = "";
+    let searchFilter  = "";
+    let sortKey       = "relPerf";
+    let sortAsc       = false;
+
+    let pricesData    = null;
+    let holdingsData  = null;
+    let allUniverses  = null;
+    let computedRows  = [];   // full computed table rows
+    let chart         = null;
+    let seriesMap     = {};   // ticker → series
+
+    const COLOURS_POS = ["#3fb950","#56d364","#85e89d","#a0f0b5","#c6f5cc","#e2fbea","#b8f0c0","#74d680","#4ecb62","#2ea44f"];
+    const COLOURS_NEG = ["#f85149","#ff7b72","#ffa19d","#ffbdba","#ffd3d0","#ffe5e4","#ffa8a0","#ff8b85","#ff6b62","#e03c35"];
+
+    function daysForWindow(w) {
+      if (w === "1M") return 30;
+      if (w === "3M") return 90;
+      return 365;
+    }
+
+    // ── Core computation ──────────────────────────────────────
+    function computeRelPerf(dates, tickerPrices, benchPrices, cutoffStr) {
+      const data = [];
+      let tBase = null, bBase = null;
+      for (let i = 0; i < dates.length; i++) {
+        if (dates[i] < cutoffStr) continue;
+        const tp = tickerPrices[i], bp = benchPrices[i];
+        if (tp == null || bp == null) continue;
+        if (tBase === null) { tBase = tp; bBase = bp; }
+        const tRet = (tp - tBase) / tBase * 100;
+        const bRet = (bp - bBase) / bBase * 100;
+        data.push({ time: dates[i], value: parseFloat((tRet - bRet).toFixed(4)) });
+      }
+      return data;
+    }
+
+    function findCrossings(data) {
+      const crossings = [];
+      for (let i = 1; i < data.length; i++) {
+        const prev = data[i - 1].value, curr = data[i].value;
+        if (prev <= 0 && curr > 0) crossings.push({ ...data[i], dir: "above" });
+        else if (prev >= 0 && curr < 0) crossings.push({ ...data[i], dir: "below" });
+      }
+      return crossings;
+    }
+
+    function buildRows(cutoffStr) {
+      if (!pricesData || !holdingsData) return [];
+      const benchTicker = allUniverses?.find(u => u.id === universeId)?.benchmark || universeId;
+      const benchPrices = pricesData.tickers[benchTicker];
+      if (!benchPrices) return [];
+
+      return holdingsData.map(h => {
+        const tp = pricesData.tickers[h.Ticker];
+        if (!tp) return null;
+        const relData = computeRelPerf(pricesData.dates, tp, benchPrices, cutoffStr);
+        if (!relData.length) return null;
+        const currentRelPerf = relData[relData.length - 1].value;
+        const crossings = findCrossings(relData);
+        const lastCrossing = crossings.length ? crossings[crossings.length - 1] : null;
+        return {
+          ticker:      h.Ticker,
+          name:        h.Name || h.Ticker,
+          sector:      h.Sector || "—",
+          weightPct:   h.WeightPct || 0,
+          relPerf:     currentRelPerf,
+          relData,
+          crossings,
+          lastCrossing,
+          status:      currentRelPerf > 0 ? "above" : currentRelPerf < 0 ? "below" : "neutral",
+        };
+      }).filter(Boolean);
+    }
+
+    function applyFilters(rows) {
+      let filtered = [...rows];
+
+      // Sector filter
+      if (currentSector) {
+        filtered = filtered.filter(r => r.sector === currentSector);
+      }
+
+      // Search filter
+      if (searchFilter) {
+        const q = searchFilter.toUpperCase();
+        filtered = filtered.filter(r => r.ticker.includes(q) || r.name.toUpperCase().includes(q));
+      }
+
+      // Sort
+      filtered.sort((a, b) => {
+        let va = a[sortKey], vb = b[sortKey];
+        if (typeof va === "string") va = va.toLowerCase(), vb = vb.toLowerCase();
+        if (sortKey === "crossings") { va = a.crossings.length; vb = b.crossings.length; }
+        if (sortKey === "status") { va = a.relPerf; vb = b.relPerf; }
+        return sortAsc ? (va > vb ? 1 : -1) : (va < vb ? 1 : -1);
+      });
+
+      // View filter (applied after sort so top/bottom are meaningful)
+      if (currentView === "top10") {
+        filtered = [...filtered].sort((a, b) => b.relPerf - a.relPerf).slice(0, 10);
+      } else if (currentView === "bottom10") {
+        filtered = [...filtered].sort((a, b) => a.relPerf - b.relPerf).slice(0, 10);
+      } else if (currentView === "both10") {
+        const sorted = [...filtered].sort((a, b) => b.relPerf - a.relPerf);
+        const top5 = sorted.slice(0, 5);
+        const bot5 = sorted.slice(-5).reverse();
+        const seen = new Set(top5.map(r => r.ticker));
+        filtered = [...top5, ...bot5.filter(r => !seen.has(r.ticker))];
+      }
+
+      return filtered;
+    }
+
+    // ── Chart rendering ───────────────────────────────────────
+    function renderChart(filteredRows) {
+      const el = document.getElementById("rel-chart");
+      if (!el) return;
+      el.innerHTML = "";
+      seriesMap = {};
+
+      if (!filteredRows.length) {
+        el.innerHTML = '<div class="empty-chart">No data for current filters</div>';
+        document.getElementById("chart-legend").innerHTML = "";
+        return;
+      }
+
+      chart = LightweightCharts.createChart(el, {
+        width: el.clientWidth,
+        height: 460,
+        layout: { background: { color: "#1c2128" }, textColor: "#8b949e", fontFamily: "'Inter', sans-serif" },
+        grid: { vertLines: { color: "#21262d" }, horzLines: { color: "#21262d" } },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: {
+          borderColor: "#30363d",
+          scaleMargins: { top: 0.1, bottom: 0.1 },
+        },
+        timeScale: { borderColor: "#30363d", timeVisible: false },
+      });
+
+      new ResizeObserver(() => { if (chart) chart.applyOptions({ width: el.clientWidth }); }).observe(el);
+
+      // 0 baseline (dashed gray)
+      const baselineSeries = chart.addLineSeries({
+        color: "#6e7681",
+        lineWidth: 1,
+        lineStyle: 1, // dashed
+        crosshairMarkerVisible: false,
+        lastValueVisible: false,
+        priceLineVisible: false,
+        title: "Benchmark",
+      });
+      if (filteredRows[0]?.relData?.length) {
+        baselineSeries.setData(filteredRows[0].relData.map(d => ({ time: d.time, value: 0 })));
+      }
+
+      // Sort rows by relPerf to assign colours (top = green, bottom = red)
+      const sorted = [...filteredRows].sort((a, b) => b.relPerf - a.relPerf);
+      const posRows = sorted.filter(r => r.relPerf >= 0);
+      const negRows = sorted.filter(r => r.relPerf < 0).reverse();
+
+      const colourMap = {};
+      posRows.forEach((r, i) => colourMap[r.ticker] = COLOURS_POS[i % COLOURS_POS.length]);
+      negRows.forEach((r, i) => colourMap[r.ticker] = COLOURS_NEG[i % COLOURS_NEG.length]);
+
+      filteredRows.forEach(row => {
+        const colour = colourMap[row.ticker] || "#58a6ff";
+        const series = chart.addLineSeries({
+          color: colour,
+          lineWidth: row.relPerf >= 0 ? 1.5 : 1.5,
+          crosshairMarkerVisible: true,
+          priceFormat: { type: "custom", formatter: v => v.toFixed(2) + "%" },
+          lastValueVisible: true,
+          title: row.ticker,
+        });
+        series.setData(row.relData);
+
+        // Add crossing markers
+        if (row.crossings.length) {
+          series.setMarkers(row.crossings.map(c => ({
+            time: c.time,
+            position: c.dir === "above" ? "belowBar" : "aboveBar",
+            color: c.dir === "above" ? "#3fb950" : "#f85149",
+            shape: c.dir === "above" ? "arrowUp" : "arrowDown",
+            text: row.ticker,
+            size: 1,
+          })));
+        }
+
+        seriesMap[row.ticker] = { series, colour, faded: false };
+      });
+
+      chart.timeScale().fitContent();
+
+      // Legend
+      const legendEl = document.getElementById("chart-legend");
+      legendEl.innerHTML = sorted.map(row => {
+        const colour = colourMap[row.ticker] || "#58a6ff";
+        const sign = row.relPerf >= 0 ? "+" : "";
+        return `<span class="legend-item" data-ticker="${row.ticker}" title="${row.name}">
+          <span class="legend-dot" style="background:${colour}"></span>
+          ${row.ticker} <span style="color:${colour};font-family:var(--font-mono);font-size:0.7rem">${sign}${row.relPerf.toFixed(1)}%</span>
+        </span>`;
+      }).join("");
+
+      // Legend click to toggle
+      legendEl.querySelectorAll(".legend-item").forEach(el => {
+        el.addEventListener("click", () => {
+          const t = el.dataset.ticker;
+          const entry = seriesMap[t];
+          if (!entry) return;
+          entry.faded = !entry.faded;
+          entry.series.applyOptions({ color: entry.faded ? "#333" : entry.colour });
+          el.classList.toggle("faded", entry.faded);
+        });
+      });
+    }
+
+    // ── Table rendering ───────────────────────────────────────
+    function renderTable(filteredRows) {
+      const maxAbs = Math.max(...filteredRows.map(r => Math.abs(r.relPerf)), 0.01);
+      const tbody = document.getElementById("rel-tbody");
+
+      tbody.innerHTML = filteredRows.length ? filteredRows.map(row => {
+        const sign = row.relPerf >= 0 ? "+" : "";
+        const color = row.relPerf >= 0 ? "var(--accent-green)" : "var(--accent-red)";
+        const barPct = Math.abs(row.relPerf) / maxAbs * 50;
+
+        const lastX = row.lastCrossing;
+        let crossingHTML = `<span class="crossing-pill pill-neutral">—</span>`;
+        if (lastX) {
+          const label = lastX.dir === "above" ? "↑ Above" : "↓ Below";
+          const cls = lastX.dir === "above" ? "pill-above" : "pill-below";
+          crossingHTML = `<span class="crossing-pill ${cls}">${label} ${lastX.time.slice(5)}</span>`;
+        }
+
+        const statusLabel = row.status === "above" ? "Outperforming" : row.status === "below" ? "Underperforming" : "Neutral";
+        const statusCls = row.status === "above" ? "badge-green" : row.status === "below" ? "badge-red" : "badge-muted";
+
+        return `<tr>
+          <td><a href="ticker.html?t=${row.ticker}" style="font-weight:600">${row.ticker}</a></td>
+          <td style="color:var(--text-secondary);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${row.name}</td>
+          <td style="color:var(--text-muted);font-size:0.8rem">${row.sector}</td>
+          <td class="mono" style="color:${color};text-align:right">${sign}${row.relPerf.toFixed(2)}%</td>
+          <td class="rel-bar-cell">
+            <div class="rel-bar-wrap">
+              ${row.relPerf >= 0
+                ? `<div class="rel-bar pos" style="width:${barPct}%"></div>`
+                : `<div class="rel-bar neg" style="width:${barPct}%"></div>`}
+            </div>
+          </td>
+          <td style="text-align:center">
+            ${row.crossings.length
+              ? `<span style="font-size:0.75rem;color:var(--text-secondary)">${row.crossings.length}×</span>`
+              : `<span style="color:var(--text-muted);font-size:0.75rem">0</span>`}
+            ${crossingHTML}
+          </td>
+          <td><span class="badge ${statusCls}">${statusLabel}</span></td>
+        </tr>`;
+      }).join("") : `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-muted)">No holdings match current filters</td></tr>`;
+    }
+
+    function renderStats(allRows) {
+      const above = allRows.filter(r => r.relPerf > 0);
+      const below = allRows.filter(r => r.relPerf < 0);
+      const sorted = [...allRows].sort((a, b) => b.relPerf - a.relPerf);
+      const best = sorted[0], worst = sorted[sorted.length - 1];
+
+      document.getElementById("stat-above").textContent = above.length;
+      document.getElementById("stat-above-sub").textContent = `of ${allRows.length} holdings`;
+      document.getElementById("stat-below").textContent = below.length;
+      document.getElementById("stat-below-sub").textContent = `of ${allRows.length} holdings`;
+
+      if (best) {
+        document.getElementById("stat-best").textContent = `+${best.relPerf.toFixed(1)}%`;
+        document.getElementById("stat-best-ticker").textContent = best.ticker;
+      }
+      if (worst) {
+        document.getElementById("stat-worst").textContent = `${worst.relPerf.toFixed(1)}%`;
+        document.getElementById("stat-worst-ticker").textContent = worst.ticker;
+      }
+    }
+
+    // ── Full re-render ────────────────────────────────────────
+    function rerender() {
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - daysForWindow(currentWindow));
+      const cutoffStr = cutoff.toISOString().slice(0, 10);
+
+      // Update chart title
+      const benchTicker = allUniverses?.find(u => u.id === universeId)?.benchmark || universeId;
+      document.getElementById("chart-title").textContent =
+        `Relative Performance vs ${benchTicker} (${currentWindow})`;
+
+      // Compute rows
+      computedRows = buildRows(cutoffStr);
+      renderStats(computedRows);
+
+      // Populate sector filter
+      const sectors = [...new Set(computedRows.map(r => r.sector).filter(s => s && s !== "—"))].sort();
+      const sectorSelect = document.getElementById("sector-filter");
+      const currentVal = sectorSelect.value;
+      sectorSelect.innerHTML = `<option value="">All Sectors</option>` +
+        sectors.map(s => `<option value="${s}" ${s === currentVal ? "selected" : ""}>${s}</option>`).join("");
+
+      // Filter & render
+      const filtered = applyFilters(computedRows);
+      renderChart(filtered);
+      renderTable(filtered);
+    }
+
+    // ── Universe switching ────────────────────────────────────
+    async function switchUniverse(id) {
+      universeId = id;
+      document.getElementById("page-title").textContent = `Relative Performance — ${id}`;
+      const meta = allUniverses?.find(u => u.id === id);
+      document.getElementById("page-subtitle").textContent =
+        `${meta?.name || id} holdings vs ${meta?.benchmark || id} benchmark`;
+      document.title = `${id} Relative — Markets Analysis`;
+
+      holdingsData = await MIP.DataStore.getHoldings(id);
+      rerender();
+    }
+
+    // ── Event wiring ──────────────────────────────────────────
+    document.querySelectorAll("[data-window]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-window]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentWindow = btn.dataset.window;
+        rerender();
+      });
+    });
+
+    document.querySelectorAll("[data-view]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-view]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentView = btn.dataset.view;
+        const filtered = applyFilters(computedRows);
+        renderChart(filtered);
+        renderTable(filtered);
+      });
+    });
+
+    document.getElementById("sector-filter").addEventListener("change", e => {
+      currentSector = e.target.value;
+      const filtered = applyFilters(computedRows);
+      renderChart(filtered);
+      renderTable(filtered);
+    });
+
+    let searchDebounce;
+    document.getElementById("ticker-search").addEventListener("input", e => {
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => {
+        searchFilter = e.target.value.trim();
+        const filtered = applyFilters(computedRows);
+        renderChart(filtered);
+        renderTable(filtered);
+      }, 300);
+    });
+
+    document.getElementById("universe-select").addEventListener("change", e => {
+      const id = e.target.value;
+      if (id) switchUniverse(id);
+    });
+
+    // Table sorting
+    document.querySelectorAll(".rel-table th[data-sort]").forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.dataset.sort;
+        if (sortKey === key) {
+          sortAsc = !sortAsc;
+        } else {
+          sortKey = key;
+          sortAsc = key === "ticker" || key === "name" || key === "sector";
+        }
+        document.querySelectorAll(".rel-table th").forEach(t => {
+          t.classList.remove("sorted", "asc");
+        });
+        th.classList.add("sorted");
+        if (sortAsc) th.classList.add("asc");
+        renderTable(applyFilters(computedRows));
+      });
+    });
+
+    // ── Boot ──────────────────────────────────────────────────
+    (async () => {
+      // Load all data in parallel
+      [pricesData, allUniverses] = await Promise.all([
+        MIP.DataStore.getPrices("1y"),
+        MIP.DataStore.getUniverses(),
+      ]);
+
+      // Populate universe switcher
+      if (allUniverses) {
+        const sel = document.getElementById("universe-select");
+        sel.innerHTML = allUniverses.map(u =>
+          `<option value="${u.id}" ${u.id === universeId ? "selected" : ""}>${u.name || u.id}</option>`
+        ).join("");
+      }
+
+      await switchUniverse(universeId);
+    })();
+  </script>
+</body>
+</html>

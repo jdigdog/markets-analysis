@@ -3,13 +3,8 @@
  * Handles: data fetching, chart rendering, routing, state, shared UI.
  */
 
-// Wrapped in IIFE so internal `const` declarations don't leak into global scope.
-// Without this, inline page scripts that do `const { UI } = window.MIP` throw
-// "Identifier 'UI' has already been declared" and crash before rendering anything.
-(function () {
-
 const CONFIG = {
-  dataDir: "../data/reports/data",
+  dataDir: "data/reports/data",
   defaultUniverse: "QQQ",
 };
 
@@ -145,6 +140,7 @@ const UI = {
     if (!nav) return;
     const pages = [
       { id: "home", label: "Overview", href: "index.html" },
+      { id: "relative", label: "Relative Perf", href: "relative.html" },
       { id: "sentiment", label: "Sentiment", href: "sentiment.html" },
       { id: "compare", label: "Compare", href: "compare.html" },
     ];
@@ -159,5 +155,3 @@ const UI = {
 };
 
 window.MIP = { CONFIG, DataStore, Charts, UI, formatNumber, formatPercent, sentimentColor, sentimentBadgeClass, getUrlParam };
-
-})(); // end IIFE
