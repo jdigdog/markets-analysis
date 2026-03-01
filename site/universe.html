@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Universe Detail — Markets Analysis</title>
-  <link rel="stylesheet" href="site/styles.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
 </head>
@@ -37,7 +37,7 @@
     <div id="holdings-table"></div>
   </main>
 
-  <script src="site/app.js"></script>
+  <script src="app.js"></script>
   <script>
     const { UI, DataStore, Charts, getUrlParam, formatPercent, sentimentBadgeClass } = window.MIP;
 
@@ -50,6 +50,65 @@
       "#79c0ff", "#56d364", "#ff7b72", "#e3b341", "#d2a8ff",
     ];
 
+    let _chart = null;
+    let _prices = null;
+    let _top10 = [];
+    let _benchTicker = "SPY";
+
+    const WINDOW_DAYS = { "1M": 30, "3M": 90, "1Y": 365 };
+
+    function renderChart(windowKey) {
+      if (!_chart || !_prices) return;
+      _chart.removeSeries && _chart.remove ? _chart.remove() : null;
+
+      // Re-create chart
+      document.getElementById("perf-chart").innerHTML = "";
+      _chart = Charts.createPriceChart("perf-chart", null, { height: 420 });
+      if (!_chart) return;
+
+      const days = WINDOW_DAYS[windowKey] || 365;
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - days);
+      const cutoffStr = cutoff.toISOString().slice(0, 10);
+
+      const filteredIdx = _prices.dates.reduce((acc, d, i) => { if (d >= cutoffStr) acc.push(i); return acc; }, []);
+      const filteredDates = filteredIdx.map(i => _prices.dates[i]);
+
+      _top10.forEach((ticker, i) => {
+        const tickerPrices = _prices.tickers[ticker];
+        if (!tickerPrices) return;
+        const filteredPrices = filteredIdx.map(i => tickerPrices[i]);
+        const data = Charts.normalisePerformance(filteredDates, filteredPrices);
+        Charts.addLineSeries(_chart, data, {
+          color: COLOURS[i % COLOURS.length],
+          percent: true,
+          lineWidth: ticker === universeId ? 3 : 1.5,
+        });
+      });
+
+      if (_prices.tickers[_benchTicker]) {
+        const filteredBench = filteredIdx.map(i => _prices.tickers[_benchTicker][i]);
+        const benchData = Charts.normalisePerformance(filteredDates, filteredBench);
+        Charts.addLineSeries(_chart, benchData, {
+          color: "#6e7681",
+          percent: true,
+          lineWidth: 2,
+          seriesOptions: { lineStyle: 2 },
+        });
+      }
+
+      _chart.timeScale().fitContent();
+    }
+
+    // Wire up time window buttons
+    document.querySelectorAll(".chart-btn[data-window]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".chart-btn[data-window]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderChart(btn.dataset.window);
+      });
+    });
+
     (async () => {
       // Load universe metadata
       const universes = await DataStore.getUniverses();
@@ -58,46 +117,22 @@
       document.getElementById("universe-desc").textContent =
         `${meta?.type?.toUpperCase() || "UNIVERSE"} · ${meta?.ticker_count || 0} holdings · Benchmark: ${meta?.benchmark || "SPY"}`;
       document.title = `${meta?.name || universeId} — Markets Analysis`;
+      _benchTicker = meta?.benchmark || universeId;
 
       // Load holdings
       const holdings = await DataStore.getHoldings(universeId);
       UI.renderHoldingsTable("holdings-table", holdings);
 
       // Load prices and build performance chart
-      const prices = await DataStore.getPrices();
-      if (prices && holdings && holdings.length > 0) {
-        const top10 = holdings
+      _prices = await DataStore.getPrices();
+      if (_prices && holdings && holdings.length > 0) {
+        _top10 = holdings
           .sort((a, b) => (b.WeightPct || 0) - (a.WeightPct || 0))
           .slice(0, 10)
           .map(h => h.Ticker);
 
-        const chart = Charts.createPriceChart("perf-chart", null, { height: 420 });
-        if (chart) {
-          top10.forEach((ticker, i) => {
-            const tickerPrices = prices.tickers[ticker];
-            if (!tickerPrices) return;
-            const data = Charts.normalisePerformance(prices.dates, tickerPrices);
-            Charts.addLineSeries(chart, data, {
-              color: COLOURS[i % COLOURS.length],
-              percent: true,
-              lineWidth: ticker === universeId ? 3 : 1.5,
-            });
-          });
-
-          // Add benchmark line
-          const benchTicker = meta?.benchmark || universeId;
-          if (prices.tickers[benchTicker]) {
-            const benchData = Charts.normalisePerformance(prices.dates, prices.tickers[benchTicker]);
-            Charts.addLineSeries(chart, benchData, {
-              color: "#6e7681",
-              percent: true,
-              lineWidth: 2,
-              seriesOptions: { lineStyle: 2 },
-            });
-          }
-
-          chart.timeScale().fitContent();
-        }
+        _chart = Charts.createPriceChart("perf-chart", null, { height: 420 });
+        renderChart("1Y");
       }
     })();
   </script>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ticker Detail — Markets Analysis</title>
-  <link rel="stylesheet" href="site/styles.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
 </head>
@@ -57,7 +57,7 @@
     <div id="membership" class="grid grid-3"></div>
   </main>
 
-  <script src="site/app.js"></script>
+  <script src="app.js"></script>
   <script>
     const { UI, DataStore, Charts, getUrlParam, formatNumber, formatPercent, sentimentColor, sentimentBadgeClass } = window.MIP;
 
@@ -67,25 +67,47 @@
     document.getElementById("ticker-title").textContent = ticker;
     document.title = `${ticker} — Markets Analysis`;
 
+    const WINDOW_DAYS = { "3M": 90, "6M": 180, "2Y": 730 };
+    let _priceChart = null;
+    let _prices2y = null;
+
+    function renderPriceChart(windowKey) {
+      if (!_prices2y || !_prices2y.tickers[ticker]) return;
+      document.getElementById("price-chart").innerHTML = "";
+      _priceChart = Charts.createPriceChart("price-chart", null, { height: 420 });
+      if (!_priceChart) return;
+
+      const days = WINDOW_DAYS[windowKey] || 730;
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - days);
+      const cutoffStr = cutoff.toISOString().slice(0, 10);
+
+      const series = _priceChart.addAreaSeries({
+        topColor: "rgba(88, 166, 255, 0.3)",
+        bottomColor: "rgba(88, 166, 255, 0.02)",
+        lineColor: "#58a6ff",
+        lineWidth: 2,
+      });
+      const data = _prices2y.dates
+        .map((d, i) => ({ time: d, value: _prices2y.tickers[ticker][i] }))
+        .filter(d => d.time >= cutoffStr && d.value != null);
+      series.setData(data);
+      _priceChart.timeScale().fitContent();
+    }
+
+    document.querySelectorAll(".chart-btn[data-window]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".chart-btn[data-window]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderPriceChart(btn.dataset.window);
+      });
+    });
+
     (async () => {
       // ── Price chart ──
-      const prices = await DataStore.getPrices("2y");
-      if (prices && prices.tickers[ticker]) {
-        const chart = Charts.createPriceChart("price-chart", null, { height: 420 });
-        if (chart) {
-          const series = chart.addAreaSeries({
-            topColor: "rgba(88, 166, 255, 0.3)",
-            bottomColor: "rgba(88, 166, 255, 0.02)",
-            lineColor: "#58a6ff",
-            lineWidth: 2,
-          });
-          const data = prices.dates.map((d, i) => ({
-            time: d,
-            value: prices.tickers[ticker][i],
-          })).filter(d => d.value != null);
-          series.setData(data);
-          chart.timeScale().fitContent();
-        }
+      _prices2y = await DataStore.getPrices("2y");
+      if (_prices2y && _prices2y.tickers[ticker]) {
+        renderPriceChart("2Y");
       }
 
       // ── Fundamentals ──

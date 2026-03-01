@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Markets Analysis</title>
-  <link rel="stylesheet" href="site/styles.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
@@ -19,6 +19,34 @@
 
     <div id="universe-cards" class="grid grid-3">
       <div class="loading">Loading universes...</div>
+    </div>
+
+    <!-- Add Universe Panel -->
+    <div class="section-header">
+      <h2 class="section-title">Add Universe</h2>
+      <p class="section-subtitle">Add a new ETF or watchlist to the platform — edit <code style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--accent-blue)">universes_config.yml</code> then trigger onboarding.</p>
+    </div>
+    <div class="card" style="margin-bottom: var(--space-2xl);">
+      <div style="display:flex; gap:var(--space-lg); flex-wrap:wrap; align-items:flex-start;">
+        <div style="flex:1; min-width:260px;">
+          <div class="card-subtitle" style="margin-bottom:var(--space-sm);">Option 1 — GitHub Actions (recommended)</div>
+          <p style="font-size:0.875rem; color:var(--text-secondary); margin-bottom:var(--space-md);">
+            Trigger the <strong style="color:var(--text-primary)">Add Universe</strong> workflow from GitHub Actions, passing the universe ID from your config.
+          </p>
+          <a href="../../.github/workflows/add_universe.yml" class="chart-btn active" style="display:inline-block;padding:8px 18px;font-size:0.8125rem;">
+            View Workflow →
+          </a>
+        </div>
+        <div style="flex:1; min-width:260px;">
+          <div class="card-subtitle" style="margin-bottom:var(--space-sm);">Option 2 — CLI</div>
+          <pre style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-md);font-size:0.8125rem;font-family:var(--font-mono);color:var(--text-primary);overflow-x:auto;"># 1. Add to universes_config.yml
+# 2. Onboard
+python scripts/add_universe.py NEW_ID
+
+# 3. Regenerate feeds
+python scripts/generate_feeds.py</pre>
+        </div>
+      </div>
     </div>
 
     <div class="section-header">
@@ -45,7 +73,7 @@
     </div>
   </main>
 
-  <script src="site/app.js"></script>
+  <script src="app.js"></script>
   <script>
     const { UI, DataStore, formatNumber } = window.MIP;
 
