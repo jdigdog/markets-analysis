@@ -35,5 +35,3 @@ jobs:
           git add data/reports/
           git diff --staged --quiet || git commit -m "🔄 Rebuild reports $(date -u +%Y-%m-%d)"
           git push
-# Sanity check: catch wrong dataDir before it ships
-grep -q '"../data/reports/data"' site/app.js || (echo "ERROR: wrong dataDir in app.js" && exit 1)
