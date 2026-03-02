@@ -67,8 +67,8 @@ def generate_holdings_feeds(config):
                 df = df.drop(columns=["Name_fund"])
 
         # FIX: NaN is not valid JSON — browser JSON.parse() throws SyntaxError.
-        # Replace all NaN with None so they serialize as JSON null.
-        df = df.where(pd.notnull(df), other=None)
+        # Must cast to object dtype first; float columns silently re-coerce None→NaN.
+        df = df.astype(object).where(pd.notnull(df), other=None)
 
         write_json(df.to_dict(orient="records"), SITE_DATA_DIR / f"{uid}_holdings.json")
 
@@ -90,8 +90,10 @@ def generate_prices_feed():
 
 
 def _df_to_records(df: pd.DataFrame) -> list:
-    """Convert DataFrame to JSON-safe records (NaN → None, not NaN literal)."""
-    return df.where(pd.notnull(df), other=None).to_dict(orient="records")
+    """Convert DataFrame to JSON-safe records (NaN → null, not NaN literal).
+    Must cast to object dtype first — float columns silently re-coerce None→NaN.
+    """
+    return df.astype(object).where(pd.notnull(df), other=None).to_dict(orient="records")
 
 
 def generate_sentiment_feed():
