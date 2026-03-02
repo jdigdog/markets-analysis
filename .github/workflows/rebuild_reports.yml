@@ -1,5 +1,7 @@
 name: Rebuild Reports
 
+# Sanity check: catch wrong dataDir before it ships
+grep -q '"../data/reports/data"' site/app.js || (echo "ERROR: wrong dataDir in app.js" && exit 1)
 on:
   workflow_dispatch:  # Manual trigger only
   workflow_call:      # Can be called by other workflows
