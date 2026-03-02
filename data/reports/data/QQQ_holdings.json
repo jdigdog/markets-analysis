@@ -195,7 +195,7 @@
     "Sector": "Technology",
     "Industry": "Semiconductors",
     "MarketCap": 227830087680.0,
-    "PE": NaN
+    "PE": null
   },
   {
     "Ticker": "AMGN",
@@ -384,7 +384,7 @@
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
     "MarketCap": 93775577088.0,
-    "PE": NaN
+    "PE": null
   },
   {
     "Ticker": "MAR",
@@ -744,7 +744,7 @@
     "Sector": "Technology",
     "Industry": "Semiconductors",
     "MarketCap": 40390352896.0,
-    "PE": NaN
+    "PE": null
   },
   {
     "Ticker": "TTWO",
@@ -753,7 +753,7 @@
     "Sector": "Communication Services",
     "Industry": "Electronic Gaming & Multimedia",
     "MarketCap": 39160905728.0,
-    "PE": NaN
+    "PE": null
   },
   {
     "Ticker": "GEHC",
@@ -798,7 +798,7 @@
     "Sector": "Technology",
     "Industry": "Software - Application",
     "MarketCap": 43220975616.0,
-    "PE": NaN
+    "PE": null
   },
   {
     "Ticker": "PAYX",
@@ -816,7 +816,7 @@
     "Sector": "Healthcare",
     "Industry": "Biotechnology",
     "MarketCap": 31848128512.0,
-    "PE": NaN
+    "PE": null
   },
   {
     "Ticker": "CTSH",
@@ -852,7 +852,7 @@
     "Sector": "Consumer Defensive",
     "Industry": "Packaged Foods",
     "MarketCap": 29131960320.0,
-    "PE": NaN
+    "PE": null
   },
   {
     "Ticker": "DXCM",
@@ -879,7 +879,7 @@
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
     "MarketCap": 23440672768.0,
-    "PE": NaN
+    "PE": null
   },
   {
     "Ticker": "CSGP",
@@ -906,6 +906,6 @@
     "Sector": "Technology",
     "Industry": "Software - Application",
     "MarketCap": 19815092224.0,
-    "PE": NaN
+    "PE": null
   }
 ]

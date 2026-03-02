@@ -33,7 +33,7 @@
     "Low52W": 99.88,
     "AnalystTarget": 144.30556,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.139,
     "Name": "Airbnb, Inc."
   },
@@ -52,7 +52,7 @@
     "Low52W": 244.28,
     "AnalystTarget": 408.46606,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.515,
     "Name": "Adobe Inc."
   },
@@ -109,7 +109,7 @@
     "Low52W": 215.01,
     "AnalystTarget": 335.88098,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.453,
     "Name": "Autodesk, Inc."
   },
@@ -147,7 +147,7 @@
     "Low52W": 205.87,
     "AnalystTarget": 457.0,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.351,
     "Name": "Alnylam Pharmaceuticals, Inc."
   },
@@ -185,7 +185,7 @@
     "Low52W": 76.48,
     "AnalystTarget": 290.2553,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.949,
     "Name": "Advanced Micro Devices, Inc."
   },
@@ -223,7 +223,7 @@
     "Low52W": 161.38,
     "AnalystTarget": 280.46774,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.385,
     "Name": "Amazon.com, Inc."
   },
@@ -242,7 +242,7 @@
     "Low52W": 200.5,
     "AnalystTarget": 660.1057,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 2.49,
     "Name": "Applovin Corporation"
   },
@@ -261,7 +261,7 @@
     "Low52W": 80.0,
     "AnalystTarget": 147.69115,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 4.374,
     "Name": "Arm Holdings plc"
   },
@@ -318,7 +318,7 @@
     "Low52W": 396.41,
     "AnalystTarget": 735.0133,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.483,
     "Name": "Axon Enterprise, Inc."
   },
@@ -375,7 +375,7 @@
     "Low52W": 455.19,
     "AnalystTarget": 526.0,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.702,
     "Name": "Berkshire Hathaway Inc. New"
   },
@@ -413,7 +413,7 @@
     "Low52W": 221.56,
     "AnalystTarget": 371.81924,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.005,
     "Name": "Cadence Design Systems, Inc."
   },
@@ -451,7 +451,7 @@
     "Low52W": 180.38,
     "AnalystTarget": 282.1875,
     "Recommendation": "hold",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.047,
     "Name": "Charter Communications, Inc."
   },
@@ -489,7 +489,7 @@
     "Low52W": 139.36,
     "AnalystTarget": 250.89793,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 3.703,
     "Name": "Coinbase Global, Inc. - 3"
   },
@@ -527,14 +527,14 @@
     "Low52W": 33.81,
     "AnalystTarget": 42.66667,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.083,
     "Name": "Copart, Inc."
   },
   {
     "Ticker": "CRWD",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 76.953636,
     "EPS": -1.26,
     "ForwardEPS": 4.83382,
@@ -546,7 +546,7 @@
     "Low52W": 298.0,
     "AnalystTarget": 523.3813,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.034,
     "Name": "CrowdStrike Holdings, Inc."
   },
@@ -584,7 +584,7 @@
     "Low52W": 43.17,
     "AnalystTarget": 65.42105,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.85,
     "Name": "CoStar Group, Inc."
   },
@@ -660,7 +660,7 @@
     "Low52W": 155.4,
     "AnalystTarget": 260.90475,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.795,
     "Name": "DoorDash, Inc."
   },
@@ -679,7 +679,7 @@
     "Low52W": 81.63,
     "AnalystTarget": 182.4307,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.286,
     "Name": "Datadog, Inc."
   },
@@ -698,7 +698,7 @@
     "Low52W": 54.11,
     "AnalystTarget": 85.84615,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.488,
     "Name": "DexCom, Inc."
   },
@@ -812,7 +812,7 @@
     "Low52W": 70.12,
     "AnalystTarget": 89.81818,
     "Recommendation": "hold",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.047,
     "Name": "Fortinet, Inc."
   },
@@ -926,14 +926,14 @@
     "Low52W": 356.14,
     "AnalystTarget": 750.2308,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.66,
     "Name": "IDEXX Laboratories, Inc."
   },
   {
     "Ticker": "INSM",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 402.77814,
     "EPS": -6.2,
     "ForwardEPS": 0.37075,
@@ -945,14 +945,14 @@
     "Low52W": 60.4,
     "AnalystTarget": 212.52632,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.12,
     "Name": "Insmed Incorporated"
   },
   {
     "Ticker": "INTC",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 46.01586,
     "EPS": -0.06,
     "ForwardEPS": 0.99118,
@@ -964,7 +964,7 @@
     "Low52W": 17.67,
     "AnalystTarget": 47.11829,
     "Recommendation": "hold",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.377,
     "Name": "Intel Corporation"
   },
@@ -1002,7 +1002,7 @@
     "Low52W": 425.0,
     "AnalystTarget": 609.8213,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.662,
     "Name": "Intuitive Surgical, Inc."
   },
@@ -1028,7 +1028,7 @@
   {
     "Ticker": "KHC",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 11.463948,
     "EPS": -4.93,
     "ForwardEPS": 2.14673,
@@ -1123,7 +1123,7 @@
   {
     "Ticker": "MCHP",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 28.1149,
     "EPS": -0.3,
     "ForwardEPS": 2.65482,
@@ -1173,7 +1173,7 @@
     "Low52W": 1654.24,
     "AnalystTarget": 2718.5386,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.453,
     "Name": "MercadoLibre, Inc."
   },
@@ -1211,7 +1211,7 @@
     "Low52W": 53.9,
     "AnalystTarget": 86.33217,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.45,
     "Name": "Monster Beverage Corporation"
   },
@@ -1275,7 +1275,7 @@
   {
     "Ticker": "MSTR",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 1.8800814,
     "EPS": -15.23,
     "ForwardEPS": 68.88,
@@ -1287,7 +1287,7 @@
     "Low52W": 104.17,
     "AnalystTarget": 394.3846,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 3.535,
     "Name": "Strategy Inc"
   },
@@ -1325,7 +1325,7 @@
     "Low52W": 75.01,
     "AnalystTarget": 113.70775,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.712,
     "Name": "Netflix, Inc."
   },
@@ -1401,7 +1401,7 @@
     "Low52W": 85.552,
     "AnalystTarget": 105.72,
     "Recommendation": "none",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.616,
     "Name": "O'Reilly Automotive, Inc."
   },
@@ -1420,7 +1420,7 @@
     "Low52W": 139.57,
     "AnalystTarget": 208.8234,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.75,
     "Name": "Palo Alto Networks, Inc."
   },
@@ -1477,7 +1477,7 @@
     "Low52W": 87.11,
     "AnalystTarget": 149.12187,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": -0.014,
     "Name": "PDD Holdings Inc."
   },
@@ -1515,7 +1515,7 @@
     "Low52W": 66.12,
     "AnalystTarget": 184.48808,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.687,
     "Name": "Palantir Technologies Inc."
   },
@@ -1561,19 +1561,19 @@
     "Ticker": "QQQ",
     "FetchDate": "2026-03-02",
     "PE": 32.64977,
-    "ForwardPE": NaN,
-    "EPS": NaN,
-    "ForwardEPS": NaN,
-    "Revenue": NaN,
+    "ForwardPE": null,
+    "EPS": null,
+    "ForwardEPS": null,
+    "Revenue": null,
     "MarketCap": 238725693440.0,
-    "Sector": NaN,
-    "Industry": NaN,
+    "Sector": null,
+    "Industry": null,
     "High52W": 637.01,
     "Low52W": 402.39,
-    "AnalystTarget": NaN,
-    "Recommendation": NaN,
+    "AnalystTarget": null,
+    "Recommendation": null,
     "DividendYield": 0.45,
-    "Beta": NaN,
+    "Beta": null,
     "Name": "Invesco QQQ Trust, Series 1"
   },
   {
@@ -1667,7 +1667,7 @@
     "Low52W": 69.84,
     "AnalystTarget": 161.57777,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 2.822,
     "Name": "Shopify Inc."
   },
@@ -1686,7 +1686,7 @@
     "Low52W": 365.74,
     "AnalystTarget": 538.9188,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.126,
     "Name": "Synopsys, Inc."
   },
@@ -1694,19 +1694,19 @@
     "Ticker": "SPY",
     "FetchDate": "2026-03-02",
     "PE": 27.622122,
-    "ForwardPE": NaN,
-    "EPS": NaN,
-    "ForwardEPS": NaN,
-    "Revenue": NaN,
+    "ForwardPE": null,
+    "EPS": null,
+    "ForwardEPS": null,
+    "Revenue": null,
     "MarketCap": 629589278720.0,
-    "Sector": NaN,
-    "Industry": NaN,
+    "Sector": null,
+    "Industry": null,
     "High52W": 697.84,
     "Low52W": 481.8,
-    "AnalystTarget": NaN,
-    "Recommendation": NaN,
+    "AnalystTarget": null,
+    "Recommendation": null,
     "DividendYield": 1.05,
-    "Beta": NaN,
+    "Beta": null,
     "Name": "State Street SPDR S&P 500 ETF T"
   },
   {
@@ -1731,7 +1731,7 @@
   {
     "Ticker": "TEAM",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 13.6292715,
     "EPS": -0.72,
     "ForwardEPS": 5.5124,
@@ -1743,7 +1743,7 @@
     "Low52W": 67.85,
     "AnalystTarget": 177.848,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.88,
     "Name": "Atlassian Corporation"
   },
@@ -1800,7 +1800,7 @@
     "Low52W": 214.25,
     "AnalystTarget": 421.729,
     "Recommendation": "hold",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.887,
     "Name": "Tesla, Inc."
   },
@@ -1826,7 +1826,7 @@
   {
     "Ticker": "TTWO",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 27.019878,
     "EPS": -22.56,
     "ForwardEPS": 7.82683,
@@ -1838,7 +1838,7 @@
     "Low52W": 188.56,
     "AnalystTarget": 278.41785,
     "Recommendation": "strong_buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.931,
     "Name": "Take-Two Interactive Software, "
   },
@@ -1865,19 +1865,19 @@
     "Ticker": "USD",
     "FetchDate": "2026-03-02",
     "PE": 40.18367,
-    "ForwardPE": NaN,
-    "EPS": NaN,
-    "ForwardEPS": NaN,
-    "Revenue": NaN,
-    "MarketCap": NaN,
-    "Sector": NaN,
-    "Industry": NaN,
+    "ForwardPE": null,
+    "EPS": null,
+    "ForwardEPS": null,
+    "Revenue": null,
+    "MarketCap": null,
+    "Sector": null,
+    "Industry": null,
     "High52W": 64.89,
     "Low52W": 12.565,
-    "AnalystTarget": NaN,
-    "Recommendation": NaN,
+    "AnalystTarget": null,
+    "Recommendation": null,
     "DividendYield": 0.35,
-    "Beta": NaN,
+    "Beta": null,
     "Name": "ProShares Ultra Semiconductors"
   },
   {
@@ -1914,7 +1914,7 @@
     "Low52W": 362.5,
     "AnalystTarget": 532.96295,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 0.319,
     "Name": "Vertex Pharmaceuticals Incorpor"
   },
@@ -1933,7 +1933,7 @@
     "Low52W": 7.52,
     "AnalystTarget": 29.1875,
     "Recommendation": "hold",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.616,
     "Name": "Warner Bros. Discovery, Inc. - "
   },
@@ -1952,7 +1952,7 @@
     "Low52W": 117.76,
     "AnalystTarget": 188.8608,
     "Recommendation": "buy",
-    "DividendYield": NaN,
+    "DividendYield": null,
     "Beta": 1.124,
     "Name": "Workday, Inc."
   },
@@ -2016,7 +2016,7 @@
   {
     "Ticker": "ZS",
     "FetchDate": "2026-03-02",
-    "PE": NaN,
+    "PE": null,
     "ForwardPE": 31.986336,
     "EPS": -0.26,
     "ForwardEPS": 4.5954,
@@ -2028,8 +2028,8 @@
     "Low52W": 140.56,
     "AnalystTarget": 241.82385,
     "Recommendation": "buy",
-    "DividendYield": NaN,
-    "Beta": NaN,
+    "DividendYield": null,
+    "Beta": null,
     "Name": "Zscaler, Inc."
   }
 ]
