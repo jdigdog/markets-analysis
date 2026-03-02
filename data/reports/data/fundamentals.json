@@ -1,7 +1,7 @@
 [
   {
     "Ticker": "AAPL",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 33.440506,
     "ForwardPE": 28.408987,
     "EPS": 7.9,
@@ -20,7 +20,7 @@
   },
   {
     "Ticker": "ABNB",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 33.526054,
     "ForwardPE": 23.232021,
     "EPS": 4.03,
@@ -39,7 +39,7 @@
   },
   {
     "Ticker": "ADBE",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 15.722589,
     "ForwardPE": 9.94047,
     "EPS": 16.69,
@@ -58,7 +58,7 @@
   },
   {
     "Ticker": "ADI",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 78.1956,
     "ForwardPE": 27.585432,
     "EPS": 4.55,
@@ -77,7 +77,7 @@
   },
   {
     "Ticker": "ADP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 20.571978,
     "ForwardPE": 17.916546,
     "EPS": 10.42,
@@ -96,7 +96,7 @@
   },
   {
     "Ticker": "ADSK",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 47.83463,
     "ForwardPE": 17.560776,
     "EPS": 5.14,
@@ -115,7 +115,7 @@
   },
   {
     "Ticker": "AEP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 20.093094,
     "ForwardPE": 19.500097,
     "EPS": 6.66,
@@ -134,7 +134,7 @@
   },
   {
     "Ticker": "ALNY",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 142.88412,
     "ForwardPE": 22.89816,
     "EPS": 2.33,
@@ -153,7 +153,7 @@
   },
   {
     "Ticker": "AMAT",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 38.184612,
     "ForwardPE": 26.999743,
     "EPS": 9.75,
@@ -172,7 +172,7 @@
   },
   {
     "Ticker": "AMD",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 77.00385,
     "ForwardPE": 18.467667,
     "EPS": 2.6,
@@ -191,7 +191,7 @@
   },
   {
     "Ticker": "AMGN",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 27.225262,
     "ForwardPE": 16.681515,
     "EPS": 14.25,
@@ -210,7 +210,7 @@
   },
   {
     "Ticker": "AMZN",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 29.329609,
     "ForwardPE": 22.494295,
     "EPS": 7.16,
@@ -229,7 +229,7 @@
   },
   {
     "Ticker": "APP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 43.303783,
     "ForwardPE": 21.84653,
     "EPS": 10.04,
@@ -248,7 +248,7 @@
   },
   {
     "Ticker": "ARM",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 169.93333,
     "ForwardPE": 59.056847,
     "EPS": 0.75,
@@ -267,18 +267,18 @@
   },
   {
     "Ticker": "ASML",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 49.744858,
-    "ForwardPE": 32.92604,
+    "ForwardPE": 32.883686,
     "EPS": 29.16,
-    "ForwardEPS": 44.055103,
+    "ForwardEPS": 44.111843,
     "Revenue": 32667299840.0,
     "MarketCap": 569575014400.0,
     "Sector": "Technology",
     "Industry": "Semiconductor Equipment & Materials",
     "High52W": 1547.22,
     "Low52W": 578.51,
-    "AnalystTarget": 1489.729,
+    "AnalystTarget": 1484.6349,
     "Recommendation": "buy",
     "DividendYield": 0.61,
     "Beta": 1.462,
@@ -286,7 +286,7 @@
   },
   {
     "Ticker": "AVGO",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 67.13235,
     "ForwardPE": 22.00909,
     "EPS": 4.76,
@@ -305,7 +305,7 @@
   },
   {
     "Ticker": "AXON",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 356.84213,
     "ForwardPE": 51.320484,
     "EPS": 1.52,
@@ -324,7 +324,7 @@
   },
   {
     "Ticker": "BKNG",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 25.575232,
     "ForwardPE": 13.53883,
     "EPS": 165.76,
@@ -343,7 +343,7 @@
   },
   {
     "Ticker": "BKR",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 25.100002,
     "ForwardPE": 22.429895,
     "EPS": 2.6,
@@ -362,7 +362,7 @@
   },
   {
     "Ticker": "BRK-B",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 16.15323,
     "ForwardPE": 20.960693,
     "EPS": 31.26,
@@ -381,18 +381,18 @@
   },
   {
     "Ticker": "CCEP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 21.910715,
-    "ForwardPE": 19.060928,
+    "ForwardPE": 19.03641,
     "EPS": 5.04,
-    "ForwardEPS": 5.793527,
+    "ForwardEPS": 5.800989,
     "Revenue": 20900999168.0,
     "MarketCap": 49676181504.0,
     "Sector": "Consumer Defensive",
     "Industry": "Beverages - Non-Alcoholic",
     "High52W": 110.9,
     "Low52W": 80.7,
-    "AnalystTarget": 104.84125,
+    "AnalystTarget": 104.48274,
     "Recommendation": "buy",
     "DividendYield": 2.13,
     "Beta": 0.326,
@@ -400,7 +400,7 @@
   },
   {
     "Ticker": "CDNS",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 74.05405,
     "ForwardPE": 32.06383,
     "EPS": 4.07,
@@ -419,7 +419,7 @@
   },
   {
     "Ticker": "CEG",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 44.638702,
     "ForwardPE": 24.23012,
     "EPS": 7.39,
@@ -438,7 +438,7 @@
   },
   {
     "Ticker": "CHTR",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 6.477913,
     "ForwardPE": 4.7380013,
     "EPS": 36.22,
@@ -457,7 +457,7 @@
   },
   {
     "Ticker": "CMCSA",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 5.7439704,
     "ForwardPE": 7.7797155,
     "EPS": 5.39,
@@ -476,7 +476,7 @@
   },
   {
     "Ticker": "COIN",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 39.516857,
     "ForwardPE": 29.465485,
     "EPS": 4.45,
@@ -495,7 +495,7 @@
   },
   {
     "Ticker": "COST",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 54.052937,
     "ForwardPE": 45.32865,
     "EPS": 18.7,
@@ -514,7 +514,7 @@
   },
   {
     "Ticker": "CPRT",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 23.3681,
     "ForwardPE": 22.672485,
     "EPS": 1.63,
@@ -533,7 +533,7 @@
   },
   {
     "Ticker": "CRWD",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 76.953636,
     "EPS": -1.26,
@@ -552,7 +552,7 @@
   },
   {
     "Ticker": "CSCO",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 28.582733,
     "ForwardPE": 17.595919,
     "EPS": 2.78,
@@ -571,7 +571,7 @@
   },
   {
     "Ticker": "CSGP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 743.8334,
     "ForwardPE": 24.874735,
     "EPS": 0.06,
@@ -590,7 +590,7 @@
   },
   {
     "Ticker": "CSX",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 27.72078,
     "ForwardPE": 20.45863,
     "EPS": 1.54,
@@ -609,7 +609,7 @@
   },
   {
     "Ticker": "CTAS",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 43.440605,
     "ForwardPE": 37.190926,
     "EPS": 4.63,
@@ -628,7 +628,7 @@
   },
   {
     "Ticker": "CTSH",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 14.129386,
     "ForwardPE": 10.474328,
     "EPS": 4.56,
@@ -647,7 +647,7 @@
   },
   {
     "Ticker": "DASH",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 82.462616,
     "ForwardPE": 22.529821,
     "EPS": 2.14,
@@ -666,7 +666,7 @@
   },
   {
     "Ticker": "DDOG",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 361.1613,
     "ForwardPE": 42.339325,
     "EPS": 0.31,
@@ -685,7 +685,7 @@
   },
   {
     "Ticker": "DXCM",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 35.133972,
     "ForwardPE": 24.569212,
     "EPS": 2.09,
@@ -704,7 +704,7 @@
   },
   {
     "Ticker": "EA",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 75.11985,
     "ForwardPE": 21.810501,
     "EPS": 2.67,
@@ -723,7 +723,7 @@
   },
   {
     "Ticker": "EXC",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 18.12088,
     "ForwardPE": 16.295702,
     "EPS": 2.73,
@@ -742,7 +742,7 @@
   },
   {
     "Ticker": "FANG",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 30.380453,
     "ForwardPE": 13.59471,
     "EPS": 5.73,
@@ -761,7 +761,7 @@
   },
   {
     "Ticker": "FAST",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 42.238533,
     "ForwardPE": 34.39106,
     "EPS": 1.09,
@@ -780,18 +780,18 @@
   },
   {
     "Ticker": "FER",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 52.013985,
-    "ForwardPE": 50.238564,
+    "ForwardPE": 50.173946,
     "EPS": 1.43,
-    "ForwardEPS": 1.4805359,
+    "ForwardEPS": 1.4824426,
     "Revenue": 9626999808.0,
     "MarketCap": 53482098688.0,
     "Sector": "Industrials",
     "Industry": "Engineering & Construction",
     "High52W": 74.79,
     "Low52W": 40.46,
-    "AnalystTarget": 72.533134,
+    "AnalystTarget": 72.28511,
     "Recommendation": "buy",
     "DividendYield": 1.4,
     "Beta": 0.741,
@@ -799,7 +799,7 @@
   },
   {
     "Ticker": "FTNT",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 32.657024,
     "ForwardPE": 23.853504,
     "EPS": 2.42,
@@ -818,7 +818,7 @@
   },
   {
     "Ticker": "GEHC",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 18.520878,
     "ForwardPE": 15.137933,
     "EPS": 4.55,
@@ -837,7 +837,7 @@
   },
   {
     "Ticker": "GILD",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 21.969025,
     "ForwardPE": 15.41123,
     "EPS": 6.78,
@@ -856,11 +856,11 @@
   },
   {
     "Ticker": "GOOG",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 28.809433,
-    "ForwardPE": 23.211578,
+    "ForwardPE": 23.218018,
     "EPS": 10.81,
-    "ForwardEPS": 13.41701,
+    "ForwardEPS": 13.41329,
     "Revenue": 402835996672.0,
     "MarketCap": 3767368679424.0,
     "Sector": "Communication Services",
@@ -875,11 +875,11 @@
   },
   {
     "Ticker": "GOOGL",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 28.81331,
-    "ForwardPE": 23.236176,
+    "ForwardPE": 23.24262,
     "EPS": 10.82,
-    "ForwardEPS": 13.41701,
+    "ForwardEPS": 13.41329,
     "Revenue": 402835996672.0,
     "MarketCap": 3771360870400.0,
     "Sector": "Communication Services",
@@ -894,7 +894,7 @@
   },
   {
     "Ticker": "HON",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 32.135883,
     "ForwardPE": 21.167088,
     "EPS": 7.58,
@@ -913,7 +913,7 @@
   },
   {
     "Ticker": "IDXX",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 50.24713,
     "ForwardPE": 40.04297,
     "EPS": 13.07,
@@ -932,7 +932,7 @@
   },
   {
     "Ticker": "INSM",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 402.77814,
     "EPS": -6.2,
@@ -951,7 +951,7 @@
   },
   {
     "Ticker": "INTC",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 46.01586,
     "EPS": -0.06,
@@ -970,18 +970,18 @@
   },
   {
     "Ticker": "INTU",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 28.092718,
-    "ForwardPE": 15.501705,
+    "ForwardPE": 15.496901,
     "EPS": 14.56,
-    "ForwardEPS": 26.38613,
+    "ForwardEPS": 26.39431,
     "Revenue": 20120999936.0,
     "MarketCap": 113873952768.0,
     "Sector": "Technology",
     "Industry": "Software - Application",
     "High52W": 813.7,
     "Low52W": 349.0,
-    "AnalystTarget": 619.139,
+    "AnalystTarget": 620.941,
     "Recommendation": "buy",
     "DividendYield": 1.1,
     "Beta": 1.234,
@@ -989,7 +989,7 @@
   },
   {
     "Ticker": "ISRG",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 64.1414,
     "ForwardPE": 44.01488,
     "EPS": 7.85,
@@ -1008,7 +1008,7 @@
   },
   {
     "Ticker": "KDP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 26.103449,
     "ForwardPE": 12.0700445,
     "EPS": 1.16,
@@ -1027,7 +1027,7 @@
   },
   {
     "Ticker": "KHC",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 11.463948,
     "EPS": -4.93,
@@ -1046,7 +1046,7 @@
   },
   {
     "Ticker": "KLAC",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 44.447525,
     "ForwardPE": 32.94628,
     "EPS": 34.3,
@@ -1065,7 +1065,7 @@
   },
   {
     "Ticker": "LIN",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 34.728638,
     "ForwardPE": 26.077719,
     "EPS": 14.63,
@@ -1084,7 +1084,7 @@
   },
   {
     "Ticker": "LRCX",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 48.12551,
     "ForwardPE": 33.960247,
     "EPS": 4.86,
@@ -1103,7 +1103,7 @@
   },
   {
     "Ticker": "MAR",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 35.97158,
     "ForwardPE": 26.268415,
     "EPS": 9.5,
@@ -1122,7 +1122,7 @@
   },
   {
     "Ticker": "MCHP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 28.1149,
     "EPS": -0.3,
@@ -1141,7 +1141,7 @@
   },
   {
     "Ticker": "MDLZ",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 32.582012,
     "ForwardPE": 18.154856,
     "EPS": 1.89,
@@ -1160,7 +1160,7 @@
   },
   {
     "Ticker": "MELI",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 44.64262,
     "ForwardPE": 22.049318,
     "EPS": 39.37,
@@ -1179,7 +1179,7 @@
   },
   {
     "Ticker": "META",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 27.629156,
     "ForwardPE": 18.065216,
     "EPS": 23.46,
@@ -1198,7 +1198,7 @@
   },
   {
     "Ticker": "MNST",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 48.46591,
     "ForwardPE": 33.345585,
     "EPS": 1.76,
@@ -1217,7 +1217,7 @@
   },
   {
     "Ticker": "MPWR",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 89.27656,
     "ForwardPE": 44.21496,
     "EPS": 12.8,
@@ -1236,7 +1236,7 @@
   },
   {
     "Ticker": "MRVL",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 28.764086,
     "ForwardPE": 24.149847,
     "EPS": 2.84,
@@ -1255,7 +1255,7 @@
   },
   {
     "Ticker": "MSFT",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 24.576971,
     "ForwardPE": 20.843594,
     "EPS": 15.98,
@@ -1274,7 +1274,7 @@
   },
   {
     "Ticker": "MSTR",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 1.8800814,
     "EPS": -15.23,
@@ -1293,7 +1293,7 @@
   },
   {
     "Ticker": "MU",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 39.198666,
     "ForwardPE": 9.255576,
     "EPS": 10.52,
@@ -1312,7 +1312,7 @@
   },
   {
     "Ticker": "NFLX",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 38.039524,
     "ForwardPE": 25.16394,
     "EPS": 2.53,
@@ -1331,7 +1331,7 @@
   },
   {
     "Ticker": "NVDA",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 36.087578,
     "ForwardPE": 16.620033,
     "EPS": 4.91,
@@ -1350,7 +1350,7 @@
   },
   {
     "Ticker": "NXPI",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 28.554716,
     "ForwardPE": 13.543368,
     "EPS": 7.95,
@@ -1369,7 +1369,7 @@
   },
   {
     "Ticker": "ODFL",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 41.95248,
     "ForwardPE": 33.86074,
     "EPS": 4.84,
@@ -1388,7 +1388,7 @@
   },
   {
     "Ticker": "ORLY",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 31.609426,
     "ForwardPE": 26.275574,
     "EPS": 2.97,
@@ -1407,7 +1407,7 @@
   },
   {
     "Ticker": "PANW",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 82.73334,
     "ForwardPE": 37.39031,
     "EPS": 1.8,
@@ -1426,7 +1426,7 @@
   },
   {
     "Ticker": "PAYX",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 21.187782,
     "ForwardPE": 15.84774,
     "EPS": 4.42,
@@ -1445,7 +1445,7 @@
   },
   {
     "Ticker": "PCAR",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 27.957869,
     "ForwardPE": 18.654436,
     "EPS": 4.51,
@@ -1464,18 +1464,18 @@
   },
   {
     "Ticker": "PDD",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 10.341974,
-    "ForwardPE": 8.269085,
+    "ForwardPE": 8.288991,
     "EPS": 10.03,
-    "ForwardEPS": 12.544314,
+    "ForwardEPS": 12.514189,
     "Revenue": 418543632384.0,
     "MarketCap": 147259932672.0,
     "Sector": "Consumer Cyclical",
     "Industry": "Internet Retail",
     "High52W": 139.41,
     "Low52W": 87.11,
-    "AnalystTarget": 149.63507,
+    "AnalystTarget": 149.3628,
     "Recommendation": "buy",
     "DividendYield": NaN,
     "Beta": -0.014,
@@ -1483,7 +1483,7 @@
   },
   {
     "Ticker": "PEP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 28.33723,
     "ForwardPE": 18.58763,
     "EPS": 5.99,
@@ -1502,7 +1502,7 @@
   },
   {
     "Ticker": "PLTR",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 217.76192,
     "ForwardPE": 74.2318,
     "EPS": 0.63,
@@ -1521,7 +1521,7 @@
   },
   {
     "Ticker": "PYPL",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 8.54159,
     "ForwardPE": 7.949383,
     "EPS": 5.41,
@@ -1540,7 +1540,7 @@
   },
   {
     "Ticker": "QCOM",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 28.759598,
     "ForwardPE": 12.672189,
     "EPS": 4.95,
@@ -1559,7 +1559,7 @@
   },
   {
     "Ticker": "QQQ",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 32.64977,
     "ForwardPE": NaN,
     "EPS": NaN,
@@ -1578,7 +1578,7 @@
   },
   {
     "Ticker": "REGN",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 18.830885,
     "ForwardPE": 14.880865,
     "EPS": 41.51,
@@ -1597,7 +1597,7 @@
   },
   {
     "Ticker": "ROP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 24.628874,
     "ForwardPE": 14.988096,
     "EPS": 14.2,
@@ -1616,7 +1616,7 @@
   },
   {
     "Ticker": "ROST",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 32.181534,
     "ForwardPE": 28.568888,
     "EPS": 6.39,
@@ -1635,7 +1635,7 @@
   },
   {
     "Ticker": "SBUX",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 81.68333,
     "ForwardPE": 33.1414,
     "EPS": 1.2,
@@ -1654,7 +1654,7 @@
   },
   {
     "Ticker": "SHOP",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 128.43617,
     "ForwardPE": 52.67843,
     "EPS": 0.94,
@@ -1673,7 +1673,7 @@
   },
   {
     "Ticker": "SNPS",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 51.301117,
     "ForwardPE": 24.259756,
     "EPS": 8.07,
@@ -1692,7 +1692,7 @@
   },
   {
     "Ticker": "SPY",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 27.622122,
     "ForwardPE": NaN,
     "EPS": NaN,
@@ -1711,7 +1711,7 @@
   },
   {
     "Ticker": "STX",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 46.083614,
     "ForwardPE": 20.560213,
     "EPS": 8.85,
@@ -1730,7 +1730,7 @@
   },
   {
     "Ticker": "TEAM",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 13.6292715,
     "EPS": -0.72,
@@ -1749,7 +1749,7 @@
   },
   {
     "Ticker": "TMUS",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 22.311409,
     "ForwardPE": 15.445145,
     "EPS": 9.73,
@@ -1768,7 +1768,7 @@
   },
   {
     "Ticker": "TRI",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 29.303953,
     "ForwardPE": 19.161057,
     "EPS": 3.29,
@@ -1787,7 +1787,7 @@
   },
   {
     "Ticker": "TSLA",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 369.27524,
     "ForwardPE": 143.53212,
     "EPS": 1.09,
@@ -1806,7 +1806,7 @@
   },
   {
     "Ticker": "TSM",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 35.337734,
     "ForwardPE": 20.840683,
     "EPS": 10.6,
@@ -1825,7 +1825,7 @@
   },
   {
     "Ticker": "TTWO",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 27.019878,
     "EPS": -22.56,
@@ -1844,7 +1844,7 @@
   },
   {
     "Ticker": "TXN",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 38.919266,
     "ForwardPE": 26.820171,
     "EPS": 5.45,
@@ -1863,7 +1863,7 @@
   },
   {
     "Ticker": "USD",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 40.18367,
     "ForwardPE": NaN,
     "EPS": NaN,
@@ -1882,7 +1882,7 @@
   },
   {
     "Ticker": "VRSK",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 31.933847,
     "ForwardPE": 24.210281,
     "EPS": 6.5,
@@ -1901,7 +1901,7 @@
   },
   {
     "Ticker": "VRTX",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 32.47255,
     "ForwardPE": 22.729143,
     "EPS": 15.3,
@@ -1920,7 +1920,7 @@
   },
   {
     "Ticker": "WBD",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 148.26315,
     "ForwardPE": -968.374,
     "EPS": 0.19,
@@ -1939,7 +1939,7 @@
   },
   {
     "Ticker": "WDAY",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 56.43882,
     "ForwardPE": 10.706333,
     "EPS": 2.37,
@@ -1958,7 +1958,7 @@
   },
   {
     "Ticker": "WDC",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 26.461685,
     "ForwardPE": 20.797998,
     "EPS": 10.57,
@@ -1977,7 +1977,7 @@
   },
   {
     "Ticker": "WMT",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 46.86813,
     "ForwardPE": 38.875095,
     "EPS": 2.73,
@@ -1996,7 +1996,7 @@
   },
   {
     "Ticker": "XEL",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": 24.37427,
     "ForwardPE": 18.417866,
     "EPS": 3.42,
@@ -2015,7 +2015,7 @@
   },
   {
     "Ticker": "ZS",
-    "FetchDate": "2026-03-01",
+    "FetchDate": "2026-03-02",
     "PE": NaN,
     "ForwardPE": 31.986336,
     "EPS": -0.26,
