@@ -5,8 +5,8 @@
     "WeightPct": 50.0,
     "Sector": "Financial Services",
     "Industry": "Insurance - Diversified",
-    "MarketCap": 1089346207744.0,
-    "PE": 16.15323
+    "MarketCap": 1035887443968.0,
+    "PE": 15.360525
   },
   {
     "Ticker": "ASML",
@@ -14,7 +14,7 @@
     "WeightPct": 50.0,
     "Sector": "Technology",
     "Industry": "Semiconductor Equipment & Materials",
-    "MarketCap": 569575014400.0,
-    "PE": 49.744858
+    "MarketCap": 558965391360.0,
+    "PE": 49.019974
   }
 ]
