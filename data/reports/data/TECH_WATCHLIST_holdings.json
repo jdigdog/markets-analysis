@@ -5,8 +5,8 @@
     "WeightPct": 20.0,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 1914390708224.0,
-    "PE": 34.854576
+    "MarketCap": 1831510474752.0,
+    "PE": 33.440342
   },
   {
     "Ticker": "MSTR",
@@ -14,7 +14,7 @@
     "WeightPct": 20.0,
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 45941059584.0,
+    "MarketCap": 44282306560.0,
     "PE": null
   },
   {
@@ -23,8 +23,8 @@
     "WeightPct": 20.0,
     "Sector": "Financial Services",
     "Industry": "Financial Data & Stock Exchanges",
-    "MarketCap": 49951375360.0,
-    "PE": 41.62697
+    "MarketCap": 49174761472.0,
+    "PE": 40.97978
   },
   {
     "Ticker": "PLTR",
@@ -32,8 +32,8 @@
     "WeightPct": 20.0,
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 347199537152.0,
-    "PE": 234.14516
+    "MarketCap": 352102481920.0,
+    "PE": 233.68254
   },
   {
     "Ticker": "ARM",
@@ -41,7 +41,7 @@
     "WeightPct": 20.0,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 132080771072.0,
-    "PE": 165.82668
+    "MarketCap": 129266466816.0,
+    "PE": 162.29333
   }
 ]
