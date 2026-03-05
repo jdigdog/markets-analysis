@@ -5,8 +5,8 @@
     "WeightPct": 7.8345,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 4376115281920.0,
-    "PE": 36.7449
+    "MarketCap": 4448787103744.0,
+    "PE": 37.279022
   },
   {
     "Ticker": "AAPL",
@@ -14,8 +14,8 @@
     "WeightPct": 6.4676,
     "Sector": "Technology",
     "Industry": "Consumer Electronics",
-    "MarketCap": 3876577869824.0,
-    "PE": 33.34387
+    "MarketCap": 3858499371008.0,
+    "PE": 33.230377
   },
   {
     "Ticker": "MSFT",
@@ -23,8 +23,8 @@
     "WeightPct": 5.3946,
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 3002160381952.0,
-    "PE": 25.245625
+    "MarketCap": 3011599663104.0,
+    "PE": 25.388472
   },
   {
     "Ticker": "AMZN",
@@ -32,8 +32,8 @@
     "WeightPct": 3.9267,
     "Sector": "Consumer Cyclical",
     "Industry": "Internet Retail",
-    "MarketCap": 2240699957248.0,
-    "PE": 29.071032
+    "MarketCap": 2327545643008.0,
+    "PE": 30.197773
   },
   {
     "Ticker": "GOOGL",
@@ -41,8 +41,8 @@
     "WeightPct": 3.317,
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 3672407277568.0,
-    "PE": 28.083254
+    "MarketCap": 3666963857408.0,
+    "PE": 28.015713
   },
   {
     "Ticker": "GOOG",
@@ -50,8 +50,8 @@
     "WeightPct": 2.6552,
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 3672165318656.0,
-    "PE": 28.081406
+    "MarketCap": 3670834937856.0,
+    "PE": 28.097223
   },
   {
     "Ticker": "AVGO",
@@ -59,8 +59,8 @@
     "WeightPct": 2.639,
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 1488001302528.0,
-    "PE": 65.79455
+    "MarketCap": 1505496662016.0,
+    "PE": 66.70798
   },
   {
     "Ticker": "META",
@@ -68,8 +68,8 @@
     "WeightPct": 2.6321,
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 1657061244928.0,
-    "PE": 27.852041
+    "MarketCap": 1689059983360.0,
+    "PE": 28.414042
   },
   {
     "Ticker": "TSLA",
@@ -77,8 +77,8 @@
     "WeightPct": 2.04,
     "Sector": "Consumer Cyclical",
     "Industry": "Auto Manufacturers",
-    "MarketCap": 1472566788096.0,
-    "PE": 356.75452
+    "MarketCap": 1523262160896.0,
+    "PE": 369.03635
   },
   {
     "Ticker": "BRK-B",
@@ -86,7 +86,7 @@
     "WeightPct": 1.4862,
     "Sector": "Financial Services",
     "Industry": "Insurance - Diversified",
-    "MarketCap": 1038454620160.0,
-    "PE": 15.383828
+    "MarketCap": 1051657568256.0,
+    "PE": 15.574442
   }
 ]
