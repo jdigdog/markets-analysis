@@ -5,8 +5,8 @@
     "Name": "NVIDIA Corp",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 4448787103744.0,
-    "PE": 37.279022
+    "MarketCap": 4456078901248.0,
+    "PE": 37.416325
   },
   {
     "Ticker": "AAPL",
@@ -14,8 +14,8 @@
     "Name": "Apple Inc",
     "Sector": "Technology",
     "Industry": "Consumer Electronics",
-    "MarketCap": 3858499371008.0,
-    "PE": 33.230377
+    "MarketCap": 3825723244544.0,
+    "PE": 32.90645
   },
   {
     "Ticker": "MSFT",
@@ -23,8 +23,8 @@
     "Name": "Microsoft Corp",
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 3011599663104.0,
-    "PE": 25.388472
+    "MarketCap": 3052328976384.0,
+    "PE": 25.699625
   },
   {
     "Ticker": "AMZN",
@@ -32,8 +32,8 @@
     "Name": "Amazon.com Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Internet Retail",
-    "MarketCap": 2327545643008.0,
-    "PE": 30.197773
+    "MarketCap": 2350303674368.0,
+    "PE": 30.578213
   },
   {
     "Ticker": "TSLA",
@@ -41,8 +41,8 @@
     "Name": "Tesla Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Auto Manufacturers",
-    "MarketCap": 1523262160896.0,
-    "PE": 369.03635
+    "MarketCap": 1521798742016.0,
+    "PE": 372.0642
   },
   {
     "Ticker": "META",
@@ -50,8 +50,8 @@
     "Name": "Meta Platforms Inc",
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 1689059983360.0,
-    "PE": 28.414042
+    "MarketCap": 1670948454400.0,
+    "PE": 28.085459
   },
   {
     "Ticker": "GOOGL",
@@ -59,8 +59,8 @@
     "Name": "Alphabet Inc Class A",
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 3666963857408.0,
-    "PE": 28.015713
+    "MarketCap": 3639745445888.0,
+    "PE": 27.859259
   },
   {
     "Ticker": "WMT",
@@ -68,8 +68,8 @@
     "Name": "Walmart Inc",
     "Sector": "Consumer Defensive",
     "Industry": "Discount Stores",
-    "MarketCap": 1019010088960.0,
-    "PE": 46.645985
+    "MarketCap": 983132274688.0,
+    "PE": 45.168495
   },
   {
     "Ticker": "GOOG",
@@ -77,8 +77,8 @@
     "Name": "Alphabet Inc Class C",
     "Sector": "Communication Services",
     "Industry": "Internet Content & Information",
-    "MarketCap": 3670834937856.0,
-    "PE": 28.097223
+    "MarketCap": 3640108515328.0,
+    "PE": 27.862038
   },
   {
     "Ticker": "AVGO",
@@ -86,8 +86,8 @@
     "Name": "Broadcom Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 1505496662016.0,
-    "PE": 66.70798
+    "MarketCap": 1577753509888.0,
+    "PE": 69.90966
   },
   {
     "Ticker": "MU",
@@ -95,8 +95,8 @@
     "Name": "Micron Technology Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 451070328832.0,
-    "PE": 38.16857
+    "MarketCap": 446883430400.0,
+    "PE": 37.742393
   },
   {
     "Ticker": "COST",
@@ -104,8 +104,8 @@
     "Name": "Costco Wholesale Corp",
     "Sector": "Consumer Defensive",
     "Industry": "Discount Stores",
-    "MarketCap": 446949982208.0,
-    "PE": 54.067665
+    "MarketCap": 436219510784.0,
+    "PE": 52.62828
   },
   {
     "Ticker": "NFLX",
@@ -113,8 +113,8 @@
     "Name": "Netflix Inc",
     "Sector": "Communication Services",
     "Industry": "Entertainment",
-    "MarketCap": 418504835072.0,
-    "PE": 38.996048
+    "MarketCap": 420668178432.0,
+    "PE": 39.197628
   },
   {
     "Ticker": "AMD",
@@ -122,8 +122,8 @@
     "Name": "Advanced Micro Devices Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 329457139712.0,
-    "PE": 77.42146
+    "MarketCap": 325185437696.0,
+    "PE": 76.417625
   },
   {
     "Ticker": "PLTR",
@@ -131,8 +131,8 @@
     "Name": "Palantir Technologies Inc",
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 366380810240.0,
-    "PE": 243.15874
+    "MarketCap": 365137100800.0,
+    "PE": 242.33333
   },
   {
     "Ticker": "CSCO",
@@ -140,8 +140,8 @@
     "Name": "Cisco Systems Inc",
     "Sector": "Technology",
     "Industry": "Communication Equipment",
-    "MarketCap": 319525027840.0,
-    "PE": 29.08993
+    "MarketCap": 316127084544.0,
+    "PE": 28.780577
   },
   {
     "Ticker": "LRCX",
@@ -149,8 +149,8 @@
     "Name": "Lam Research Corp",
     "Sector": "Technology",
     "Industry": "Semiconductor Equipment & Materials",
-    "MarketCap": 280082120704.0,
-    "PE": 45.882717
+    "MarketCap": 269644496896.0,
+    "PE": 44.082134
   },
   {
     "Ticker": "AMAT",
@@ -158,8 +158,8 @@
     "Name": "Applied Materials Inc",
     "Sector": "Technology",
     "Industry": "Semiconductor Equipment & Materials",
-    "MarketCap": 283921874944.0,
-    "PE": 36.618217
+    "MarketCap": 275009634304.0,
+    "PE": 35.57803
   },
   {
     "Ticker": "TMUS",
@@ -167,8 +167,8 @@
     "Name": "T-Mobile US Inc",
     "Sector": "Communication Services",
     "Industry": "Telecom Services",
-    "MarketCap": 245747105792.0,
-    "PE": 22.62719
+    "MarketCap": 246675439616.0,
+    "PE": 22.665981
   },
   {
     "Ticker": "LIN",
@@ -176,8 +176,8 @@
     "Name": "Linde PLC",
     "Sector": "Basic Materials",
     "Industry": "Specialty Chemicals",
-    "MarketCap": 231321731072.0,
-    "PE": 34.120983
+    "MarketCap": 227090939904.0,
+    "PE": 33.565754
   },
   {
     "Ticker": "PEP",
@@ -185,8 +185,8 @@
     "Name": "PepsiCo Inc",
     "Sector": "Consumer Defensive",
     "Industry": "Beverages - Non-Alcoholic",
-    "MarketCap": 224134397952.0,
-    "PE": 27.32
+    "MarketCap": 219731558400.0,
+    "PE": 26.828047
   },
   {
     "Ticker": "INTC",
@@ -194,7 +194,7 @@
     "Name": "Intel Corp",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 227680239616.0,
+    "MarketCap": 229528453120.0,
     "PE": null
   },
   {
@@ -203,8 +203,8 @@
     "Name": "Amgen Inc",
     "Sector": "Healthcare",
     "Industry": "Drug Manufacturers - General",
-    "MarketCap": 204452184064.0,
-    "PE": 26.671589
+    "MarketCap": 198161268736.0,
+    "PE": 25.832748
   },
   {
     "Ticker": "KLAC",
@@ -212,8 +212,8 @@
     "Name": "KLA Corp",
     "Sector": "Technology",
     "Industry": "Semiconductor Equipment & Materials",
-    "MarketCap": 193923268608.0,
-    "PE": 42.91684
+    "MarketCap": 187806941184.0,
+    "PE": 41.672302
   },
   {
     "Ticker": "TXN",
@@ -221,8 +221,8 @@
     "Name": "Texas Instruments Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 183896211456.0,
-    "PE": 37.204044
+    "MarketCap": 179889192960.0,
+    "PE": 36.393383
   },
   {
     "Ticker": "ISRG",
@@ -230,8 +230,8 @@
     "Name": "Intuitive Surgical Inc",
     "Sector": "Healthcare",
     "Industry": "Medical Instruments & Supplies",
-    "MarketCap": 177984176128.0,
-    "PE": 63.68234
+    "MarketCap": 176393191424.0,
+    "PE": 63.273888
   },
   {
     "Ticker": "GILD",
@@ -239,8 +239,8 @@
     "Name": "Gilead Sciences Inc",
     "Sector": "Healthcare",
     "Industry": "Drug Manufacturers - General",
-    "MarketCap": 184003346432.0,
-    "PE": 21.893648
+    "MarketCap": 180179779584.0,
+    "PE": 21.40708
   },
   {
     "Ticker": "ADI",
@@ -248,8 +248,8 @@
     "Name": "Analog Devices Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 166726615040.0,
-    "PE": 62.54762
+    "MarketCap": 160970670080.0,
+    "PE": 60.27788
   },
   {
     "Ticker": "QCOM",
@@ -257,8 +257,8 @@
     "Name": "QUALCOMM Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 149002960896.0,
-    "PE": 28.070423
+    "MarketCap": 146322178048.0,
+    "PE": 27.620968
   },
   {
     "Ticker": "SHOP",
@@ -266,8 +266,8 @@
     "Name": "Shopify Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 169204088832.0,
-    "PE": 136.47368
+    "MarketCap": 175912222720.0,
+    "PE": 143.39362
   },
   {
     "Ticker": "HON",
@@ -275,8 +275,8 @@
     "Name": "Honeywell International Inc",
     "Sector": "Industrials",
     "Industry": "Conglomerates",
-    "MarketCap": 165751734272.0,
-    "PE": 32.449867
+    "MarketCap": 160637059072.0,
+    "PE": 31.44855
   },
   {
     "Ticker": "BKNG",
@@ -284,8 +284,8 @@
     "Name": "Booking Holdings Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Travel Services",
-    "MarketCap": 137109118976.0,
-    "PE": 25.707602
+    "MarketCap": 148703608832.0,
+    "PE": 27.854607
   },
   {
     "Ticker": "APP",
@@ -293,8 +293,8 @@
     "Name": "AppLovin Corp",
     "Sector": "Communication Services",
     "Industry": "Advertising Agencies",
-    "MarketCap": 163168059392.0,
-    "PE": 48.088646
+    "MarketCap": 171870404608.0,
+    "PE": 50.75449
   },
   {
     "Ticker": "ASML",
@@ -302,8 +302,8 @@
     "Name": "ASML Holding NV",
     "Sector": "Technology",
     "Industry": "Semiconductor Equipment & Materials",
-    "MarketCap": 549474795520.0,
-    "PE": 48.77553
+    "MarketCap": 537298436096.0,
+    "PE": 47.61169
   },
   {
     "Ticker": "VRTX",
@@ -311,8 +311,8 @@
     "Name": "Vertex Pharmaceuticals Inc",
     "Sector": "Healthcare",
     "Industry": "Biotechnology",
-    "MarketCap": 121400401920.0,
-    "PE": 31.153194
+    "MarketCap": 117064040448.0,
+    "PE": 30.118954
   },
   {
     "Ticker": "PANW",
@@ -320,8 +320,8 @@
     "Name": "Palo Alto Networks Inc",
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 129384955904.0,
-    "PE": 87.60221
+    "MarketCap": 133138563072.0,
+    "PE": 91.15084
   },
   {
     "Ticker": "CEG",
@@ -329,8 +329,8 @@
     "Name": "Constellation Energy Corp",
     "Sector": "Utilities",
     "Industry": "Utilities - Independent Power Producers",
-    "MarketCap": 116868579328.0,
-    "PE": 43.687416
+    "MarketCap": 120206131200.0,
+    "PE": 44.813766
   },
   {
     "Ticker": "SBUX",
@@ -338,8 +338,8 @@
     "Name": "Starbucks Corp",
     "Sector": "Consumer Cyclical",
     "Industry": "Restaurants",
-    "MarketCap": 110682996736.0,
-    "PE": 80.95833
+    "MarketCap": 112437518336.0,
+    "PE": 82.24167
   },
   {
     "Ticker": "CMCSA",
@@ -347,8 +347,8 @@
     "Name": "Comcast Corp",
     "Sector": "Communication Services",
     "Industry": "Telecom Services",
-    "MarketCap": 116932575232.0,
-    "PE": 5.953618
+    "MarketCap": 115147071488.0,
+    "PE": 5.862709
   },
   {
     "Ticker": "INTU",
@@ -356,8 +356,8 @@
     "Name": "Intuit Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 122534977536.0,
-    "PE": 30.208649
+    "MarketCap": 129895563264.0,
+    "PE": 30.389975
   },
   {
     "Ticker": "ADBE",
@@ -365,8 +365,8 @@
     "Name": "Adobe Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 114328027136.0,
-    "PE": 16.364288
+    "MarketCap": 117936357376.0,
+    "PE": 16.860563
   },
   {
     "Ticker": "WDC",
@@ -374,8 +374,8 @@
     "Name": "Western Digital Corp",
     "Sector": "Technology",
     "Industry": "Computer Hardware",
-    "MarketCap": 89338281984.0,
-    "PE": 24.697542
+    "MarketCap": 88562171904.0,
+    "PE": 24.50615
   },
   {
     "Ticker": "CRWD",
@@ -383,7 +383,7 @@
     "Name": "Crowdstrike Holdings Inc",
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 102775488512.0,
+    "MarketCap": 107434270720.0,
     "PE": null
   },
   {
@@ -392,8 +392,8 @@
     "Name": "Marriott International Inc/MD",
     "Sector": "Consumer Cyclical",
     "Industry": "Lodging",
-    "MarketCap": 89018916864.0,
-    "PE": 35.32492
+    "MarketCap": 88250458112.0,
+    "PE": 34.983192
   },
   {
     "Ticker": "ADP",
@@ -401,8 +401,8 @@
     "Name": "Automatic Data Processing Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 87830085632.0,
-    "PE": 20.88077
+    "MarketCap": 90070728704.0,
+    "PE": 21.413462
   },
   {
     "Ticker": "MELI",
@@ -410,8 +410,8 @@
     "Name": "MercadoLibre Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Internet Retail",
-    "MarketCap": 89684844544.0,
-    "PE": 44.84233
+    "MarketCap": 90259234816.0,
+    "PE": 45.24422
   },
   {
     "Ticker": "STX",
@@ -419,8 +419,8 @@
     "Name": "Seagate Technology Holdings PLC",
     "Sector": "Technology",
     "Industry": "Computer Hardware",
-    "MarketCap": 84011761664.0,
-    "PE": 42.374012
+    "MarketCap": 82293481472.0,
+    "PE": 41.507343
   },
   {
     "Ticker": "MNST",
@@ -428,8 +428,8 @@
     "Name": "Monster Beverage Corp",
     "Sector": "Consumer Defensive",
     "Industry": "Beverages - Non-Alcoholic",
-    "MarketCap": 76803637248.0,
-    "PE": 44.664772
+    "MarketCap": 75033362432.0,
+    "PE": 39.53608
   },
   {
     "Ticker": "CDNS",
@@ -437,8 +437,8 @@
     "Name": "Cadence Design Systems Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 84260651008.0,
-    "PE": 75.229065
+    "MarketCap": 82718507008.0,
+    "PE": 74.03456
   },
   {
     "Ticker": "CTAS",
@@ -446,8 +446,8 @@
     "Name": "Cintas Corp",
     "Sector": "Industrials",
     "Industry": "Specialty Business Services",
-    "MarketCap": 80421560320.0,
-    "PE": 43.316017
+    "MarketCap": 82193793024.0,
+    "PE": 44.270565
   },
   {
     "Ticker": "REGN",
@@ -455,8 +455,8 @@
     "Name": "Regeneron Pharmaceuticals Inc",
     "Sector": "Healthcare",
     "Industry": "Biotechnology",
-    "MarketCap": 83254345728.0,
-    "PE": 18.975904
+    "MarketCap": 80868253696.0,
+    "PE": 18.449831
   },
   {
     "Ticker": "CSX",
@@ -464,8 +464,8 @@
     "Name": "CSX Corp",
     "Sector": "Industrials",
     "Industry": "Railroads",
-    "MarketCap": 79551832064.0,
-    "PE": 27.77922
+    "MarketCap": 76520759296.0,
+    "PE": 26.720781
   },
   {
     "Ticker": "SNPS",
@@ -473,8 +473,8 @@
     "Name": "Synopsys Inc",
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 82559410176.0,
-    "PE": 66.20277
+    "MarketCap": 84727881728.0,
+    "PE": 68.04615
   },
   {
     "Ticker": "MDLZ",
@@ -482,8 +482,8 @@
     "Name": "Mondelez International Inc",
     "Sector": "Consumer Defensive",
     "Industry": "Confectioners",
-    "MarketCap": 75731140608.0,
-    "PE": 31.05291
+    "MarketCap": 75073060864.0,
+    "PE": 30.78307
   },
   {
     "Ticker": "ORLY",
@@ -491,8 +491,8 @@
     "Name": "O'Reilly Automotive Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Auto Parts",
-    "MarketCap": 79573688320.0,
-    "PE": 31.74074
+    "MarketCap": 79649660928.0,
+    "PE": 31.771044
   },
   {
     "Ticker": "DASH",
@@ -500,8 +500,8 @@
     "Name": "DoorDash Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Internet Retail",
-    "MarketCap": 77219282944.0,
-    "PE": 83.4507
+    "MarketCap": 79708545024.0,
+    "PE": 86.14084
   },
   {
     "Ticker": "WBD",
@@ -509,8 +509,8 @@
     "Name": "Warner Bros Discovery Inc",
     "Sector": "Communication Services",
     "Industry": "Entertainment",
-    "MarketCap": 69312856064.0,
-    "PE": 147.10527
+    "MarketCap": 69436850176.0,
+    "PE": 147.36842
   },
   {
     "Ticker": "AEP",
@@ -518,8 +518,8 @@
     "Name": "American Electric Power Co Inc",
     "Sector": "Utilities",
     "Industry": "Utilities - Regulated Electric",
-    "MarketCap": 72215830528.0,
-    "PE": 20.04805
+    "MarketCap": 71415349248.0,
+    "PE": 19.855639
   },
   {
     "Ticker": "PDD",
@@ -527,8 +527,8 @@
     "Name": "PDD Holdings Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Internet Retail",
-    "MarketCap": 143654027264.0,
-    "PE": 10.098803
+    "MarketCap": 143015182336.0,
+    "PE": 10.0840845
   },
   {
     "Ticker": "MRVL",
@@ -536,8 +536,8 @@
     "Name": "Marvell Technology Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 68207689728.0,
-    "PE": 27.496479
+    "MarketCap": 66102681600.0,
+    "PE": 26.647888
   },
   {
     "Ticker": "ROST",
@@ -545,8 +545,8 @@
     "Name": "Ross Stores Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Apparel Retail",
-    "MarketCap": 69442314240.0,
-    "PE": 33.310455
+    "MarketCap": 69868363776.0,
+    "PE": 33.56719
   },
   {
     "Ticker": "PCAR",
@@ -554,8 +554,8 @@
     "Name": "PACCAR Inc",
     "Sector": "Industrials",
     "Industry": "Farm & Heavy Construction Machinery",
-    "MarketCap": 65694732288.0,
-    "PE": 27.698446
+    "MarketCap": 64863817728.0,
+    "PE": 27.348114
   },
   {
     "Ticker": "BKR",
@@ -563,8 +563,8 @@
     "Name": "Baker Hughes Co",
     "Sector": "Energy",
     "Industry": "Oil & Gas Equipment & Services",
-    "MarketCap": 60163837952.0,
-    "PE": 23.415386
+    "MarketCap": 59481952256.0,
+    "PE": 23.15
   },
   {
     "Ticker": "FTNT",
@@ -572,8 +572,8 @@
     "Name": "Fortinet Inc",
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 61566627840.0,
-    "PE": 34.210743
+    "MarketCap": 62778773504.0,
+    "PE": 34.884296
   },
   {
     "Ticker": "NXPI",
@@ -581,8 +581,8 @@
     "Name": "NXP Semiconductors NV",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 54675148800.0,
-    "PE": 27.25063
+    "MarketCap": 53212061696.0,
+    "PE": 26.454775
   },
   {
     "Ticker": "ABNB",
@@ -590,8 +590,8 @@
     "Name": "Airbnb Inc",
     "Sector": "Consumer Cyclical",
     "Industry": "Travel Services",
-    "MarketCap": 81258119168.0,
-    "PE": 33.63275
+    "MarketCap": 81443979264.0,
+    "PE": 33.70968
   },
   {
     "Ticker": "MPWR",
@@ -599,8 +599,8 @@
     "Name": "Monolithic Power Systems Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 53532164096.0,
-    "PE": 86.19765
+    "MarketCap": 52970811392.0,
+    "PE": 84.056114
   },
   {
     "Ticker": "FER",
@@ -608,8 +608,8 @@
     "Name": "Ferrovial SE",
     "Sector": "Industrials",
     "Industry": "Engineering & Construction",
-    "MarketCap": 49915666432.0,
-    "PE": 49.585712
+    "MarketCap": 48428703744.0,
+    "PE": 47.695038
   },
   {
     "Ticker": "IDXX",
@@ -617,8 +617,8 @@
     "Name": "IDEXX Laboratories Inc",
     "Sector": "Healthcare",
     "Industry": "Diagnostics & Research",
-    "MarketCap": 51799556096.0,
-    "PE": 49.519085
+    "MarketCap": 49421582336.0,
+    "PE": 47.390503
   },
   {
     "Ticker": "FAST",
@@ -626,8 +626,8 @@
     "Name": "Fastenal Co",
     "Sector": "Industrials",
     "Industry": "Industrial Distribution",
-    "MarketCap": 53309960192.0,
-    "PE": 42.59633
+    "MarketCap": 54308876288.0,
+    "PE": 43.394493
   },
   {
     "Ticker": "EA",
@@ -635,8 +635,8 @@
     "Name": "Electronic Arts Inc",
     "Sector": "Communication Services",
     "Industry": "Electronic Gaming & Multimedia",
-    "MarketCap": 50483679232.0,
-    "PE": 75.83834
+    "MarketCap": 50240933888.0,
+    "PE": 75.19101
   },
   {
     "Ticker": "CCEP",
@@ -644,8 +644,8 @@
     "Name": "Coca-Cola Europacific Partners PLC",
     "Sector": "Consumer Defensive",
     "Industry": "Beverages - Non-Alcoholic",
-    "MarketCap": 47027146752.0,
-    "PE": 21.159918
+    "MarketCap": 45744955392.0,
+    "PE": 20.5
   },
   {
     "Ticker": "ADSK",
@@ -653,8 +653,8 @@
     "Name": "Autodesk Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 54930571264.0,
-    "PE": 49.978687
+    "MarketCap": 55993438208.0,
+    "PE": 50.500954
   },
   {
     "Ticker": "XEL",
@@ -662,8 +662,8 @@
     "Name": "Xcel Energy Inc",
     "Sector": "Utilities",
     "Industry": "Utilities - Regulated Electric",
-    "MarketCap": 49121464320.0,
-    "PE": 24.2807
+    "MarketCap": 48731045888.0,
+    "PE": 24.087717
   },
   {
     "Ticker": "EXC",
@@ -671,8 +671,8 @@
     "Name": "Exelon Corp",
     "Sector": "Utilities",
     "Industry": "Utilities - Regulated Electric",
-    "MarketCap": 50377461760.0,
-    "PE": 18.040293
+    "MarketCap": 49886474240.0,
+    "PE": 17.86447
   },
   {
     "Ticker": "FANG",
@@ -680,8 +680,8 @@
     "Name": "Diamondback Energy Inc",
     "Sector": "Energy",
     "Industry": "Oil & Gas E&P",
-    "MarketCap": 50631942144.0,
-    "PE": 30.839443
+    "MarketCap": 51299540992.0,
+    "PE": 31.246073
   },
   {
     "Ticker": "TRI",
@@ -689,8 +689,8 @@
     "Name": "Thomson Reuters Corp",
     "Sector": "Industrials",
     "Industry": "Specialty Business Services",
-    "MarketCap": 46644899840.0,
-    "PE": 31.860182
+    "MarketCap": 48700801024.0,
+    "PE": 33.26444
   },
   {
     "Ticker": "ALNY",
@@ -698,8 +698,8 @@
     "Name": "Alnylam Pharmaceuticals Inc",
     "Sector": "Healthcare",
     "Industry": "Biotechnology",
-    "MarketCap": 43407552512.0,
-    "PE": 141.07759
+    "MarketCap": 42507046912.0,
+    "PE": 136.9701
   },
   {
     "Ticker": "AXON",
@@ -707,8 +707,8 @@
     "Name": "Axon Enterprise Inc",
     "Sector": "Industrials",
     "Industry": "Aerospace & Defense",
-    "MarketCap": 45811396608.0,
-    "PE": 370.0065
+    "MarketCap": 45866065920.0,
+    "PE": 385.46622
   },
   {
     "Ticker": "PYPL",
@@ -716,8 +716,8 @@
     "Name": "PayPal Holdings Inc",
     "Sector": "Financial Services",
     "Industry": "Credit Services",
-    "MarketCap": 43741728768.0,
-    "PE": 8.641405
+    "MarketCap": 44574457856.0,
+    "PE": 8.805915
   },
   {
     "Ticker": "ODFL",
@@ -725,8 +725,8 @@
     "Name": "Old Dominion Freight Line Inc",
     "Sector": "Industrials",
     "Industry": "Trucking",
-    "MarketCap": 45204992000.0,
-    "PE": 44.667355
+    "MarketCap": 44052856832.0,
+    "PE": 43.439175
   },
   {
     "Ticker": "KDP",
@@ -734,8 +734,8 @@
     "Name": "Keurig Dr Pepper Inc",
     "Sector": "Consumer Defensive",
     "Industry": "Beverages - Non-Alcoholic",
-    "MarketCap": 39224692736.0,
-    "PE": 18.869282
+    "MarketCap": 38110584832.0,
+    "PE": 18.333334
   },
   {
     "Ticker": "MCHP",
@@ -743,7 +743,7 @@
     "Name": "Microchip Technology Inc",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 37825372160.0,
+    "MarketCap": 36694396928.0,
     "PE": null
   },
   {
@@ -752,7 +752,7 @@
     "Name": "Take-Two Interactive Software Inc",
     "Sector": "Communication Services",
     "Industry": "Electronic Gaming & Multimedia",
-    "MarketCap": 39955308544.0,
+    "MarketCap": 39355338752.0,
     "PE": null
   },
   {
@@ -761,8 +761,8 @@
     "Name": "GE HealthCare Technologies Inc",
     "Sector": "Healthcare",
     "Industry": "Medical Devices",
-    "MarketCap": 36013342720.0,
-    "PE": 17.367031
+    "MarketCap": 35142864896.0,
+    "PE": 16.947252
   },
   {
     "Ticker": "ROP",
@@ -770,8 +770,8 @@
     "Name": "Roper Technologies Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 38886174720.0,
-    "PE": 25.44155
+    "MarketCap": 39397449728.0,
+    "PE": 25.776056
   },
   {
     "Ticker": "DDOG",
@@ -779,8 +779,8 @@
     "Name": "Datadog Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 41720328192.0,
-    "PE": 381.7097
+    "MarketCap": 43141210112.0,
+    "PE": 394.7097
   },
   {
     "Ticker": "CPRT",
@@ -788,8 +788,8 @@
     "Name": "Copart Inc",
     "Sector": "Industrials",
     "Industry": "Specialty Business Services",
-    "MarketCap": 36726587392.0,
-    "PE": 23.861633
+    "MarketCap": 36804030464.0,
+    "PE": 23.91195
   },
   {
     "Ticker": "MSTR",
@@ -797,7 +797,7 @@
     "Name": "Strategy Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 48874745856.0,
+    "MarketCap": 46661963776.0,
     "PE": null
   },
   {
@@ -806,8 +806,8 @@
     "Name": "Paychex Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 34385494016.0,
-    "PE": 21.671946
+    "MarketCap": 35315216384.0,
+    "PE": 22.257917
   },
   {
     "Ticker": "INSM",
@@ -815,7 +815,7 @@
     "Name": "Insmed Inc",
     "Sector": "Healthcare",
     "Industry": "Biotechnology",
-    "MarketCap": 32306919424.0,
+    "MarketCap": 30946789376.0,
     "PE": null
   },
   {
@@ -824,8 +824,8 @@
     "Name": "Cognizant Technology Solutions Corp",
     "Sector": "Technology",
     "Industry": "Information Technology Services",
-    "MarketCap": 31429939200.0,
-    "PE": 14.280703
+    "MarketCap": 31748483072.0,
+    "PE": 14.425439
   },
   {
     "Ticker": "WDAY",
@@ -833,8 +833,8 @@
     "Name": "Workday Inc",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 38191677440.0,
-    "PE": 55.2278
+    "MarketCap": 39297056768.0,
+    "PE": 56.826252
   },
   {
     "Ticker": "CHTR",
@@ -842,8 +842,8 @@
     "Name": "Charter Communications Inc",
     "Sector": "Communication Services",
     "Industry": "Telecom Services",
-    "MarketCap": 30022973440.0,
-    "PE": 6.4088397
+    "MarketCap": 29756389376.0,
+    "PE": 6.3484263
   },
   {
     "Ticker": "KHC",
@@ -851,7 +851,7 @@
     "Name": "Kraft Heinz Co/The",
     "Sector": "Consumer Defensive",
     "Industry": "Packaged Foods",
-    "MarketCap": 28457226240.0,
+    "MarketCap": 28682135552.0,
     "PE": null
   },
   {
@@ -860,8 +860,8 @@
     "Name": "Dexcom Inc",
     "Sector": "Healthcare",
     "Industry": "Medical Devices",
-    "MarketCap": 28432185344.0,
-    "PE": 34.880386
+    "MarketCap": 27570249728.0,
+    "PE": 33.822968
   },
   {
     "Ticker": "VRSK",
@@ -869,8 +869,8 @@
     "Name": "Verisk Analytics Inc",
     "Sector": "Industrials",
     "Industry": "Consulting Services",
-    "MarketCap": 30045939712.0,
-    "PE": 33.21726
+    "MarketCap": 29438275584.0,
+    "PE": 32.59568
   },
   {
     "Ticker": "ZS",
@@ -878,7 +878,7 @@
     "Name": "Zscaler Inc",
     "Sector": "Technology",
     "Industry": "Software - Infrastructure",
-    "MarketCap": 24910997504.0,
+    "MarketCap": 26041663488.0,
     "PE": null
   },
   {
@@ -887,8 +887,8 @@
     "Name": "CoStar Group Inc",
     "Sector": "Real Estate",
     "Industry": "Real Estate Services",
-    "MarketCap": 20173963264.0,
-    "PE": 2380.0
+    "MarketCap": 20729171968.0,
+    "PE": 2445.5
   },
   {
     "Ticker": "ARM",
@@ -896,8 +896,8 @@
     "Name": "ARM Holdings PLC",
     "Sector": "Technology",
     "Industry": "Semiconductors",
-    "MarketCap": 131804643328.0,
-    "PE": 167.71622
+    "MarketCap": 128098271232.0,
+    "PE": 160.82668
   },
   {
     "Ticker": "TEAM",
@@ -905,7 +905,7 @@
     "Name": "Atlassian Corp",
     "Sector": "Technology",
     "Industry": "Software - Application",
-    "MarketCap": 20258181120.0,
+    "MarketCap": 21761523712.0,
     "PE": null
   }
 ]
